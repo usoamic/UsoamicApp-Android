@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">UsoamicWallet</string>
+    <string name="app_name">UsoWallet-Android</string>
+    <string name="create_account">Create Account</string>
+    <string name="add_account">Add Account</string>
 </resources>
