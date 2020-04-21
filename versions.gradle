@@ -50,7 +50,7 @@ build_versions.build_tools = "29.0.3"
 ext.build_versions = build_versions
 
 def deps = [:]
-deps.constraint_layout = "androidx.constraintlayout:constraintlayout:${versions.constraint_layout}"
+deps.constraint_layout = "androidx.constraintlayout:constraintlayout:versions.constraint_layout"
 deps.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
 deps.robolectric = "org.robolectric:robolectric:$versions.robolectric"
 deps.robolectric = "org.robolectric:robolectric:$versions.robolectric"
@@ -59,12 +59,12 @@ deps.gson = "com.google.code.gson:gson:$versions.gson"
 deps.web3j = "org.web3j:core:$versions.web3j"
 deps.annotations = "androidx.annotation:annotation:$versions.annotations"
 deps.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
-deps.core_ktx = "androidx.core:core-ktx:${versions.core_ktx}"
+deps.core_ktx = "androidx.core:core-ktx:versions.core_ktx"
 deps.activity_ktx = "androidx.activity:activity-ktx:$versions.activity"
 
 def android = [:]
 android.plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
-android.databinding_compiler = 'com.android.databinding:compiler:${$versions.android_gradle_plugin}'
+android.databinding_compiler = 'com.android.databinding:compiler:$versions.android_gradle_plugin'
 deps.android = android
 
 def rx = [:]
@@ -84,14 +84,14 @@ dagger.android_support_compiler = "com.google.dagger:dagger-android-processor:$v
 deps.dagger = dagger
 
 def fragment = [:]
-fragment.runtime = "androidx.fragment:fragment:${versions.fragment}"
-fragment.runtime_ktx = "androidx.fragment:fragment-ktx:${versions.fragment}"
-fragment.testing = "androidx.fragment:fragment-testing:${versions.fragment}"
+fragment.runtime = "androidx.fragment:fragment:$versions.fragment"
+fragment.runtime_ktx = "androidx.fragment:fragment-ktx:$versions.fragment"
+fragment.testing = "androidx.fragment:fragment-testing:$versions.fragment"
 deps.fragment = fragment
 
 def kotlin = [:]
-kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
-kotlin.jnit = "org.jetbrains.kotlin:kotlin-test-junit:${versions.kotlin}"
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+kotlin.jnit = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
 kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
 deps.kotlin = kotlin
 
@@ -120,7 +120,7 @@ junit.jupiter = "org.junit.jupiter:junit-jupiter:$versions.jupiter"
 deps.junit = junit
 
 def usoamic = [:]
-usoamic.kt = "com.github.usoamic:usoamickt:v${versions.usoamickt}"
+usoamic.kt = "com.github.usoamic:usoamickt:v$versions.usoamickt"
 deps.usoamic = usoamic
 
 ext.deps = deps
