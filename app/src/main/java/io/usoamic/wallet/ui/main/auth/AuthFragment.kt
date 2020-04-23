@@ -1,27 +1,26 @@
 package io.usoamic.wallet.ui.main.auth
 
-import android.os.Bundle
 import androidx.fragment.app.viewModels
 import io.usoamic.wallet.R
 import io.usoamic.wallet.databinding.FragmentAuthBinding
+import io.usoamic.wallet.extensions.navigateTo
+import io.usoamic.wallet.models.AppArguments
 import io.usoamic.wallet.ui.base.BaseFragment
+
 
 class AuthFragment : BaseFragment(R.layout.fragment_auth) {
     override val viewModel: AuthViewModel by viewModels()
 
-    private val binding: FragmentAuthBinding by lazy {
-        FragmentAuthBinding.bind(requireView())
+    private lateinit var binding: FragmentAuthBinding
+
+    override fun initBinding() {
+        binding = FragmentAuthBinding.bind(requireView())
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    override fun initListeners() {
         binding.addBtn.setOnClickListener {
-            println("!@onClicked")
+            navigator.navigateTo(AppArguments.Add("pk"))
         }
     }
 
-    companion object {
-        fun newInstance() = AuthFragment()
-    }
 }
