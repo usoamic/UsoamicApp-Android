@@ -50,7 +50,7 @@ build_versions.build_tools = "29.0.3"
 ext.build_versions = build_versions
 
 def deps = [:]
-deps.constraint_layout = "androidx.constraintlayout:constraintlayout:versions.constraint_layout"
+deps.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
 deps.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
 deps.robolectric = "org.robolectric:robolectric:$versions.robolectric"
 deps.robolectric = "org.robolectric:robolectric:$versions.robolectric"
@@ -59,7 +59,7 @@ deps.gson = "com.google.code.gson:gson:$versions.gson"
 deps.web3j = "org.web3j:core:$versions.web3j"
 deps.annotations = "androidx.annotation:annotation:$versions.annotations"
 deps.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
-deps.core_ktx = "androidx.core:core-ktx:versions.core_ktx"
+deps.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
 deps.activity_ktx = "androidx.activity:activity-ktx:$versions.activity"
 
 def android = [:]
