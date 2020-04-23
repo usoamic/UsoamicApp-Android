@@ -22,7 +22,6 @@ abstract class BaseFragment(
     @LayoutRes val layoutRes: Int
 ) : Fragment() {
     protected abstract val viewModel: BaseViewModel
-    protected abstract val binding: Any
 
     protected lateinit var errorDialog: AlertDialog
 
@@ -30,9 +29,15 @@ abstract class BaseFragment(
         NavHostFragment.findNavController(this)
     }
 
-    protected fun setSupportActionBar(toolbar: Toolbar) {
+    protected fun setSupportActionBar(toolbar: Toolbar, withBackButton: Boolean = true) {
         (requireActivity() as? AppCompatActivity)?.apply {
             setSupportActionBar(toolbar)
+            if(withBackButton) {
+                supportActionBar?.apply {
+                    setDisplayHomeAsUpEnabled(true)
+                    setDisplayShowHomeEnabled(true)
+                }
+            }
         }
         toolbar.setNavigationOnClickListener {
             onBackButtonPressed()
@@ -54,6 +59,7 @@ abstract class BaseFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initBinding()
         initObservers()
         initListeners()
     }
@@ -64,9 +70,9 @@ abstract class BaseFragment(
         observe(viewModel.ldProgress, ::showProgress)
     }
 
-    protected open fun initListeners() {
+    protected open fun initBinding() = Unit
 
-    }
+    protected open fun initListeners() = Unit
 
     protected open fun showProgress(isProgress: Boolean) = Unit
 
