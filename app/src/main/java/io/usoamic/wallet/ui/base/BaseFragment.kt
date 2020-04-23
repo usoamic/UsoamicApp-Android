@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -27,6 +29,21 @@ abstract class BaseFragment(
     protected val navigator: NavController by lazy {
         NavHostFragment.findNavController(this)
     }
+
+    protected fun setSupportActionBar(toolbar: Toolbar) {
+        (requireActivity() as? AppCompatActivity)?.apply {
+            setSupportActionBar(toolbar)
+        }
+        toolbar.setNavigationOnClickListener {
+            onBackButtonPressed()
+        }
+    }
+
+    protected open fun onBackButtonPressed() {
+        (requireActivity() as? AppCompatActivity)?.onBackPressed()
+    }
+
+    protected fun requireSupportActionBar() = (requireActivity() as? AppCompatActivity)?.supportActionBar!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
