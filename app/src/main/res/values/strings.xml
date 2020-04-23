@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">UsoWallet-Android</string>
+    <string name="title">Usoamic</string>
+    <string name="error">Error</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="auth_fragment_title">Authorization</string>
     <string name="create_account">Create Account</string>
     <string name="add_account">Add Account</string>
 </resources>
