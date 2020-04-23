@@ -84,7 +84,6 @@ dependencies {
     implementation deps.dagger.android_support
     implementation deps.dagger.compiler
     implementation deps.dagger.android_support_compiler
-    implementation deps.dagger.android_support_compiler
 
     implementation deps.threetenabp
     implementation deps.usoamic.kt
@@ -95,9 +94,6 @@ dependencies {
     implementation deps.navigation.fragment_ktx
     implementation deps.navigation.ui
     implementation deps.navigation.ui_ktx
-    implementation deps.navigation.safe_args_plugin
-
-    kapt deps.android.databinding_compiler
 
     testImplementation deps.kotlin.jnit
     testImplementation deps.junit.jupiter
