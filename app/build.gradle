@@ -45,6 +45,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 kapt {
@@ -60,6 +69,7 @@ dependencies {
     implementation deps.recyclerview
     implementation deps.gson
     implementation deps.web3j
+    implementation deps.fragment.runtime_ktx
 
     implementation deps.rx.android
     implementation deps.rx.java
@@ -78,6 +88,14 @@ dependencies {
 
     implementation deps.threetenabp
     implementation deps.usoamic.kt
+
+    implementation deps.navigation.runtime
+    implementation deps.navigation.runtime_ktx
+    implementation deps.navigation.fragment
+    implementation deps.navigation.fragment_ktx
+    implementation deps.navigation.ui
+    implementation deps.navigation.ui_ktx
+    implementation deps.navigation.safe_args_plugin
 
     kapt deps.android.databinding_compiler
 
