@@ -1,5 +1,7 @@
 package io.usoamic.wallet.ui.main.add
 
+import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.viewModels
 import io.usoamic.wallet.R
 import io.usoamic.wallet.databinding.FragmentAddBinding
@@ -13,4 +15,17 @@ class AddFragment : BaseFragment(R.layout.fragment_add) {
 
     private val args get() = requireArguments().getParcelable<AppArguments.Add>(ARGS)
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        setSupportActionBar(binding.toolbar)
+        requireSupportActionBar().apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
 }
