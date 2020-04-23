@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_general"
+    app:navGraph="@id/authFragment"
+    app:startDestination="@id/authFragment">
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="io.usoamic.wallet.ui.main.auth.AuthFragment"
+        android:label="@string/auth_fragment_title"
+        tools:layout="@layout/fragment_auth">
+        <action
+            android:id="@+id/action_authFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+        <argument
+            android:name="privateKey"
+            android:defaultValue="0"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="io.usoamic.wallet.ui.main.add.AddFragment"
+        android:label="@string/add_fragment_title"
+        tools:layout="@layout/fragment_add">
+
+    </fragment>
+
+</navigation>
