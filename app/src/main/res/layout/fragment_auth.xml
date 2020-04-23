@@ -9,7 +9,13 @@
     android:background="@android:color/holo_red_dark"
     tools:context=".ui.main.auth.AuthFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:title="@string/auth_fragment_title"
+        style="@style/App.Toolbar"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
