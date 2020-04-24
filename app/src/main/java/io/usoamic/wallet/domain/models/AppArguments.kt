@@ -1,4 +1,4 @@
-package io.usoamic.wallet.models
+package io.usoamic.wallet.domain.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

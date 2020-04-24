@@ -3,7 +3,7 @@ package io.usoamic.wallet.extensions
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import io.usoamic.wallet.R
-import io.usoamic.wallet.models.AppArguments
+import io.usoamic.wallet.domain.models.AppArguments
 
 const val ARGS = "args"
 
