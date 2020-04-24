@@ -8,4 +8,7 @@ open class BaseViewModel : ViewModel() {
     val ldThrowable = MutableLiveData<Throwable>()
     val ldError = MutableLiveData<String>()
 
+    open fun throwError(throwable: Throwable) {
+        ldThrowable.value = throwable
+    }
 }

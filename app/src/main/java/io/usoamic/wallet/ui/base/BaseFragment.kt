@@ -14,20 +14,34 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import io.usoamic.wallet.R
-import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.extensions.string
 
 
 abstract class BaseFragment(
-    @LayoutRes val layoutRes: Int
+     @LayoutRes private val layoutRes: Int
 ) : Fragment() {
-    protected abstract val viewModel: BaseViewModel
-
     protected lateinit var errorDialog: AlertDialog
 
     protected val navigator: NavController by lazy {
         NavHostFragment.findNavController(this)
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        inject()
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return inflater.inflate(layoutRes, container, false)
+    }
+
+    protected open fun inject() = Unit
+    protected open fun initBinding() = Unit
+    protected open fun initListeners() = Unit
+    protected open fun showProgress(isProgress: Boolean) = Unit
 
     protected fun setSupportActionBar(toolbar: Toolbar, withBackButton: Boolean = true) {
         (requireActivity() as? AppCompatActivity)?.apply {
@@ -50,31 +64,11 @@ abstract class BaseFragment(
 
     protected fun requireSupportActionBar() = (requireActivity() as? AppCompatActivity)?.supportActionBar!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(layoutRes, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBinding()
-        initObservers()
         initListeners()
     }
-
-    protected open fun initObservers() {
-        observe(viewModel.ldThrowable, ::showErrorDialog)
-        observe(viewModel.ldError, ::showErrorDialog)
-        observe(viewModel.ldProgress, ::showProgress)
-    }
-
-    protected open fun initBinding() = Unit
-
-    protected open fun initListeners() = Unit
-
-    protected open fun showProgress(isProgress: Boolean) = Unit
 
     protected open fun showErrorDialog(error: String) {
         errorDialog = AlertDialog.Builder(requireContext())
