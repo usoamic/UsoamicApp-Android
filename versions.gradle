@@ -41,7 +41,7 @@ versions.web3j = "4.3.1"
 versions.jupiter = "5.5.0"
 versions.fragment = "1.2.4"
 versions.navigation = "2.0.0"
-
+versions.realm = "6.0.2"
 ext.versions = versions
 
 def build_versions = [:]
@@ -75,7 +75,9 @@ rx.java = "io.reactivex.rxjava3:rxjava:$versions.rxjava3"
 rx.kotlin = "io.reactivex.rxjava3:rxjava:$versions.rxkotlin3"
 deps.rx = rx
 
-
+def realm = [:]
+realm.plugin = "io.realm:realm-gradle-plugin:$versions.realm"
+deps.realm = realm
 
 def dagger = [:]
 dagger.runtime = "com.google.dagger:dagger:$versions.dagger"
