@@ -15,12 +15,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="?actionBarSize">
-        <io.usoamic.wallet.custom.InformationView
+        <io.usoamic.wallet.custom.informationview.InformationView
+            android:id="@+id/vInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:informationText="@string/need_save_private_key_warning"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+        <io.usoamic.wallet.custom.listview.ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vInfo"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
