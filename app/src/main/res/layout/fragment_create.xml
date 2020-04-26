@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="?actionBarSize">
-        <io.usoamic.wallet.customviews.InformationView
+        <io.usoamic.wallet.custom.InformationView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:informationText="@string/need_save_private_key_warning"

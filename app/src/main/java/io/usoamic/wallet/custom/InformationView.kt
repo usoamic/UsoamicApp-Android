@@ -1,4 +1,4 @@
-package io.usoamic.wallet.customviews
+package io.usoamic.wallet.custom
 
 import android.content.Context
 import android.util.AttributeSet
