@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 sealed class NavDirections : Parcelable {
     @Parcelize
-    data class Add(val privateKey: String) : NavDirections()
+    object Add : NavDirections()
 
     @Parcelize
     object Create : NavDirections()
