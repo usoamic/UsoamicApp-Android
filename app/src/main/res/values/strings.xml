@@ -8,4 +8,5 @@
     <string name="create_fragment_title">Create</string>
     <string name="create_account">Create Account</string>
     <string name="add_account">Add Account</string>
+    <string name="need_save_private_key_warning">Please back up your private key in a reliable place! We DO NOT KEEP private keys. If you lose your private key, you won\'t be able to access your funds. </string>
 </resources>
