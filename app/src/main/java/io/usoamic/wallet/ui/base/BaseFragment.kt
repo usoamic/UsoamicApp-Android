@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import io.usoamic.wallet.R
-import io.usoamic.wallet.extensions.string
 
 
 abstract class BaseFragment(
@@ -72,14 +71,14 @@ abstract class BaseFragment(
 
     protected open fun showErrorDialog(error: String) {
         errorDialog = AlertDialog.Builder(requireContext())
-            .setTitle(string(R.string.error))
+            .setTitle(getString(R.string.error))
             .setMessage(error)
             .setPositiveButton(android.R.string.ok, null)
             .setIcon(R.drawable.ic_launcher_foreground)
             .show()
     }
 
-    protected open fun showErrorDialog(error: Throwable) = showErrorDialog(error.message ?: string(R.string.unknown_error))
+    protected open fun showErrorDialog(error: Throwable) = showErrorDialog(error.message ?: getString(R.string.unknown_error))
 
     protected fun hideKeyboard() {
         //Source: https://stackoverflow.com/questions/1109022/close-hide-android-soft-keyboard
