@@ -4,10 +4,10 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 
-sealed class AppArguments : Parcelable {
+sealed class NavDirections : Parcelable {
     @Parcelize
-    data class Add(val privateKey: String) : AppArguments()
+    data class Add(val privateKey: String) : NavDirections()
 
     @Parcelize
-    object Create : AppArguments()
+    object Create : NavDirections()
 }
