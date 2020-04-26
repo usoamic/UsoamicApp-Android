@@ -5,6 +5,7 @@
     <string name="unknown_error">Unknown error</string>
     <string name="auth_fragment_title">Authorization</string>
     <string name="add_fragment_title">Add</string>
+    <string name="create_fragment_title">Create</string>
     <string name="create_account">Create Account</string>
     <string name="add_account">Add Account</string>
 </resources>
