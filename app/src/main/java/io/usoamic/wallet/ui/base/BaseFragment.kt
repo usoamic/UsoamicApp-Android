@@ -2,6 +2,7 @@ package io.usoamic.wallet.ui.base
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,10 +15,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import io.usoamic.wallet.R
+import io.usoamic.wallet.domain.models.base.ErrorArguments
 
 
 abstract class BaseFragment(
-     @LayoutRes private val layoutRes: Int
+    @LayoutRes private val layoutRes: Int
 ) : Fragment() {
     protected lateinit var errorDialog: AlertDialog
 
@@ -45,7 +47,7 @@ abstract class BaseFragment(
     protected fun setSupportActionBar(toolbar: Toolbar, withBackButton: Boolean = true) {
         (requireActivity() as? AppCompatActivity)?.apply {
             setSupportActionBar(toolbar)
-            if(withBackButton) {
+            if (withBackButton) {
                 supportActionBar?.apply {
                     setDisplayHomeAsUpEnabled(true)
                     setDisplayShowHomeEnabled(true)
@@ -61,24 +63,40 @@ abstract class BaseFragment(
         (requireActivity() as? AppCompatActivity)?.onBackPressed()
     }
 
-    protected fun requireSupportActionBar() = (requireActivity() as? AppCompatActivity)?.supportActionBar!!
+    protected fun requireSupportActionBar() =
+        (requireActivity() as? AppCompatActivity)?.supportActionBar!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBinding()
         initListeners()
     }
+    protected open fun showErrorDialog(error: String) = showErrorDialog(error, false)
 
-    protected open fun showErrorDialog(error: String) {
+    protected open fun showErrorDialog(error: String, isFinish: Boolean) {
         errorDialog = AlertDialog.Builder(requireContext())
             .setTitle(getString(R.string.error))
             .setMessage(error)
-            .setPositiveButton(android.R.string.ok, null)
+            .setPositiveButton(
+                android.R.string.ok,
+                if (isFinish) {
+                    DialogInterface.OnClickListener { _, _ ->
+                        onBackButtonPressed()
+                    }
+                } else {
+                    null
+                }
+            )
             .setIcon(R.drawable.ic_launcher_foreground)
             .show()
     }
 
-    protected open fun showErrorDialog(error: Throwable) = showErrorDialog(error.message ?: getString(R.string.unknown_error))
+    protected open fun showErrorDialog(error: ErrorArguments) {
+        showErrorDialog(
+            error.message ?: getString(R.string.unknown_error),
+            (error is ErrorArguments.Fatal)
+        )
+    }
 
     protected fun hideKeyboard() {
         //Source: https://stackoverflow.com/questions/1109022/close-hide-android-soft-keyboard
@@ -90,7 +108,7 @@ abstract class BaseFragment(
     }
 
     override fun onDestroyView() {
-        if(::errorDialog.isInitialized) {
+        if (::errorDialog.isInitialized) {
             errorDialog.dismiss()
         }
         super.onDestroyView()
