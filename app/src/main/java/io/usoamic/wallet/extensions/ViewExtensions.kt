@@ -1,5 +1,8 @@
 package io.usoamic.wallet.extensions
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.core.view.isGone
@@ -14,6 +17,12 @@ fun Fragment.showMessage(message: String) {
 }
 
 fun Fragment.showMessage(@StringRes resId: Int) = showMessage(getString(resId))
+
+fun Fragment.copyToClipboard(text: String) {
+    val clipboard = requireActivity().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+    val clip = ClipData.newPlainText("text", text)
+    clipboard.setPrimaryClip(clip)
+}
 
 fun View.show() {
     isVisible = true
