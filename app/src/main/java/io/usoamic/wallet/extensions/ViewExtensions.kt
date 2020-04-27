@@ -10,6 +10,7 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
+import io.usoamic.wallet.R
 
 fun Fragment.showMessage(message: String) {
 //    Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
@@ -22,6 +23,7 @@ fun Fragment.copyToClipboard(text: String) {
     val clipboard = requireActivity().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clip = ClipData.newPlainText("text", text)
     clipboard.setPrimaryClip(clip)
+    showMessage(R.string.copied_to_clipboard)
 }
 
 fun View.show() {
