@@ -1,12 +1,12 @@
 package io.usoamic.wallet.usecases
 
-import io.usoamic.wallet.domain.repositories.RealmRepository
-import io.usoamic.wallet.domain.repositories.TokenRepository
+import io.reactivex.rxjava3.core.Single
+import io.usoamic.wallet.domain.models.ethereum.AccountCredentials
+import io.usoamic.wallet.domain.repositories.EthereumRepository
 import javax.inject.Inject
 
 class CreateAccountUseCase @Inject constructor(
-    private val mTokenRepository: TokenRepository,
-    private val mRealmRepository: RealmRepository
+    private val mEthereumRepository: EthereumRepository
 ) {
-
+    fun createCredentials(): Single<AccountCredentials> = mEthereumRepository.createCredentials()
 }
