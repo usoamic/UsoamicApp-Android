@@ -9,11 +9,13 @@ import io.usoamic.wallet.custom.listview.model.ListItem
 import io.usoamic.wallet.databinding.ViewListBinding
 import io.usoamic.wallet.databinding.ViewListItemBinding
 import io.usoamic.wallet.extensions.invisible
+import io.usoamic.wallet.custom.listview.model.ListItemCallback
 
 class ListView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : BaseFrameLayout(context, attrs, defStyleAttr, R.layout.view_list) {
     override val binding: ViewListBinding by lazy { ViewListBinding.bind(requireView()) }
+    private lateinit var onItemClickCallback: ListItemCallback
 
     private val list = mutableListOf<ListItem>()
 
@@ -23,6 +25,10 @@ class ListView @JvmOverloads constructor(
     fun addAll(items: List<ListItem>) {
         list.addAll(items)
         notifyDataSetChanged()
+    }
+
+    fun setOnItemClickListener(callback: ListItemCallback) {
+        onItemClickCallback = callback
     }
 
     private fun notifyDataSetChanged() {
@@ -35,9 +41,12 @@ class ListView @JvmOverloads constructor(
                 if(i == lastIndex) {
                     vDivider.invisible()
                 }
+                clContainer.setOnClickListener {
+                    onItemClickCallback.invoke(i, item)
+                }
             }
 
-            binding.container.addView(view)
+            binding.llContainer.addView(view)
         }
     }
 }
