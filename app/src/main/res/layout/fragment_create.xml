@@ -38,23 +38,16 @@
 
         <Button
             android:id="@+id/btnNext"
+            style="@style/App.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/App.Button"
             android:text="@string/next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <FrameLayout
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:visibility="invisible">
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-    </FrameLayout>
+    <include
+        android:id="@+id/pbContainer"
+        layout="@layout/layout_progress_bar"
+        tools:visibility="invisible" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -40,7 +40,7 @@ class CreateFragment : BaseViewModelFragment(R.layout.fragment_create) {
 
     override fun showProgress(isProgress: Boolean) {
         binding.apply {
-            progressBar.isVisible = isProgress
+            pbContainer.progressBar.isVisible = isProgress
             clContainer.isInvisible = isProgress
         }
     }
