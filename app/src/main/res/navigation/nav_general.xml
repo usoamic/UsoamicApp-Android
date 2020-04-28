@@ -25,16 +25,13 @@
         android:label="@string/add_fragment_title"
         tools:layout="@layout/fragment_add">
 
-        <action
-            android:id="@+id/action_addFragment_to_createFragment"
-            app:destination="@id/createFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/createFragment"
         android:name="io.usoamic.wallet.ui.main.create.CreateFragment"
         android:label="@string/add_fragment_title"
-        tools:layout="@layout/fragment_add">
+        tools:layout="@layout/fragment_create">
 
     </fragment>
 
