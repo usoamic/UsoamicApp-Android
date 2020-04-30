@@ -1,16 +1,30 @@
 package io.usoamic.wallet.usecases
 
 import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.functions.BiFunction
+import io.usoamic.wallet.domain.models.add.AddAccountModel
+import io.usoamic.wallet.domain.repositories.EthereumRepository
 import io.usoamic.wallet.domain.repositories.RealmRepository
 import io.usoamic.wallet.domain.repositories.TokenRepository
-import java.math.BigDecimal
+import io.usoamic.wallet.domain.repositories.ValidateRepository
 import javax.inject.Inject
 
 class AddAccountUseCase @Inject constructor(
     private val mTokenRepository: TokenRepository,
-    private val mRealmRepository: RealmRepository
+    private val mRealmRepository: RealmRepository,
+    private val mValidateRepository: ValidateRepository,
+    private val mEthereumRepository: EthereumRepository
 ) {
-    fun getSupply(): Single<BigDecimal> = mTokenRepository.getSupply()
-
-    fun getVersion(): Single<String> = mRealmRepository.get()
+    fun addAccount(privateKey: String, password: String, confirmPassword: String): Single<AddAccountModel> {
+        return Single.zip(
+            mValidateRepository.validatePrivateKey(privateKey),
+            mValidateRepository.validatePasswords(password, confirmPassword),
+            BiFunction { pk, p ->
+                pk && p
+            }
+        )
+            .flatMap {
+                mEthereumRepository.addAccount(privateKey, password)
+            }
+    }
 }
