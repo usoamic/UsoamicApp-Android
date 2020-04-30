@@ -15,4 +15,23 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="need_save_private_key_warning">Please back up your private key in a reliable place! We DO NOT KEEP private keys. If you lose your private key, you won\'t be able to access your funds. </string>
+
+    <string name="empty_address">Address Required</string>
+    <string name="empty_app_id">AppId Required</string>
+    <string name="empty_comment">Comment Required</string>
+    <string name="empty_confirm_password">Confirm Password Required</string>
+    <string name="empty_description">Description Required</string>
+    <string name="empty_mnemonic_phrase">Mnemonic Phrase Required</string>
+    <string name="empty_note_content">Note Content Required</string>
+    <string name="empty_password">Password Required</string>
+    <string name="empty_private_key">Private Key Required</string>
+    <string name="empty_purchase_id">PurchaseId Required</string>
+    <string name="empty_value">Value Required</string>
+    <string name="invalid_address">Invalid Address</string>
+    <string name="invalid_id">Id must be greater than or equal to zero</string>
+    <string name="invalid_mnemonic_phrase">Invalid Mnemonic Phrase</string>
+    <string name="invalid_private_key">Invalid Private Key</string>
+    <string name="invalid_value">Invalid Value</string>
+    <string name="passwords_do_not_match">Passwords don\'t match</string>
+    <string name="private_key_required">Private Key Required</string>
 </resources>
