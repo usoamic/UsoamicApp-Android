@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.view.View
+import android.widget.EditText
 import androidx.annotation.StringRes
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
@@ -25,6 +26,8 @@ fun Fragment.copyToClipboard(text: String) {
     clipboard.setPrimaryClip(clip)
     showMessage(R.string.copied_to_clipboard)
 }
+
+val EditText.value: String get() = text.toString()
 
 fun View.show() {
     isVisible = true
