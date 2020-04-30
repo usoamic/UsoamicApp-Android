@@ -1,6 +1,7 @@
 package io.usoamic.wallet
 
 import android.app.Application
+import android.content.pm.ApplicationInfo
 import com.jakewharton.threetenabp.AndroidThreeTen
 import io.usoamic.wallet.di.AppComponent
 import io.usoamic.wallet.di.DaggerAppComponent
@@ -12,6 +13,7 @@ import java.security.Security
 class UsoamicWallet : Application() {
     override fun onCreate() {
         super.onCreate()
+        appInfo = applicationContext.applicationInfo
         AndroidThreeTen.init(this)
         setupBouncyCastle()
         component = buildDagger()
@@ -41,6 +43,7 @@ class UsoamicWallet : Application() {
             .build()
     }
     companion object {
+        lateinit var appInfo: ApplicationInfo
         lateinit var component: AppComponent
     }
 }
