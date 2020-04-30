@@ -7,6 +7,7 @@ import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentAddBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
+import io.usoamic.wallet.extensions.value
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
 import javax.inject.Inject
 
@@ -28,6 +29,14 @@ class AddFragment : BaseViewModelFragment(R.layout.fragment_add) {
 
     override fun initBinding() {
         binding = FragmentAddBinding.bind(requireView())
+    }
+
+    override fun initListeners() {
+        binding.apply {
+            btnAdd.setOnClickListener {
+                viewModel.onAddClick(etPrivateKey.value, etPassword.value, etConfirmPassword.value)
+            }
+        }
     }
 
     private fun initToolbar() {

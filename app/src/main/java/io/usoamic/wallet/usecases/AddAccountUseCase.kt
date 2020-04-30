@@ -19,7 +19,7 @@ class AddAccountUseCase @Inject constructor(
         return Single.zip(
             mValidateRepository.validatePrivateKey(privateKey),
             mValidateRepository.validatePasswords(password, confirmPassword),
-            BiFunction { pk, p ->
+            BiFunction { pk: Boolean, p: Boolean ->
                 pk && p
             }
         )
