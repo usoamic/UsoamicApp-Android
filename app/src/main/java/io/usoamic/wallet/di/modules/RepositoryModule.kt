@@ -16,5 +16,5 @@ abstract class RepositoryModule {
     abstract fun bindEthereumRepository(repository: EthereumRepositoryImpl): EthereumRepository
 
     @Binds
-    abstract fun bindEthereumRepository(repository: ValidateRepositoryImpl): ValidateRepository
+    abstract fun bindValidateRepository(repository: ValidateRepositoryImpl): ValidateRepository
 }
