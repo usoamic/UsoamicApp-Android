@@ -9,6 +9,7 @@ import io.usoamic.wallet.di.scopes.AppScope
 import io.usoamic.wallet.di.subcomponents.add.AddSubcomponent
 import io.usoamic.wallet.di.subcomponents.auth.AuthSubcomponent
 import io.usoamic.wallet.di.subcomponents.create.CreateSubcomponent
+import io.usoamic.wallet.ui.main.start.StartFragment
 import javax.inject.Singleton
 
 @Singleton
@@ -20,4 +21,5 @@ interface AppComponent {
     val createSubcomponent: CreateSubcomponent.Factory
 
     fun inject(activity: SingleActivity)
+    fun inject(activity: StartFragment)
 }
