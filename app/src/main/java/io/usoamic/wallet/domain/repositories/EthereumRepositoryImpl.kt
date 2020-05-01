@@ -2,6 +2,7 @@ package io.usoamic.wallet.domain.repositories
 
 import io.reactivex.rxjava3.core.Single
 import io.usoamic.usoamickt.core.Usoamic
+import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.domain.models.add.AddAccountModel
 import io.usoamic.wallet.domain.models.ethereum.AccountCredentials
 import io.usoamic.wallet.domain.models.ethereum.toDomain
@@ -18,7 +19,7 @@ class EthereumRepositoryImpl @Inject constructor(
     override fun addAccount(privateKey: String, password: String): Single<AddAccountModel> {
         return Single.fromCallable {
             AddAccountModel(
-                usoamic.importPrivateKey(password, privateKey)
+                usoamic.importPrivateKey(password, privateKey, UsoamicWallet.appInfo.dataDir)
             )
         }
     }
