@@ -3,21 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_general"
-    app:navGraph="@id/authFragment"
-    app:startDestination="@id/authFragment">
+    app:navGraph="@id/startFragment"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="io.usoamic.wallet.ui.main.start.StartFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_start" />
 
     <fragment
         android:id="@+id/authFragment"
         android:name="io.usoamic.wallet.ui.main.auth.AuthFragment"
         android:label="@string/auth_fragment_title"
-        tools:layout="@layout/fragment_auth">
-        <action
-            android:id="@+id/action_authFragment_to_addFragment"
-            app:destination="@id/addFragment" />
-        <action
-            android:id="@+id/action_authFragment_to_createFragment"
-            app:destination="@id/createFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_auth" />
 
     <fragment
         android:id="@+id/addFragment"
@@ -31,8 +30,11 @@
         android:id="@+id/createFragment"
         android:name="io.usoamic.wallet.ui.main.create.CreateFragment"
         android:label="@string/add_fragment_title"
-        tools:layout="@layout/fragment_create">
+        tools:layout="@layout/fragment_create" />
 
-    </fragment>
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="io.usoamic.wallet.ui.main.add.AddFragment"
+        tools:layout="@layout/fragment_wallet" />
 
 </navigation>
