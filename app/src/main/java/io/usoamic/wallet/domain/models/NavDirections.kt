@@ -10,4 +10,10 @@ sealed class NavDirections : Parcelable {
 
     @Parcelize
     object Create : NavDirections()
+
+    @Parcelize
+    object Wallet : NavDirections()
+
+    @Parcelize
+    object Auth : NavDirections()
 }
