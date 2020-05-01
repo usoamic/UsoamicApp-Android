@@ -2,6 +2,8 @@ package io.usoamic.wallet.ui.main.add
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
@@ -36,6 +38,13 @@ class AddFragment : BaseViewModelFragment(R.layout.fragment_add) {
             btnAdd.setOnClickListener {
                 viewModel.onAddClick(etPrivateKey.value, etPassword.value, etConfirmPassword.value)
             }
+        }
+    }
+
+    override fun showProgress(isProgress: Boolean) {
+        binding.apply {
+            pbContainer.progressBar.isVisible = isProgress
+            clContainer.isInvisible = isProgress
         }
     }
 
