@@ -39,7 +39,7 @@ android {
 
         TestNet {
             dimension "network"
-            applicationIdSuffix ".rinkeby"
+            applicationIdSuffix ".testnet"
         }
     }
 
