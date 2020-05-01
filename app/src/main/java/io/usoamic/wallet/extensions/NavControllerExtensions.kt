@@ -10,5 +10,7 @@ fun NavController.navigateTo(args: NavDirections) {
     when(args) {
         is NavDirections.Add -> navigate(R.id.addFragment)
         is NavDirections.Create -> navigate(R.id.createFragment)
+        is NavDirections.Auth -> navigate(R.id.authFragment)
+        is NavDirections.Wallet -> navigate(R.id.walletFragment)
     }
 }
