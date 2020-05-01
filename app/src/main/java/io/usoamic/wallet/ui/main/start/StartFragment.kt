@@ -1,7 +1,5 @@
 package io.usoamic.wallet.ui.main.start
 
-import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.viewModels
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
@@ -19,6 +17,10 @@ class StartFragment : BaseViewModelFragment(R.layout.fragment_start) {
     override val viewModel: StartViewModel by viewModels { viewModelFactory }
 
     private lateinit var binding: FragmentStartBinding
+
+    /*
+     * TODO: Maybe move this functionality to SingleActivity?
+     */
 
     override fun inject() {
         UsoamicWallet.component.inject(this)
