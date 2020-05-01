@@ -17,4 +17,7 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun bindValidateRepository(repository: ValidateRepositoryImpl): ValidateRepository
+
+    @Binds
+    abstract fun bindUserRepository(repository: UserRepositoryImpl): UserRepository
 }
