@@ -77,6 +77,7 @@ abstract class BaseFragment(
         errorDialog = AlertDialog.Builder(requireContext())
             .setTitle(getString(R.string.error))
             .setMessage(error)
+            .setCancelable(false)
             .setPositiveButton(
                 android.R.string.ok,
                 if (isFinish) {
