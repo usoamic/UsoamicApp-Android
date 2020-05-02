@@ -5,15 +5,14 @@ import android.view.View
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.custom.listview.model.ListItem
 import io.usoamic.wallet.databinding.FragmentCreateBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
-import io.usoamic.wallet.domain.models.NavDirections
 import io.usoamic.wallet.domain.models.ethereum.AccountCredentials
 import io.usoamic.wallet.extensions.copyToClipboard
-import io.usoamic.wallet.extensions.navigateTo
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
 import javax.inject.Inject
@@ -52,9 +51,9 @@ class CreateFragment : BaseViewModelFragment(R.layout.fragment_create) {
 
     override fun initListeners() {
         super.initListeners()
-        binding.btnNext.setOnClickListener {
-            navigator.navigateTo(NavDirections.Add)
-        }
+        binding.btnNext.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_createFragment_to_addFragment)
+        )
     }
 
     private fun setAccountCredentials(data: AccountCredentials) {

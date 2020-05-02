@@ -1,10 +1,9 @@
 package io.usoamic.wallet.ui.main.auth
 
+import androidx.navigation.Navigation
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentAuthBinding
-import io.usoamic.wallet.domain.models.NavDirections
-import io.usoamic.wallet.extensions.navigateTo
 import io.usoamic.wallet.ui.base.BaseFragment
 
 
@@ -21,12 +20,12 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
 
     override fun initListeners() {
         binding.apply {
-            addBtn.setOnClickListener {
-                navigator.navigateTo(NavDirections.Add)
-            }
-            createBtn.setOnClickListener {
-                navigator.navigateTo(NavDirections.Create)
-            }
+            addBtn.setOnClickListener(
+                Navigation.createNavigateOnClickListener(R.id.addFragment)
+            )
+            createBtn.setOnClickListener(
+                Navigation.createNavigateOnClickListener(R.id.createFragment)
+            )
         }
     }
 

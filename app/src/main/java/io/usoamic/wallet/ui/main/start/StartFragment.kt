@@ -5,8 +5,6 @@ import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentStartBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
-import io.usoamic.wallet.domain.models.NavDirections
-import io.usoamic.wallet.extensions.navigateTo
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
 import javax.inject.Inject
@@ -33,12 +31,12 @@ class StartFragment : BaseViewModelFragment(R.layout.fragment_start) {
 
     private fun goToNextFragment(hasAccount: Boolean) {
         val direction = if(hasAccount) {
-            NavDirections.Wallet
+            R.id.walletFragment
         }
         else {
-            NavDirections.Auth
+            R.id.authFragment
         }
-        navigator.navigateTo(direction)
+        navigator.navigate(direction)
     }
 
     override fun initBinding() {

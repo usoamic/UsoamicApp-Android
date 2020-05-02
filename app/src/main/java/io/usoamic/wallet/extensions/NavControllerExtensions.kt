@@ -1,16 +1,15 @@
 package io.usoamic.wallet.extensions
 
+import androidx.annotation.IdRes
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
-import io.usoamic.wallet.R
-import io.usoamic.wallet.domain.models.NavDirections
+import io.usoamic.wallet.domain.models.AppArguments
 
 const val ARGS = "args"
-
-fun NavController.navigateTo(args: NavDirections) {
-    when(args) {
-        is NavDirections.Add -> navigate(R.id.addFragment)
-        is NavDirections.Create -> navigate(R.id.createFragment)
-        is NavDirections.Auth -> navigate(R.id.authFragment)
-        is NavDirections.Wallet -> navigate(R.id.walletFragment)
+fun NavController.navigate(@IdRes navResId: Int, args: AppArguments? = null) {
+    args?.let {
+        navigate(navResId, bundleOf(ARGS to it))
+    } ?: run {
+        navigate(navResId)
     }
 }
