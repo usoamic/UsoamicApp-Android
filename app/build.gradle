@@ -85,6 +85,8 @@ dependencies {
     implementation deps.constraint_layout
     implementation deps.recyclerview
     implementation deps.gson
+    implementation deps.liveevent
+
     implementation (deps.web3j) {
         force = true
     }
