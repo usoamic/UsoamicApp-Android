@@ -5,24 +5,24 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
-import io.usoamic.wallet.databinding.FragmentUnlockWalletBinding
+import io.usoamic.wallet.databinding.FragmentUnlockBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
 import javax.inject.Inject
 
-class UnlockWalletFragment : BaseViewModelFragment(R.layout.fragment_unlock_wallet) {
+class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
     @Inject
-    lateinit var viewModelFactory: ViewModelFactory<UnlockWalletViewModel>
-    override val viewModel: UnlockWalletViewModel by viewModels { viewModelFactory }
+    lateinit var viewModelFactory: ViewModelFactory<UnlockViewModel>
+    override val viewModel: UnlockViewModel by viewModels { viewModelFactory }
 
-    lateinit var binding: FragmentUnlockWalletBinding
+    lateinit var binding: FragmentUnlockBinding
 
     override fun inject() {
-        UsoamicWallet.component.unlockWalletSubcomponent.create().inject(this)
+        UsoamicWallet.component.unlockSubcomponent.create().inject(this)
     }
 
     override fun initBinding() {
-        binding = FragmentUnlockWalletBinding.bind(requireView())
+        binding = FragmentUnlockBinding.bind(requireView())
     }
 
     override fun showProgress(isProgress: Boolean) {

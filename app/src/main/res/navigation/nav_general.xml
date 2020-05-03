@@ -35,7 +35,7 @@
             android:id="@+id/action_addFragment_to_walletFragment"
             app:popUpTo="@+id/startFragment"
             app:popUpToInclusive="false"
-            app:destination="@id/unlockWalletFragment" />
+            app:destination="@id/unlockFragment" />
     </fragment>
 
     <fragment
@@ -56,13 +56,13 @@
         tools:layout="@layout/fragment_wallet" />
 
     <fragment
-        android:id="@+id/unlockWalletFragment"
-        android:name="io.usoamic.wallet.ui.auth.unlock.UnlockWalletFragment"
+        android:id="@+id/unlockFragment"
+        android:name="io.usoamic.wallet.ui.auth.unlock.UnlockFragment"
         android:label="fragment_unlock_wallet"
-        tools:layout="@layout/fragment_unlock_wallet">
+        tools:layout="@layout/fragment_unlock">
 
         <action
-            android:id="@+id/action_unlockWalletFragment_to_walletFragment"
+            android:id="@+id/action_unlockFragment_to_walletFragment"
             app:destination="@id/walletFragment"
             app:popUpTo="@+id/authFragment"
             app:popUpToInclusive="false"/>

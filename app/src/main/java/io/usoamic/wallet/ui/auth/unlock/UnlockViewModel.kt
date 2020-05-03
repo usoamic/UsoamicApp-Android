@@ -4,7 +4,7 @@ import io.usoamic.wallet.ui.base.BaseViewModel
 import io.usoamic.wallet.usecases.AuthPasswordUseCase
 import javax.inject.Inject
 
-class UnlockWalletViewModel @Inject constructor(
+class UnlockViewModel @Inject constructor(
     mModel: AuthPasswordUseCase
 ) : BaseViewModel() {
 
