@@ -34,4 +34,12 @@
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:src">@drawable/ic_usoamic</item>
     </style>
+
+    <style name="App.BottomNavigationView" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
 </resources>
