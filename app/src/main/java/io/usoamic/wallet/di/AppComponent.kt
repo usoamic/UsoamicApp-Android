@@ -22,6 +22,8 @@ import javax.inject.Singleton
 interface AppComponent {
     val authSubcomponent: AuthSubcomponent
     val addSubcomponent: AddSubcomponent.Factory
+
+    val createSubcomponent: DashboardSubcomponent.Factory
     val dashboardSubcomponent: DashboardSubcomponent.Factory
     val depositSubcomponent: DepositSubcomponent.Factory
     val withdrawSubcomponent: WithdrawSubcomponent.Factory
