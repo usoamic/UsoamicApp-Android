@@ -1,11 +1,18 @@
 <resources>
+    <!-- Titles -->
+    <string name="auth_fragment_title">Authorization</string>
+    <string name="add_fragment_title">Add</string>
+    <string name="create_fragment_title">Create</string>
+    <string name="dashboard_fragment_title">Dashboard</string>
+    <string name="deposit_fragment_title">Deposit</string>
+    <string name="withdraw_fragment_title">Withdraw</string>
+    <string name="history_fragment_title">History</string>
+
     <string name="app_name">UsoWallet-Android</string>
     <string name="title">Usoamic</string>
     <string name="error">Error</string>
     <string name="unknown_error">Unknown error</string>
-    <string name="auth_fragment_title">Authorization</string>
-    <string name="add_fragment_title">Add</string>
-    <string name="create_fragment_title">Create</string>
+
     <string name="create_account">Create Account</string>
     <string name="add_account">Add Account</string>
     <string name="address">Address</string>
