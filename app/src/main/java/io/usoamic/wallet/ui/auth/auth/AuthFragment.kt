@@ -1,4 +1,4 @@
-package io.usoamic.wallet.ui.main.auth
+package io.usoamic.wallet.ui.auth.auth
 
 import androidx.navigation.Navigation
 import io.usoamic.wallet.R

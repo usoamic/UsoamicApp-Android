@@ -13,7 +13,7 @@ import io.usoamic.wallet.di.subcomponents.dashboard.DashboardSubcomponent
 import io.usoamic.wallet.di.subcomponents.deposit.DepositSubcomponent
 import io.usoamic.wallet.di.subcomponents.history.HistorySubcomponent
 import io.usoamic.wallet.di.subcomponents.withdraw.WithdrawSubcomponent
-import io.usoamic.wallet.ui.main.start.StartFragment
+import io.usoamic.wallet.ui.start.StartFragment
 import javax.inject.Singleton
 
 @Singleton

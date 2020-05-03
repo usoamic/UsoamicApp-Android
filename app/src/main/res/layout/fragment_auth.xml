@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@android:color/holo_red_dark"
-    tools:context=".ui.main.auth.AuthFragment">
+    tools:context=".ui.auth.auth.AuthFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

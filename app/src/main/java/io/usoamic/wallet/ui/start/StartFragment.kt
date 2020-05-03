@@ -1,4 +1,4 @@
-package io.usoamic.wallet.ui.main.start
+package io.usoamic.wallet.ui.start
 
 import androidx.fragment.app.viewModels
 import io.usoamic.wallet.R

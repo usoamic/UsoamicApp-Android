@@ -1,4 +1,4 @@
-package io.usoamic.wallet.ui.main.create
+package io.usoamic.wallet.ui.auth.create
 
 import androidx.lifecycle.MutableLiveData
 import io.usoamic.wallet.domain.models.ethereum.AccountCredentials

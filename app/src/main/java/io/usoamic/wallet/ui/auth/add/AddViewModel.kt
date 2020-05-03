@@ -1,4 +1,4 @@
-package io.usoamic.wallet.ui.main.add
+package io.usoamic.wallet.ui.auth.add
 
 import io.usoamic.wallet.extensions.observeOnMain
 import io.usoamic.wallet.extensions.subscribeOnIo

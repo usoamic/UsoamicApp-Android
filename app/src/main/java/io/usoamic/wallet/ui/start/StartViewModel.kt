@@ -1,4 +1,4 @@
-package io.usoamic.wallet.ui.main.start
+package io.usoamic.wallet.ui.start
 
 import androidx.lifecycle.MutableLiveData
 import io.usoamic.wallet.extensions.observeOnMain

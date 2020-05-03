@@ -1,4 +1,4 @@
-package io.usoamic.wallet.ui.main.create
+package io.usoamic.wallet.ui.auth.create
 
 import android.os.Bundle
 import android.view.View
