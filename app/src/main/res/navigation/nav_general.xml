@@ -32,8 +32,10 @@
         tools:layout="@layout/fragment_add">
 
         <action
-            android:id="@+id/action_addFragment_to_startFragment"
-            app:destination="@id/startFragment" />
+            android:id="@+id/action_addFragment_to_walletFragment"
+            app:popUpTo="@+id/startFragment"
+            app:popUpToInclusive="false"
+            app:destination="@id/unlockWalletFragment" />
     </fragment>
 
     <fragment

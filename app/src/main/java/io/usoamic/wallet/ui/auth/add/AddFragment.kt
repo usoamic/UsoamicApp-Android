@@ -9,6 +9,7 @@ import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentAddBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
+import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.extensions.value
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
 import javax.inject.Inject
@@ -29,6 +30,13 @@ class AddFragment : BaseViewModelFragment(R.layout.fragment_add) {
         initToolbar()
     }
 
+    override fun initObservers() {
+        super.initObservers()
+        observe(viewModel.leAccountAdd) {
+            goToUnlock()
+        }
+    }
+
     override fun initBinding() {
         binding = FragmentAddBinding.bind(requireView())
     }
@@ -46,6 +54,10 @@ class AddFragment : BaseViewModelFragment(R.layout.fragment_add) {
             pbContainer.progressBar.isVisible = isProgress
             clContainer.isInvisible = isProgress
         }
+    }
+
+    private fun goToUnlock() {
+        navigator.navigate(R.id.action_addFragment_to_walletFragment)
     }
 
     private fun initToolbar() {

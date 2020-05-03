@@ -1,5 +1,7 @@
 package io.usoamic.wallet.ui.auth.add
 
+import com.hadilq.liveevent.LiveEvent
+import io.usoamic.wallet.extensions.emit
 import io.usoamic.wallet.extensions.observeOnMain
 import io.usoamic.wallet.extensions.subscribeOnIo
 import io.usoamic.wallet.ui.base.BaseViewModel
@@ -9,6 +11,7 @@ import javax.inject.Inject
 class AddViewModel @Inject constructor(
     private val mModel: AddAccountUseCase
 ) : BaseViewModel() {
+    val leAccountAdd = LiveEvent<Unit>()
     init {
 
     }
@@ -19,7 +22,7 @@ class AddViewModel @Inject constructor(
             .observeOnMain()
             .addProgress()
             .subscribe({
-                println(it)
+                leAccountAdd.emit()
             }, ::throwError)
     }
 }
