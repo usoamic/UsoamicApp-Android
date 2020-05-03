@@ -2,11 +2,18 @@
     <!-- Titles -->
     <string name="title_auth_fragment">Authorization</string>
     <string name="title_add_fragment">Add</string>
+    <string name="title_password_fragment">Unlock wallet</string>
     <string name="title_create_fragment">Create</string>
     <string name="title_dashboard_fragment">Dashboard</string>
     <string name="title_deposit_fragment">Deposit</string>
     <string name="title_withdraw_fragment">Withdraw</string>
     <string name="title_history_fragment">History</string>
+
+    <!-- Buttons -->
+    <string name="next">Next</string>
+    <string name="unlock">Unlock</string>
+
+
 
     <string name="app_name">UsoWallet-Android</string>
     <string name="title">Usoamic</string>
@@ -18,7 +25,6 @@
     <string name="address">Address</string>
     <string name="private_key">Private Key</string>
     <string name="copied_to_clipboard">Copied To Clipboard</string>
-    <string name="next">Next</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="need_save_private_key_warning">Please back up your private key in a reliable place! We DO NOT KEEP private keys. If you lose your private key, you won\'t be able to access your funds. </string>
