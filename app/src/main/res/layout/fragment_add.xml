@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         style="@style/App.Toolbar"
-        app:title="@string/add_fragment_title" />
+        app:title="@string/title_add_fragment" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clContainer"

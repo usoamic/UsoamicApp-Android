@@ -11,7 +11,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        app:title="@string/auth_fragment_title"
+        app:title="@string/title_auth_fragment"
         style="@style/App.Toolbar"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
