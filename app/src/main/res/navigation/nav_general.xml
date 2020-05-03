@@ -53,4 +53,17 @@
         android:name="io.usoamic.wallet.ui.main.wallet.WalletFragment"
         tools:layout="@layout/fragment_wallet" />
 
+    <fragment
+        android:id="@+id/unlockWalletFragment"
+        android:name="io.usoamic.wallet.ui.auth.unlock.UnlockWalletFragment"
+        android:label="fragment_unlock_wallet"
+        tools:layout="@layout/fragment_unlock_wallet">
+
+        <action
+            android:id="@+id/action_unlockWalletFragment_to_walletFragment"
+            app:destination="@id/walletFragment"
+            app:popUpTo="@+id/authFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+
 </navigation>

@@ -31,7 +31,7 @@ class StartFragment : BaseViewModelFragment(R.layout.fragment_start) {
 
     private fun goToNextFragment(hasAccount: Boolean) {
         val direction = if(hasAccount) {
-            R.id.walletFragment
+            R.id.unlockWalletFragment
         }
         else {
             R.id.authFragment
