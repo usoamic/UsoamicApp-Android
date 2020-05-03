@@ -23,7 +23,7 @@ interface AppComponent {
     val authSubcomponent: AuthSubcomponent
     val addSubcomponent: AddSubcomponent.Factory
 
-    val createSubcomponent: DashboardSubcomponent.Factory
+    val createSubcomponent: CreateSubcomponent.Factory
     val dashboardSubcomponent: DashboardSubcomponent.Factory
     val depositSubcomponent: DepositSubcomponent.Factory
     val withdrawSubcomponent: WithdrawSubcomponent.Factory
