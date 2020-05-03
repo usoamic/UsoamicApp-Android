@@ -85,7 +85,9 @@ dependencies {
     implementation deps.constraint_layout
     implementation deps.recyclerview
     implementation deps.gson
-    implementation deps.web3j
+    implementation (deps.web3j) {
+        force = true
+    }
     implementation deps.fragment.runtime_ktx
 
     implementation deps.rx.android
