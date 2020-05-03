@@ -15,7 +15,7 @@
     <fragment
         android:id="@+id/authFragment"
         android:name="io.usoamic.wallet.ui.main.auth.AuthFragment"
-        android:label="@string/auth_fragment_title"
+        android:label="@string/title_auth_fragment"
         tools:layout="@layout/fragment_auth">
         <action
             android:id="@+id/action_authFragment_to_createFragment"
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="io.usoamic.wallet.ui.main.add.AddFragment"
-        android:label="@string/add_fragment_title"
+        android:label="@string/title_add_fragment"
         tools:layout="@layout/fragment_add">
 
         <action
@@ -39,7 +39,7 @@
     <fragment
         android:id="@+id/createFragment"
         android:name="io.usoamic.wallet.ui.main.create.CreateFragment"
-        android:label="@string/add_fragment_title"
+        android:label="@string/title_add_fragment"
         tools:layout="@layout/fragment_create">
         <action
             android:id="@+id/action_createFragment_to_addFragment"
@@ -50,7 +50,7 @@
 
     <fragment
         android:id="@+id/walletFragment"
-        android:name="io.usoamic.wallet.ui.main.add.AddFragment"
+        android:name="io.usoamic.wallet.ui.main.wallet.WalletFragment"
         tools:layout="@layout/fragment_wallet" />
 
 </navigation>
