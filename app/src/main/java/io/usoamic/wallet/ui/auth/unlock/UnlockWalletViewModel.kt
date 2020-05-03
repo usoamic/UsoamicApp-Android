@@ -11,4 +11,12 @@ class UnlockWalletViewModel @Inject constructor(
     init {
 
     }
+
+    fun onNextClick() {
+
+    }
+
+    fun onForgotClick() {
+
+    }
 }

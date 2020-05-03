@@ -1,7 +1,5 @@
 package io.usoamic.wallet.ui.auth.unlock
 
-import android.os.Bundle
-import android.view.View
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -23,11 +21,6 @@ class UnlockWalletFragment : BaseViewModelFragment(R.layout.fragment_unlock_wall
         UsoamicWallet.component.unlockWalletSubcomponent.create().inject(this)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initToolbar()
-    }
-
     override fun initBinding() {
         binding = FragmentUnlockWalletBinding.bind(requireView())
     }
@@ -39,18 +32,16 @@ class UnlockWalletFragment : BaseViewModelFragment(R.layout.fragment_unlock_wall
         }
     }
 
-    override fun initObservers() {
-        super.initObservers()
-    }
-
     override fun initListeners() {
         super.initListeners()
-//        binding.btnNext.setOnClickListener(
-//            Navigation.createNavigateOnClickListener(R.id.action_createFragment_to_addFragment)
-//        )
-    }
+        binding.apply {
+            btnNext.setOnClickListener {
+                viewModel.onNextClick()
+            }
 
-    private fun initToolbar() {
-        setSupportActionBar(binding.toolbar)
+            btnForgot.setOnClickListener {
+                viewModel.onForgotClick()
+            }
+        }
     }
 }
