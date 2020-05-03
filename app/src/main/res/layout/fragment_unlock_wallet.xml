@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".ui.auth.unlock.UnlockWalletFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -32,6 +33,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/unlock"
+            app:layout_constraintBottom_toTopOf="@id/btnForgot"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnForgot"
+            style="@style/App.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_password"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
