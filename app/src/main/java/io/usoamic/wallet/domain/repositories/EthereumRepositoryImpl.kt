@@ -6,6 +6,7 @@ import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.domain.models.add.AddAccountModel
 import io.usoamic.wallet.domain.models.ethereum.AccountCredentials
 import io.usoamic.wallet.domain.models.ethereum.toDomain
+import io.usoamic.wallet.extensions.addDebugDelay
 import io.usoamic.wallet.extensions.privateKey
 import io.usoamic.wallet.extensions.subscribeOnIo
 import org.web3j.crypto.Credentials
@@ -21,7 +22,7 @@ class EthereumRepositoryImpl @Inject constructor(
             AddAccountModel(
                 usoamic.importPrivateKey(password, privateKey, UsoamicWallet.appInfo.dataDir)
             )
-        }
+        }.addDebugDelay()
     }
 
     override fun createCredentials(): Single<AccountCredentials> {
@@ -32,6 +33,6 @@ class EthereumRepositoryImpl @Inject constructor(
             } while (!WalletUtils.isValidPrivateKey(credentials.privateKey))
             credentials.toDomain()
         }
-            .subscribeOnIo()
+            .addDebugDelay()
     }
 }

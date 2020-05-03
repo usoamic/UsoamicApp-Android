@@ -2,6 +2,8 @@ package io.usoamic.wallet.domain.repositories
 
 import io.reactivex.rxjava3.core.Single
 import io.usoamic.validateutilkt.ValidateUtil
+import io.usoamic.wallet.extensions.addDebugDelay
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class ValidateRepositoryImpl @Inject constructor() : ValidateRepository {
@@ -10,6 +12,7 @@ class ValidateRepositoryImpl @Inject constructor() : ValidateRepository {
             ValidateUtil.validatePasswords(password, confirmPassword)
             true
         }
+            .addDebugDelay()
     }
 
     override fun validatePrivateKey(privateKey: String): Single<Boolean> {
@@ -17,5 +20,6 @@ class ValidateRepositoryImpl @Inject constructor() : ValidateRepository {
             ValidateUtil.validatePrivateKey(privateKey)
             true
         }
+            .addDebugDelay()
     }
 }
