@@ -25,6 +25,12 @@ class EthereumRepositoryImpl @Inject constructor(
         }.addDebugDelay()
     }
 
+    override fun getAddress(password: String): Single<String> {
+        return Single.fromCallable {
+            usoamic.getAddress(password)
+        }.addDebugDelay()
+    }
+
     override fun createCredentials(): Single<AccountCredentials> {
         return Single.fromCallable {
             var credentials: Credentials

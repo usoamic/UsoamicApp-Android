@@ -7,4 +7,5 @@ import io.usoamic.wallet.domain.models.ethereum.AccountCredentials
 interface EthereumRepository {
     fun createCredentials(): Single<AccountCredentials>
     fun addAccount(privateKey: String, password: String): Single<AddAccountModel>
+    fun getAddress(password: String): Single<String>
 }
