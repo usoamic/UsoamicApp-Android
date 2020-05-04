@@ -14,3 +14,7 @@ fun <T> Fragment.observe(ld: MutableLiveData<T>, callback: (T) -> Unit) {
 fun LiveEvent<Unit>.emit() {
     value = Unit
 }
+
+fun <T> LiveEvent<T>.emit(arg: T) {
+    value = arg
+}
