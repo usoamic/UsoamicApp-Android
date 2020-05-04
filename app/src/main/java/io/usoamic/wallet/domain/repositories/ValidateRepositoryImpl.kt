@@ -15,6 +15,14 @@ class ValidateRepositoryImpl @Inject constructor() : ValidateRepository {
             .addDebugDelay()
     }
 
+    override fun validatePassword(password: String): Single<Boolean> {
+        return Single.fromCallable {
+            ValidateUtil.validatePassword(password)
+            true
+        }
+            .addDebugDelay()
+    }
+
     override fun validatePrivateKey(privateKey: String): Single<Boolean> {
         return Single.fromCallable {
             ValidateUtil.validatePrivateKey(privateKey)
