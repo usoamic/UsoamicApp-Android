@@ -25,6 +25,7 @@ versions.fragment = "1.2.4"
 versions.navigation = "2.0.0"
 versions.realm = "6.0.2"
 versions.liveevent = "1.2.0"
+versions.zxing = "3.4.0"
 ext.versions = versions
 
 def build_versions = [:]
@@ -47,6 +48,7 @@ deps.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
 deps.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
 deps.activity_ktx = "androidx.activity:activity-ktx:$versions.activity"
 deps.liveevent = "com.github.hadilq.liveevent:liveevent:$versions.liveevent"
+deps.zxing = "com.google.zxing:core:$versions.zxing"
 
 def android = [:]
 android.plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
