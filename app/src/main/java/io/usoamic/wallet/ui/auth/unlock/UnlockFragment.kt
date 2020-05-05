@@ -51,7 +51,7 @@ class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
         super.initListeners()
         binding.apply {
             btnNext.setOnClickListener {
-                viewModel.onNextClick(binding.etPrivateKey.value)
+                viewModel.onNextClick(binding.etPassword.value)
             }
 
             btnForgot.setOnClickListener {
