@@ -1,7 +1,7 @@
 package io.usoamic.wallet.di
 
 import dagger.Component
-import io.usoamic.wallet.SingleActivity
+import io.usoamic.wallet.ui.single.SingleActivity
 import io.usoamic.wallet.di.modules.RealmModule
 import io.usoamic.wallet.di.modules.RepositoryModule
 import io.usoamic.wallet.di.modules.UsoamicModule
