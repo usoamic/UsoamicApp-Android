@@ -14,16 +14,19 @@ class UnlockViewModel @Inject constructor(
     val leNext = LiveEvent<Unit>()
 
     fun onNextClick(password: String) {
-        mModel.saveAddress(password)
+        mModel.getAddress(password)
             .subscribeOnIo()
             .observeOnMain()
             .addProgress()
-            .subscribe({
-                leNext.emit()
-            }, ::throwError)
+            .subscribe(::setData, ::throwError)
     }
 
     fun onForgotClick() {
 
+    }
+
+    private fun setData(address: String) {
+        mModel.saveData(address)
+        leNext.emit()
     }
 }
