@@ -20,11 +20,8 @@ class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
     lateinit var binding: FragmentUnlockBinding
 
     /*
-     * TODO:
-     *  1. Lock wallet after 10 minutes inactivity.
-     *  2. Save unlock datetime.
+     TODO: Add ForgotPassword dialog
      */
-
     override fun inject() {
         UsoamicWallet.component.unlockSubcomponent.create().inject(this)
     }

@@ -18,6 +18,7 @@ class StartFragment : BaseViewModelFragment(R.layout.fragment_start) {
 
     /*
      * TODO: Maybe move this functionality to SingleActivity?
+     *  Bad idea :(.
      */
 
     override fun inject() {
