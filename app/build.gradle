@@ -22,6 +22,7 @@ android {
         buildConfigField "String", "ACCOUNT_FILENAME", '"account.json"'
         buildConfigField "String", "NODE_PROVIDER", '"infura"'
         buildConfigField "String", "PROJECT_ID", '"fa8e5195184149f79e644292d2b31707"'
+        buildConfigField "long", "LOCK_SECONDS", '30'
 
         multiDexEnabled true
 
