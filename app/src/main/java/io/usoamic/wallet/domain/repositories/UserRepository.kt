@@ -5,4 +5,5 @@ import io.reactivex.rxjava3.core.Single
 interface UserRepository {
     fun hasAccount(): Single<Boolean>
     fun getAddress(): Single<String>
+    fun removeAccount(): Single<Boolean>
 }

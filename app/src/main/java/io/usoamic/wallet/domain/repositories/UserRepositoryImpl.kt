@@ -19,4 +19,10 @@ class UserRepositoryImpl @Inject constructor(private val usoamic: Usoamic) : Use
         }
             .addDebugDelay()
     }
+
+    override fun removeAccount(): Single<Boolean> {
+        return Single.fromCallable {
+            usoamic.removeWallet()
+        }.addDebugDelay()
+    }
 }
