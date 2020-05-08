@@ -8,4 +8,5 @@ interface PreferencesRepository {
     fun getUnlockTime(): LocalDateTime
     fun setUnlockTime(dateTime: LocalDateTime)
     fun remove(key: String)
+    fun removeAll()
 }

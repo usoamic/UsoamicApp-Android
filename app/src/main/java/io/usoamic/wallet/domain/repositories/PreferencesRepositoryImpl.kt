@@ -31,6 +31,12 @@ class PreferencesRepositoryImpl @Inject constructor() : PreferencesRepository {
         dateTime.toEpochSecond(ZoneOffset.UTC)
     )
 
+    override fun removeAll() {
+        preferences.all.forEach {
+            remove(it.key)
+        }
+    }
+
     private fun getString(key: String): String {
         preferences.getString(key, null)?.let {
             return it
