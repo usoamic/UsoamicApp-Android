@@ -33,15 +33,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/unlock"
-            app:layout_constraintBottom_toTopOf="@id/btnForgot"
+            app:layout_constraintBottom_toTopOf="@id/btnLogout"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/btnForgot"
+            android:id="@+id/btnLogout"
             style="@style/App.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/forgot_password"
+            android:text="@string/logout"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

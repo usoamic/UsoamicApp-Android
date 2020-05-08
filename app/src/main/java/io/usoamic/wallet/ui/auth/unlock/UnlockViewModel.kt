@@ -12,6 +12,7 @@ class UnlockViewModel @Inject constructor(
     private val mModel: UnlockUseCase
 ) : BaseViewModel() {
     val leNext = LiveEvent<Unit>()
+    val leLogout = LiveEvent<Boolean>()
 
     fun onNextClick(password: String) {
         mModel.getAddress(password)
@@ -21,8 +22,21 @@ class UnlockViewModel @Inject constructor(
             .subscribe(::setData, ::throwError)
     }
 
-    fun onForgotClick() {
+    fun onLogoutClick() {
+        mModel.removeAccount()
+            .subscribeOnIo()
+            .observeOnMain()
+            .addProgress()
+            .subscribe({
+                onRemoveResult(true)
+            }, {
+                onRemoveResult(false)
+            })
+    }
 
+    private fun onRemoveResult(isRemoved: Boolean) {
+        mModel.removePreferences()
+        leLogout.emit(isRemoved)
     }
 
     private fun setData(address: String) {
