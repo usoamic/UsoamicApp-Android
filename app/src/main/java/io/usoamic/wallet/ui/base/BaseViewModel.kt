@@ -15,10 +15,12 @@ open class BaseViewModel : ViewModel() {
     val ldError = MutableLiveData<String>()
 
     open fun throwError(throwable: Throwable) {
+        throwable.printStackTrace()
         ldThrowable.value = ErrorArguments.Warning(throwable)
     }
 
     open fun throwErrorAndFinish(throwable: Throwable) {
+        throwable.printStackTrace()
         ldThrowable.value = ErrorArguments.Fatal(throwable)
     }
 

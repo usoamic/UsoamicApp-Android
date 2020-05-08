@@ -16,6 +16,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import io.usoamic.wallet.R
 import io.usoamic.wallet.domain.models.base.ErrorArguments
+import io.usoamic.wallet.extensions.showErrorDialogWithMessage
 
 
 abstract class BaseFragment(
@@ -71,25 +72,20 @@ abstract class BaseFragment(
         initBinding()
         initListeners()
     }
+
     protected open fun showErrorDialog(error: String) = showErrorDialog(error, false)
 
     protected open fun showErrorDialog(error: String, isFinish: Boolean) {
-        errorDialog = AlertDialog.Builder(requireContext())
-            .setTitle(getString(R.string.error))
-            .setMessage(error)
-            .setCancelable(false)
-            .setPositiveButton(
-                android.R.string.ok,
-                if (isFinish) {
-                    DialogInterface.OnClickListener { _, _ ->
-                        onBackButtonPressed()
-                    }
-                } else {
-                    null
+        errorDialog = showErrorDialogWithMessage(
+            error,
+            if (isFinish) {
+                DialogInterface.OnClickListener { _, _ ->
+                    onBackButtonPressed()
                 }
-            )
-            .setIcon(R.drawable.ic_launcher_foreground)
-            .show()
+            } else {
+                null
+            }
+        )
     }
 
     protected open fun showErrorDialog(error: ErrorArguments) {
