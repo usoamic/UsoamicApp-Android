@@ -90,7 +90,7 @@ dependencies {
     implementation deps.gson
     implementation deps.liveevent
     implementation deps.zxing
-
+    implementation deps.viewbindingpropertydelegate
     implementation (deps.web3j) {
         force = true
     }
