@@ -8,15 +8,16 @@ import javax.inject.Inject
 
 class DashboardViewModel @Inject constructor() : BaseViewModel() {
     val ldData = MutableLiveData<List<DashboardItem>>()
+    val ldShowSwipeRefresh = MutableLiveData<Boolean>()
 
     init {
         ldData.value = listOf(
             DashboardItem(
-                DashboardItemType.UsoBalance,
+                DashboardItemType.EthBalance,
                 "111"
             ),
             DashboardItem(
-                DashboardItemType.EthBalance,
+                DashboardItemType.UsoBalance,
                 "222"
             ),
             DashboardItem(
@@ -29,5 +30,9 @@ class DashboardViewModel @Inject constructor() : BaseViewModel() {
             )
 
         )
+    }
+
+    fun onRefresh() {
+        ldShowSwipeRefresh.value = false
     }
 }
