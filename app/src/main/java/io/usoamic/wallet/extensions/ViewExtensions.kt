@@ -5,9 +5,11 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.DialogInterface
+import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
@@ -15,6 +17,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import io.usoamic.wallet.R
+import io.usoamic.wallet.custom.adapter.BaseViewHolder
 
 fun Fragment.showMessage(message: String) {
     Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
@@ -100,3 +103,7 @@ fun Fragment.showDialogWithMessage(
 
     return builder.show()
 }
+
+fun <T> BaseViewHolder<T>.getString(@StringRes stringRes: Int): String = context.getString(stringRes)
+
+fun <T> BaseViewHolder<T>.getDrawable(@DrawableRes stringRes: Int): Drawable? = context.getDrawable(stringRes)
