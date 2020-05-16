@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.viewbinding.ViewBinding
 import io.usoamic.wallet.R
 import io.usoamic.wallet.domain.models.base.ErrorArguments
 import io.usoamic.wallet.extensions.showErrorDialogWithMessage
@@ -23,6 +24,7 @@ abstract class BaseFragment(
     @LayoutRes private val layoutRes: Int
 ) : Fragment() {
     protected lateinit var errorDialog: AlertDialog
+    protected abstract val binding: ViewBinding
 
     protected val navigator: NavController by lazy {
         NavHostFragment.findNavController(this)
@@ -41,7 +43,6 @@ abstract class BaseFragment(
     }
 
     protected open fun inject() = Unit
-    protected open fun initBinding() = Unit
     protected open fun initListeners() = Unit
     protected open fun showProgress(isProgress: Boolean) = Unit
 
@@ -69,7 +70,6 @@ abstract class BaseFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initBinding()
         initListeners()
     }
 

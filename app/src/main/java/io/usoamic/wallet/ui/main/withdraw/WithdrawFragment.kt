@@ -1,6 +1,7 @@
 package io.usoamic.wallet.ui.main.withdraw
 
 import androidx.fragment.app.viewModels
+import by.kirich1409.viewbindingdelegate.viewBinding
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentWithdrawBinding
@@ -12,14 +13,11 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory<WithdrawViewModel>
     override val viewModel: WithdrawViewModel by viewModels { viewModelFactory }
-    private lateinit var binding: FragmentWithdrawBinding
+    override val binding: FragmentWithdrawBinding by viewBinding {
+        FragmentWithdrawBinding.bind(it.requireView())
+    }
 
     override fun inject() {
         UsoamicWallet.component.withdrawSubcomponent.create().inject(this)
     }
-
-    override fun initBinding() {
-        binding = FragmentWithdrawBinding.bind(requireView())
-    }
-
 }

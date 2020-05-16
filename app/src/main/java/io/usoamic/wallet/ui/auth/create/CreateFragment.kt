@@ -6,6 +6,7 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import by.kirich1409.viewbindingdelegate.viewBinding
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.custom.listview.model.ListItem
@@ -22,7 +23,9 @@ class CreateFragment : BaseViewModelFragment(R.layout.fragment_create) {
     lateinit var viewModelFactory: ViewModelFactory<CreateViewModel>
     override val viewModel: CreateViewModel by viewModels { viewModelFactory }
 
-    lateinit var binding: FragmentCreateBinding
+    override val binding: FragmentCreateBinding by viewBinding {
+        FragmentCreateBinding.bind(it.requireView())
+    }
 
     override fun inject() {
         UsoamicWallet.component.createSubcomponent.create().inject(this)
@@ -31,10 +34,6 @@ class CreateFragment : BaseViewModelFragment(R.layout.fragment_create) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar()
-    }
-
-    override fun initBinding() {
-        binding = FragmentCreateBinding.bind(requireView())
     }
 
     override fun showProgress(isProgress: Boolean) {

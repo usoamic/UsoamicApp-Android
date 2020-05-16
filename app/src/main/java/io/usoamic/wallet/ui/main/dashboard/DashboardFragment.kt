@@ -1,6 +1,7 @@
 package io.usoamic.wallet.ui.main.dashboard
 
 import androidx.fragment.app.viewModels
+import by.kirich1409.viewbindingdelegate.viewBinding
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentDashboardBinding
@@ -12,13 +13,11 @@ class DashboardFragment : BaseViewModelFragment(R.layout.fragment_dashboard) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory<DashboardViewModel>
     override val viewModel: DashboardViewModel by viewModels { viewModelFactory }
-    private lateinit var binding: FragmentDashboardBinding
+    override val binding: FragmentDashboardBinding by viewBinding {
+        FragmentDashboardBinding.bind(it.requireView())
+    }
 
     override fun inject() {
         UsoamicWallet.component.dashboardSubcomponent.create().inject(this)
-    }
-
-    override fun initBinding() {
-        binding = FragmentDashboardBinding.bind(requireView())
     }
 }

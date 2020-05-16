@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import by.kirich1409.viewbindingdelegate.viewBinding
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentAddBinding
@@ -19,7 +20,9 @@ class AddFragment : BaseViewModelFragment(R.layout.fragment_add) {
     lateinit var viewModelFactory: ViewModelFactory<AddViewModel>
     override val viewModel: AddViewModel by viewModels { viewModelFactory }
 
-    lateinit var binding: FragmentAddBinding
+    override val binding: FragmentAddBinding by viewBinding {
+        FragmentAddBinding.bind(it.requireView())
+    }
 
     override fun inject() {
         UsoamicWallet.component.addSubcomponent.create().inject(this)
@@ -35,10 +38,6 @@ class AddFragment : BaseViewModelFragment(R.layout.fragment_add) {
         observe(viewModel.leAccountAdd) {
             goToUnlock()
         }
-    }
-
-    override fun initBinding() {
-        binding = FragmentAddBinding.bind(requireView())
     }
 
     override fun initListeners() {

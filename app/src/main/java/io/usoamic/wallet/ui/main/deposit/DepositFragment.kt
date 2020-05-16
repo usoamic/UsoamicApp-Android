@@ -3,8 +3,10 @@ package io.usoamic.wallet.ui.main.deposit
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import by.kirich1409.viewbindingdelegate.viewBinding
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
+import io.usoamic.wallet.databinding.FragmentAddBinding
 import io.usoamic.wallet.databinding.FragmentDepositBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
 import io.usoamic.wallet.domain.models.deposit.DepositInfo
@@ -17,14 +19,12 @@ class DepositFragment : BaseViewModelFragment(R.layout.fragment_deposit) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory<DepositViewModel>
     override val viewModel: DepositViewModel by viewModels { viewModelFactory }
-    private lateinit var binding: FragmentDepositBinding
+    override val binding: FragmentDepositBinding by viewBinding {
+        FragmentDepositBinding.bind(it.requireView())
+    }
 
     override fun inject() {
         UsoamicWallet.component.depositSubcomponent.create().inject(this)
-    }
-
-    override fun initBinding() {
-        binding = FragmentDepositBinding.bind(requireView())
     }
 
     override fun initObservers() {
