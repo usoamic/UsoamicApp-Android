@@ -1,6 +1,6 @@
 package io.usoamic.wallet.domain.repositories
 
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 import io.usoamic.usoamickt.core.Usoamic
 import io.usoamic.usoamickt.util.Coin
 import io.usoamic.wallet.exceptions.ContractNullException
@@ -16,26 +16,22 @@ class TokenRepositoryImpl @Inject constructor(
     override val usoBalance: Single<BigDecimal>
         get() {
             return Single.fromCallable {
-                usoamic.getUsoBalance()
+                usoamic.getUsoBalance().toCoin()
             }
-                .mapToUso()
                 .addDebugDelay()
         }
 
     override val usoSupply: Single<BigDecimal>
         get() {
             return Single.fromCallable {
-                usoamic.getSupply()
+                usoamic.getSupply().toCoin()
             }
-                .mapToUso()
                 .addDebugDelay()
         }
 
-    private fun Single<BigInteger?>.mapToUso(): Single<BigDecimal> {
-        return map { bi ->
-            bi?.let {
-                Coin.fromSat(it).toBigDecimal()
-            } ?: throw ContractNullException("mapToCoin()")
-        }
+    private fun BigInteger?.toCoin(): BigDecimal {
+        return this?.let {
+            Coin.fromSat(it).toBigDecimal()
+        } ?: throw ContractNullException("mapToCoin()")
     }
 }

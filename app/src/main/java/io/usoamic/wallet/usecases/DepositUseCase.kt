@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 import io.usoamic.wallet.domain.repositories.PreferencesRepository
 import io.usoamic.wallet.extensions.addDebugDelay
 import javax.inject.Inject
@@ -29,6 +29,7 @@ class DepositUseCase @Inject constructor(
                 }
             }
             bitmap
-        }.addDebugDelay()
+        }
+            .addDebugDelay()
     }
 }

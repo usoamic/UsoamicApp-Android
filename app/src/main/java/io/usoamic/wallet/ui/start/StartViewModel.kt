@@ -1,8 +1,8 @@
 package io.usoamic.wallet.ui.start
 
 import androidx.lifecycle.MutableLiveData
-import io.usoamic.wallet.extensions.observeOnMain
-import io.usoamic.wallet.extensions.subscribeOnIo
+import io.usoamic.wallet.extensions.addSchedulers
+
 import io.usoamic.wallet.ui.base.BaseViewModel
 import io.usoamic.wallet.usecases.StartUseCase
 import javax.inject.Inject
@@ -18,11 +18,11 @@ class StartViewModel @Inject constructor(
 
     private fun checkAccount() {
         mStartUseCase.hasAccount()
-            .subscribeOnIo()
-            .observeOnMain()
+            .addSchedulers()
             .addProgress()
             .subscribe({
                 ldHasAccount.value = it
             }, ::throwErrorAndFinish)
+            .addToDisposable()
     }
 }

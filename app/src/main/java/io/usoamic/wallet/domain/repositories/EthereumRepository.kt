@@ -1,6 +1,6 @@
 package io.usoamic.wallet.domain.repositories
 
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 import io.usoamic.wallet.domain.models.add.AddAccountModel
 import io.usoamic.wallet.domain.models.ethereum.AccountCredentials
 import java.math.BigDecimal

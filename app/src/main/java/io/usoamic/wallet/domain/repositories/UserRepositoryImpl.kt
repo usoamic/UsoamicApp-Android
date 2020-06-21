@@ -1,6 +1,6 @@
 package io.usoamic.wallet.domain.repositories
 
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 import io.usoamic.usoamickt.core.Usoamic
 import io.usoamic.wallet.extensions.addDebugDelay
 import javax.inject.Inject
@@ -23,6 +23,7 @@ class UserRepositoryImpl @Inject constructor(private val usoamic: Usoamic) : Use
     override fun removeAccount(): Single<Boolean> {
         return Single.fromCallable {
             usoamic.removeWallet()
-        }.addDebugDelay()
+        }
+            .addDebugDelay()
     }
 }

@@ -1,7 +1,7 @@
 package io.usoamic.wallet.usecases
 
-import io.reactivex.rxjava3.core.Single
-import io.reactivex.rxjava3.functions.BiFunction
+import io.reactivex.Single
+import io.reactivex.functions.BiFunction
 import io.usoamic.wallet.domain.models.add.AddAccountModel
 import io.usoamic.wallet.domain.repositories.*
 import javax.inject.Inject

@@ -1,6 +1,6 @@
 package io.usoamic.wallet.usecases
 
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 import io.usoamic.wallet.domain.repositories.EthereumRepository
 import io.usoamic.wallet.domain.repositories.PreferencesRepository
 import io.usoamic.wallet.domain.repositories.UserRepository

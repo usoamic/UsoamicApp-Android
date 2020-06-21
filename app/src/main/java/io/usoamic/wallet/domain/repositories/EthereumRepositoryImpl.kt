@@ -1,6 +1,6 @@
 package io.usoamic.wallet.domain.repositories
 
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 import io.usoamic.usoamickt.core.Usoamic
 import io.usoamic.wallet.domain.models.add.AddAccountModel
 import io.usoamic.wallet.domain.models.ethereum.AccountCredentials
@@ -22,13 +22,16 @@ class EthereumRepositoryImpl @Inject constructor(
             AddAccountModel(
                 usoamic.importPrivateKey(password, privateKey)//, UsoamicWallet.appInfo.dataDir)
             )
-        }.addDebugDelay()
+        }
+
+            .addDebugDelay()
     }
 
     override fun getAddress(password: String): Single<String> {
         return Single.fromCallable {
             usoamic.getAddress(password)
-        }.addDebugDelay()
+        }
+            .addDebugDelay()
     }
 
     override fun createCredentials(): Single<AccountCredentials> {
@@ -47,7 +50,7 @@ class EthereumRepositoryImpl @Inject constructor(
             return Single.fromCallable {
                 usoamic.getConvertedBalance()
             }
-                .addDebugDelay()
+               // .addDebugDelay()
         }
 
     override val ethHeight: Single<BigInteger>

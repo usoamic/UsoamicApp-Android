@@ -1,6 +1,6 @@
 package io.usoamic.wallet.domain.repositories
 
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 
 interface ValidateRepository {
     fun validatePasswords(password: String, confirmPassword: String): Single<Boolean>
