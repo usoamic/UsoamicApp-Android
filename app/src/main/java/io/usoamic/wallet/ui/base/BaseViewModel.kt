@@ -14,22 +14,22 @@ open class BaseViewModel : ViewModel() {
     val ldThrowable = MutableLiveData<ErrorArguments>()
     val ldError = MutableLiveData<String>()
 
-    open fun throwError(throwable: Throwable) {
+    protected open fun throwError(throwable: Throwable) {
         throwable.printStackTrace()
         ldThrowable.value = ErrorArguments.Warning(throwable)
     }
 
-    open fun throwErrorAndFinish(throwable: Throwable) {
+    protected open fun throwErrorAndFinish(throwable: Throwable) {
         throwable.printStackTrace()
         ldThrowable.value = ErrorArguments.Fatal(throwable)
     }
 
-    fun <T> Single<T>.addProgress(): Single<T> {
+    protected fun <T> Single<T>.addProgress(): Single<T> {
         return doOnSubscribe { ldProgress.value = true }
             .doAfterTerminate { ldProgress.value = false }
     }
 
-    fun Disposable.addToDisposable() {
+    protected fun Disposable.addToDisposable() {
         compositeDisposable.add(this)
     }
 
