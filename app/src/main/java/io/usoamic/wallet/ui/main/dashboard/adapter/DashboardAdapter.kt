@@ -22,28 +22,34 @@ class DashboardAdapter : BaseRecyclerAdapter<DashboardItem, DashboardAdapter.Vie
             ItemDashboardBinding.bind(view).apply {
                 val drawableRes: Int
                 val titleRes: Int
-                when (item.type) {
-                    DashboardItemType.EthBalance -> {
+                val value: String
+
+                when (item) {
+                    is DashboardItem.UsoBalance -> {
                         drawableRes = R.drawable.ic_asterisk
                         titleRes = R.string.title_dashboard_eth_balance
+                        value = item.data.stripTrailingZeros().toPlainString()
                     }
-                    DashboardItemType.UsoBalance -> {
+                    is DashboardItem.EthBalance -> {
                         drawableRes = R.drawable.ic_modx
                         titleRes = R.string.title_dashboard_uso_balance
+                        value = item.data.stripTrailingZeros().toPlainString()
                     }
-                    DashboardItemType.Height -> {
+                    is DashboardItem.Height -> {
                         drawableRes = R.drawable.ic_cubes
                         titleRes = R.string.title_dashboard_height
+                        value = item.data.toString()
                     }
-                    DashboardItemType.Supply -> {
+                    is DashboardItem.Supply -> {
                         drawableRes = R.drawable.ic_sync_alt
                         titleRes = R.string.title_dashboard_supply
+                        value = item.data.stripTrailingZeros().toPlainString()
                     }
                 }
                 val drawable = getDrawable(drawableRes)
                 ivIcon.setImageDrawable(drawable)
                 tvTitle.text = getString(titleRes)
-                tvValue.text = item.value
+                tvValue.text = value
             }
         }
     }

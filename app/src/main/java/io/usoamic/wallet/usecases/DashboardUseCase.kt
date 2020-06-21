@@ -1,9 +1,12 @@
 package io.usoamic.wallet.usecases
 
-import io.reactivex.rxjava3.core.Single
-import io.reactivex.rxjava3.functions.Function4
+import io.reactivex.Single
+import io.reactivex.functions.Function4
 import io.usoamic.wallet.domain.models.dashboard.DashboardInfo
+import io.usoamic.wallet.domain.models.dashboard.toDomain
+import io.usoamic.wallet.domain.models.dashboard.toRealm
 import io.usoamic.wallet.domain.repositories.EthereumRepository
+import io.usoamic.wallet.domain.repositories.RealmRepository
 import io.usoamic.wallet.domain.repositories.TokenRepository
 import java.math.BigDecimal
 import java.math.BigInteger
@@ -11,14 +14,25 @@ import javax.inject.Inject
 
 class DashboardUseCase @Inject constructor(
     private val mTokenRepository: TokenRepository,
-    private val mEthereumRepository: EthereumRepository
+    private val mEthereumRepository: EthereumRepository,
+    private val mRealmRepository: RealmRepository
 ) {
-
-    fun getDashboardInfoFromRealm(): Single<DashboardInfo> {
-        TODO()
+    fun getDashboardInfo(forceUpdate: Boolean): Single<DashboardInfo> {
+        return if(forceUpdate) {
+            getDashboardInfoFromNetwork()
+        }
+        else {
+            getDashboardInfoFromRealm()
+        }
     }
 
-    fun getDashboardInfoFromNetwork(): Single<DashboardInfo> {
+    private fun getDashboardInfoFromRealm(): Single<DashboardInfo> {
+        return mRealmRepository.getDashboardInfo()?.let {
+            Single.just(it.toDomain())
+        } ?: getDashboardInfoFromNetwork()
+    }
+
+    private fun getDashboardInfoFromNetwork(): Single<DashboardInfo> {
         return Single.zip(
             mEthereumRepository.ethBalance,
             mTokenRepository.usoBalance,
@@ -33,5 +47,9 @@ class DashboardUseCase @Inject constructor(
                 )
             }
         )
+            .map {
+                mRealmRepository.updateDashboardInfo(it.toRealm())
+                it
+            }
     }
 }
