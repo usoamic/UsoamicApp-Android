@@ -1,9 +1,9 @@
 package io.usoamic.wallet.ui.auth.unlock
 
 import com.hadilq.liveevent.LiveEvent
+import io.usoamic.wallet.extensions.addSchedulers
+
 import io.usoamic.wallet.extensions.emit
-import io.usoamic.wallet.extensions.observeOnMain
-import io.usoamic.wallet.extensions.subscribeOnIo
 import io.usoamic.wallet.ui.base.BaseViewModel
 import io.usoamic.wallet.usecases.UnlockUseCase
 import javax.inject.Inject
@@ -16,22 +16,22 @@ class UnlockViewModel @Inject constructor(
 
     fun onNextClick(password: String) {
         mModel.getAddress(password)
-            .subscribeOnIo()
-            .observeOnMain()
+            .addSchedulers()
             .addProgress()
             .subscribe(::setData, ::throwError)
+            .addToDisposable()
     }
 
     fun onLogoutClick() {
         mModel.removeAccount()
-            .subscribeOnIo()
-            .observeOnMain()
+            .addSchedulers()
             .addProgress()
             .subscribe({
                 onRemoveResult(true)
             }, {
                 onRemoveResult(false)
             })
+            .addToDisposable()
     }
 
     private fun onRemoveResult(isRemoved: Boolean) {
