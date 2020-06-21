@@ -6,19 +6,36 @@ import io.usoamic.usoamickt.util.Coin
 import io.usoamic.wallet.exceptions.ContractNullException
 import io.usoamic.wallet.extensions.addDebugDelay
 import java.math.BigDecimal
+import java.math.BigInteger
 import javax.inject.Inject
 
 class TokenRepositoryImpl @Inject constructor(
     private val usoamic: Usoamic
 ) : TokenRepository {
-    override fun getSupply(): Single<BigDecimal> {
-        return Single.fromCallable {
-            usoamic.getSupply()
-        }.map { bi ->
+
+    override val usoBalance: Single<BigDecimal>
+        get() {
+            return Single.fromCallable {
+                usoamic.getUsoBalance()
+            }
+                .mapToUso()
+                .addDebugDelay()
+        }
+
+    override val usoSupply: Single<BigDecimal>
+        get() {
+            return Single.fromCallable {
+                usoamic.getSupply()
+            }
+                .mapToUso()
+                .addDebugDelay()
+        }
+
+    private fun Single<BigInteger?>.mapToUso(): Single<BigDecimal> {
+        return map { bi ->
             bi?.let {
                 Coin.fromSat(it).toBigDecimal()
-            } ?: throw ContractNullException(this::getSupply.name)
-        }.addDebugDelay()
+            } ?: throw ContractNullException("mapToCoin()")
+        }
     }
-
 }

@@ -2,16 +2,16 @@ package io.usoamic.wallet.domain.repositories
 
 import io.reactivex.rxjava3.core.Single
 import io.usoamic.usoamickt.core.Usoamic
-import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.domain.models.add.AddAccountModel
 import io.usoamic.wallet.domain.models.ethereum.AccountCredentials
 import io.usoamic.wallet.domain.models.ethereum.toDomain
 import io.usoamic.wallet.extensions.addDebugDelay
 import io.usoamic.wallet.extensions.privateKey
-import io.usoamic.wallet.extensions.subscribeOnIo
 import org.web3j.crypto.Credentials
 import org.web3j.crypto.Keys
 import org.web3j.crypto.WalletUtils
+import java.math.BigDecimal
+import java.math.BigInteger
 import javax.inject.Inject
 
 class EthereumRepositoryImpl @Inject constructor(
@@ -20,7 +20,7 @@ class EthereumRepositoryImpl @Inject constructor(
     override fun addAccount(privateKey: String, password: String): Single<AddAccountModel> {
         return Single.fromCallable {
             AddAccountModel(
-                usoamic.importPrivateKey(password, privateKey, UsoamicWallet.appInfo.dataDir)
+                usoamic.importPrivateKey(password, privateKey)//, UsoamicWallet.appInfo.dataDir)
             )
         }.addDebugDelay()
     }
@@ -41,4 +41,20 @@ class EthereumRepositoryImpl @Inject constructor(
         }
             .addDebugDelay()
     }
+
+    override val ethBalance: Single<BigDecimal>
+        get() {
+            return Single.fromCallable {
+                usoamic.getConvertedBalance()
+            }
+                .addDebugDelay()
+        }
+
+    override val ethHeight: Single<BigInteger>
+        get() {
+            return Single.fromCallable {
+                usoamic.getEthHeight()
+            }
+                .addDebugDelay()
+        }
 }
