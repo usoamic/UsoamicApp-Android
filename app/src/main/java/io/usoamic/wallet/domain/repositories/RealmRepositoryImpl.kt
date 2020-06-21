@@ -1,17 +1,19 @@
 package io.usoamic.wallet.domain.repositories
 
-import io.reactivex.Single
 import io.realm.Realm
-import io.realm.kotlin.where
-import io.usoamic.wallet.domain.models.dashboard.DashboardInfo
+import io.realm.RealmConfiguration
 import io.usoamic.wallet.domain.models.realm.DashboardInfoRealm
-import io.usoamic.wallet.extensions.addDebugDelay
 import javax.inject.Inject
 
-class RealmRepositoryImpl @Inject constructor(
-    private val realm: Realm
-) : RealmRepository {
-    @Deprecated("Test method") override fun get(): Single<String> = Single.just(realm.version.toString()).addDebugDelay()
+
+class RealmRepositoryImpl @Inject constructor() : RealmRepository {
+    private val realmConfig = RealmConfiguration.Builder()
+        .name("realm")
+        .schemaVersion(4)
+        .deleteRealmIfMigrationNeeded()
+        .build()
+
+    private val realm: Realm get() = Realm.getInstance(realmConfig)
 
     override fun updateDashboardInfo(data: DashboardInfoRealm) {
         val realmData = DashboardInfoRealm(
