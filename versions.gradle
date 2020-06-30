@@ -21,6 +21,7 @@ versions.rxandroid3 = '3.0.0'
 versions.rxjava3 = '3.0.4'
 versions.rxkotlin3 = '3.0.0'
 versions.usoamickt = '1.2.1b6'
+versions.validateutilkt = '16304cc35d'
 versions.threetenabp = '1.2.3'
 versions.dagger = '2.27'
 versions.gson = "2.8.5"
@@ -118,6 +119,7 @@ deps.junit = junit
 
 def usoamic = [:]
 usoamic.kt = "com.github.usoamic:usoamickt:v$versions.usoamickt"
+usoamic.validateutilkt = "com.github.usoamic:validateutil:$versions.validateutilkt"
 deps.usoamic = usoamic
 
 ext.deps = deps
