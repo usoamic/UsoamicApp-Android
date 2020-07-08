@@ -7,11 +7,8 @@ import io.usoamic.wallet.domain.repositories.*
 import javax.inject.Inject
 
 class AddAccountUseCase @Inject constructor(
-    private val mTokenRepository: TokenRepository,
-    private val mRealmRepository: RealmRepository,
     private val mValidateRepository: ValidateRepository,
-    private val mEthereumRepository: EthereumRepository,
-    private val mUserRepository: UserRepository
+    private val mEthereumRepository: EthereumRepository
 ) {
     fun addAccount(privateKey: String, password: String, confirmPassword: String): Single<AddAccountModel> {
         return Single.zip(

@@ -15,10 +15,10 @@ class UsoamicModule {
     @Singleton
     fun provideContract(): Usoamic {
         return Usoamic(
-            BuildConfig.ACCOUNT_FILENAME,
-            UsoamicWallet.appInfo.dataDir,
-            NetworkType.valueOf(BuildConfig.FLAVOR),
-            NodeProvider.valueOf(
+            fileName = BuildConfig.ACCOUNT_FILENAME,
+            filePath = UsoamicWallet.appInfo.dataDir,
+            networkType = NetworkType.valueOf(BuildConfig.FLAVOR),
+            nodeProvider = NodeProvider.valueOf(
                 BuildConfig.NODE_PROVIDER,
                 BuildConfig.PROJECT_ID
             )

@@ -12,9 +12,6 @@ class AddViewModel @Inject constructor(
     private val mModel: AddAccountUseCase
 ) : BaseViewModel() {
     val leAccountAdd = LiveEvent<Unit>()
-    init {
-
-    }
 
     fun onAddClick(privateKey: String, password: String, confirmPassword: String) {
         mModel.addAccount(privateKey, password, confirmPassword)

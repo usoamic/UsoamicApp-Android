@@ -20,10 +20,9 @@ class EthereumRepositoryImpl @Inject constructor(
     override fun addAccount(privateKey: String, password: String): Single<AddAccountModel> {
         return Single.fromCallable {
             AddAccountModel(
-                usoamic.importPrivateKey(password, privateKey)//, UsoamicWallet.appInfo.dataDir)
+                usoamic.importPrivateKey(password, privateKey)
             )
         }
-
             .addDebugDelay()
     }
 
