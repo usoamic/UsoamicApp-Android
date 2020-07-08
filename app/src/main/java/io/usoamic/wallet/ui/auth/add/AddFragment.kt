@@ -56,7 +56,7 @@ class AddFragment : BaseViewModelFragment(R.layout.fragment_add) {
     }
 
     private fun goToUnlock() {
-        navigator.navigate(R.id.action_addFragment_to_walletFragment)
+        navigator.navigate(R.id.action_addFragment_to_unlockFragment)
     }
 
     private fun initToolbar() {
