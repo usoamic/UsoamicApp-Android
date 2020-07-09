@@ -12,51 +12,56 @@
         style="@style/App.Toolbar"
         app:title="@string/title_add_fragment" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clContainer"
-        android:layout_marginTop="?actionBarSize"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize">
 
-        <EditText
-            android:id="@+id/etPrivateKey"
-            style="@style/App.EditText"
-            android:hint="@string/private_key"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/etPassword"
-            style="@style/App.EditText"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPrivateKey" />
-
-        <EditText
-            android:id="@+id/etConfirmPassword"
-            style="@style/App.EditText"
-            android:hint="@string/confirm_password"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
-
-        <Button
-            android:id="@+id/btnAdd"
-            style="@style/App.Button"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/add_account"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/pbContainer"
-        layout="@layout/layout_progress_bar"
-        tools:visibility="invisible" />
+            <EditText
+                android:id="@+id/etPrivateKey"
+                style="@style/App.EditText"
+                android:hint="@string/private_key"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                style="@style/App.EditText"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etPrivateKey" />
+
+            <EditText
+                android:id="@+id/etConfirmPassword"
+                style="@style/App.EditText"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+            <Button
+                android:id="@+id/btnAdd"
+                style="@style/App.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_account"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/pbContainer"
+            layout="@layout/layout_progress_bar"
+            tools:visibility="invisible" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
