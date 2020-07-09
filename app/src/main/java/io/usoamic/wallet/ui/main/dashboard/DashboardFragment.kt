@@ -2,6 +2,7 @@ package io.usoamic.wallet.ui.main.dashboard
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,7 +45,10 @@ class DashboardFragment : BaseSrViewModelFragment(R.layout.fragment_dashboard) {
     }
 
     override fun showProgress(isProgress: Boolean) {
-        binding.flProgressBar.isVisible = isProgress
+        binding.apply {
+            pbContainer.progressBar.isVisible = isProgress
+            srLayout.isInvisible = isProgress
+        }
     }
 
     private fun setData(list: List<DashboardItem>) {
