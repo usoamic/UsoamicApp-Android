@@ -10,3 +10,11 @@ open class DashboardInfoRealm(
     var height: String? = null,
     var supply: String? = null
 ) : RealmObject()
+
+open class TransactionItemRealm(
+    @PrimaryKey var txId: Long = 0,
+    val from: String,
+    val to: String,
+    val value: String,
+    val timestamp: Long
+)
