@@ -2,8 +2,10 @@ package io.usoamic.wallet.domain.repositories
 
 import io.reactivex.Single
 import io.usoamic.usoamickt.core.Usoamic
+import io.usoamic.usoamickt.model.Transaction
 import io.usoamic.usoamickt.util.Coin
 import io.usoamic.wallet.exceptions.ContractNullException
+import io.usoamic.wallet.exceptions.orZero
 import io.usoamic.wallet.extensions.addDebugDelay
 import java.math.BigDecimal
 import java.math.BigInteger
@@ -28,6 +30,19 @@ class TokenRepositoryImpl @Inject constructor(
             }
                 .addDebugDelay()
         }
+
+    override val numberOfUserTransactions: Single<BigInteger>
+        get() {
+            return Single.fromCallable {
+                usoamic.getNumberOfTransactionsByAddress(usoamic.address).orZero()
+            }.addDebugDelay()
+        }
+
+    override fun getTransaction(txId: BigInteger): Single<Transaction> {
+        return Single.fromCallable {
+            usoamic.getTransaction(txId)
+        }.addDebugDelay()
+    }
 
     private fun BigInteger?.toCoin(): BigDecimal {
         return this?.let {
