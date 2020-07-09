@@ -17,4 +17,4 @@ open class TransactionItemRealm(
     val to: String,
     val value: String,
     val timestamp: Long
-)
+) : RealmObject()
