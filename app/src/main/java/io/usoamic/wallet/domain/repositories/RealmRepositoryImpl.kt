@@ -3,6 +3,7 @@ package io.usoamic.wallet.domain.repositories
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import io.usoamic.wallet.domain.models.realm.DashboardInfoRealm
+import io.usoamic.wallet.domain.models.realm.TransactionItemRealm
 import javax.inject.Inject
 
 
@@ -16,15 +17,23 @@ class RealmRepositoryImpl @Inject constructor() : RealmRepository {
     private val realm: Realm get() = Realm.getInstance(realmConfig)
 
     override fun updateDashboardInfo(data: DashboardInfoRealm) {
-        val realmData = DashboardInfoRealm(
-            ethBalance = data.ethBalance,
-            usoBalance = data.usoBalance,
-            height = data.height,
-            supply = data.supply
-        )
         realm.executeTransaction {
-            it.copyToRealmOrUpdate(realmData)
+            it.copyToRealmOrUpdate(data)
         }
+    }
+
+    override fun addTransactionItem(data: TransactionItemRealm) {
+        realm.executeTransaction {
+            val transaction =
+                it.where(TransactionItemRealm::class.java).equalTo("txId", data.txId).findFirst()
+            if (transaction == null) {
+                it.copyToRealm(data)
+            }
+        }
+    }
+
+    override fun getTransactions(data: TransactionItemRealm): List<TransactionItemRealm> {
+        return realm.where(TransactionItemRealm::class.java).findAll().toList()
     }
 
     override fun getDashboardInfo(): DashboardInfoRealm? {
