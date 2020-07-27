@@ -13,8 +13,8 @@ open class DashboardInfoRealm(
 
 open class TransactionItemRealm(
     @PrimaryKey var txId: Long = 0,
-    val from: String,
-    val to: String,
-    val value: String,
-    val timestamp: Long
+    var from: String? = null,
+    var to: String? = null,
+    var value: String? = null,
+    var timestamp: Long? = null
 ) : RealmObject()

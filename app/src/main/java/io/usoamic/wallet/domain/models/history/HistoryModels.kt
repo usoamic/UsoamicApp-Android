@@ -14,10 +14,10 @@ data class TransactionItem(
     val date: LocalDateTime
 )
 
-fun TransactionItemRealm.toRealm(): TransactionItem = TransactionItem(
+fun TransactionItemRealm.toDomain(): TransactionItem = TransactionItem(
     txId = txId,
-    from = from,
-    to = to,
-    value = Coin.fromCoin(value),
-    date = LocalDateTime.ofInstant(Instant.ofEpochMilli(timestamp), ZoneId.systemDefault())
+    from = from!!,
+    to = to!!,
+    value = Coin.fromCoin(value!!),
+    date = LocalDateTime.ofInstant(Instant.ofEpochMilli(timestamp!!), ZoneId.systemDefault())
 )
