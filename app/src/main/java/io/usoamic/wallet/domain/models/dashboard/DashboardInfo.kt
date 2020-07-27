@@ -21,10 +21,10 @@ data class DashboardInfo(
 }
 
 fun DashboardInfoRealm.toDomain() = DashboardInfo(
-    ethBalance = BigDecimal(ethBalance),
-    usoBalance = BigDecimal(usoBalance),
-    height = BigInteger(height),
-    supply = BigDecimal(supply)
+    ethBalance = BigDecimal(ethBalance!!),
+    usoBalance = BigDecimal(usoBalance!!),
+    height = BigInteger(height!!),
+    supply = BigDecimal(supply!!)
 )
 
 fun DashboardInfo.toRealm() = DashboardInfoRealm(
