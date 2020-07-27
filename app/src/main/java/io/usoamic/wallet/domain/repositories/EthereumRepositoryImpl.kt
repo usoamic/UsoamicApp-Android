@@ -49,7 +49,7 @@ class EthereumRepositoryImpl @Inject constructor(
             return Single.fromCallable {
                 usoamic.getConvertedBalance()
             }
-               // .addDebugDelay()
+               .addDebugDelay()
         }
 
     override val ethHeight: Single<BigInteger>
