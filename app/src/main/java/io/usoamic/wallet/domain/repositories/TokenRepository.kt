@@ -10,4 +10,5 @@ interface TokenRepository {
     val usoSupply: Single<BigDecimal>
     val numberOfUserTransactions: Single<BigInteger>
     fun getTransaction(txId: BigInteger): Single<Transaction>
+    fun getTransactionForAccount(txId: BigInteger): Single<Transaction>
 }

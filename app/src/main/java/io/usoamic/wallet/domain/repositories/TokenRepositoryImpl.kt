@@ -44,6 +44,12 @@ class TokenRepositoryImpl @Inject constructor(
         }.addDebugDelay()
     }
 
+    override fun getTransactionForAccount(txId: BigInteger): Single<Transaction> {
+        return Single.fromCallable {
+            usoamic.getTransactionByAddress(usoamic.address, txId)
+        }//.addDebugDelay()
+    }
+
     private fun BigInteger?.toCoin(): BigDecimal {
         return this?.let {
             Coin.fromSat(it).toBigDecimal()
