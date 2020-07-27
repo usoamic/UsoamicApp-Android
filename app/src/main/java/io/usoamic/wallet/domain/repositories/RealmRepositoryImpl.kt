@@ -32,7 +32,7 @@ class RealmRepositoryImpl @Inject constructor() : RealmRepository {
         }
     }
 
-    override fun getTransactions(data: TransactionItemRealm): List<TransactionItemRealm> {
+    override fun getTransactions(): List<TransactionItemRealm> {
         return realm.where(TransactionItemRealm::class.java).findAll().toList()
     }
 

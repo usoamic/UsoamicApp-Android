@@ -53,7 +53,7 @@ class TokenRepositoryImpl @Inject constructor(
         }.map {
             it.toDomain(address)
         }
-            .addDebugDelay()
+           // .addDebugDelay()
     }
 
     private fun BigInteger?.toCoin(): BigDecimal {

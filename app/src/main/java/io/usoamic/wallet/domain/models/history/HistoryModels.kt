@@ -27,6 +27,15 @@ fun TransactionItemRealm.toDomain(): TransactionItem = TransactionItem(
     timestamp = timestamp!!.toLong()
 )
 
+fun TransactionItem.toRealm(): TransactionItemRealm = TransactionItemRealm(
+    type = type.toString(),
+    txId = txId,
+    from = from,
+    to = to,
+    value = value.toBigDecimal().toPlainString(),
+    timestamp = timestamp
+)
+
 fun Transaction.toDomain(owner: String): TransactionItem = TransactionItem(
     type = when (owner) {
         from -> {

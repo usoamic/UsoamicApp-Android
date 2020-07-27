@@ -8,5 +8,5 @@ interface RealmRepository {
     fun addTransactionItem(data: TransactionItemRealm)
 
     fun getDashboardInfo(): DashboardInfoRealm?
-    fun getTransactions(data: TransactionItemRealm): List<TransactionItemRealm>
+    fun getTransactions(): List<TransactionItemRealm>
 }

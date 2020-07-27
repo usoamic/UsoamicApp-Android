@@ -13,6 +13,7 @@ open class DashboardInfoRealm(
 
 open class TransactionItemRealm(
     @PrimaryKey var txId: Long = 0,
+    var type: String? = null,
     var from: String? = null,
     var to: String? = null,
     var value: String? = null,
