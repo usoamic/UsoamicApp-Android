@@ -4,6 +4,8 @@ import io.reactivex.Single
 import io.usoamic.usoamickt.core.Usoamic
 import io.usoamic.usoamickt.model.Transaction
 import io.usoamic.usoamickt.util.Coin
+import io.usoamic.wallet.domain.models.history.TransactionItem
+import io.usoamic.wallet.domain.models.history.toDomain
 import io.usoamic.wallet.exceptions.ContractNullException
 import io.usoamic.wallet.exceptions.orZero
 import io.usoamic.wallet.extensions.addDebugDelay
@@ -14,6 +16,7 @@ import javax.inject.Inject
 class TokenRepositoryImpl @Inject constructor(
     private val usoamic: Usoamic
 ) : TokenRepository {
+    private val address = usoamic.address
 
     override val usoBalance: Single<BigDecimal>
         get() {
@@ -44,10 +47,13 @@ class TokenRepositoryImpl @Inject constructor(
         }.addDebugDelay()
     }
 
-    override fun getTransactionForAccount(txId: BigInteger): Single<Transaction> {
+    override fun getTransactionForAccount(txId: BigInteger): Single<TransactionItem> {
         return Single.fromCallable {
             usoamic.getTransactionByAddress(usoamic.address, txId)
-        }//.addDebugDelay()
+        }.map {
+            it.toDomain(address)
+        }
+            .addDebugDelay()
     }
 
     private fun BigInteger?.toCoin(): BigDecimal {
