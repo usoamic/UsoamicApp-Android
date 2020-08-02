@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/dashboardFragment"
-        android:icon="@drawable/ic_usoamic"
+        android:icon="@drawable/ic_bottom_dashboard"
         android:title="@string/title_dashboard_fragment" />
 
     <item
         android:id="@+id/depositFragment"
-        android:icon="@drawable/ic_usoamic"
+        android:icon="@drawable/ic_bottom_deposit"
         android:title="@string/title_deposit_fragment" />
 
     <item
         android:id="@+id/withdrawFragment"
-        android:icon="@drawable/ic_usoamic"
+        android:icon="@drawable/ic_bottom_withdraw"
         android:title="@string/title_withdraw_fragment" />
 
     <item
         android:id="@+id/historyFragment"
-        android:icon="@drawable/ic_usoamic"
+        android:icon="@drawable/ic_bottom_history"
         android:title="@string/title_history_fragment" />
 </menu>
