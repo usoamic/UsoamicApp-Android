@@ -32,4 +32,18 @@ class ValidateRepositoryImpl @Inject constructor() : ValidateRepository {
 
             .addDebugDelay()
     }
+
+    override fun validateTransferValue(value: String): Single<Boolean> {
+        return Single.fromCallable {
+            ValidateUtil.validateTransferValue(value)
+            true
+        }.addDebugDelay()
+    }
+
+    override fun validateAddress(address: String): Single<Boolean> {
+        return Single.fromCallable {
+            ValidateUtil.validateAddress(address)
+            true
+        }.addDebugDelay()
+    }
 }

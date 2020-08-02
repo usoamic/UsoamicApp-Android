@@ -30,11 +30,23 @@
     <string name="create_account">Create Account</string>
     <string name="add_account">Add Account</string>
     <string name="address">Address</string>
+    <string name="auto">Auto</string>
+    <string name="amount">Amount</string>
+    <string name="withdraw_uso">Withdraw USO</string>
+    <string name="withdraw_eth">Withdraw ETH</string>
     <string name="private_key">Private Key</string>
     <string name="copied_to_clipboard">Copied To Clipboard</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="need_save_private_key_warning">Please back up your private key in a reliable place! We DO NOT KEEP private keys. If you lose your private key, you won\'t be able to access your funds. </string>
+
+    <string name="gp_auto">Auto</string>
+    <string name="gp_20">20 Gwei</string>
+    <string name="gp_40">40 Gwei</string>
+    <string name="gp_60">60 Gwei</string>
+    <string name="gp_80">80 Gwei</string>
+    <string name="gp_100">100 Gwei</string>
+    <string name="gp_120">120 Gwei</string>
 
     <string name="empty_address">Address Required</string>
     <string name="empty_app_id">AppId Required</string>
