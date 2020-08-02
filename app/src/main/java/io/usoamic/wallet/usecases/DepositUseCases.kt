@@ -9,7 +9,7 @@ import io.usoamic.wallet.domain.repositories.PreferencesRepository
 import io.usoamic.wallet.extensions.addDebugDelay
 import javax.inject.Inject
 
-class DepositUseCase @Inject constructor(
+class DepositUseCases @Inject constructor(
     private val mPreferencesRepository: PreferencesRepository
 ) {
     fun getAddress(): String {

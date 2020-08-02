@@ -5,11 +5,11 @@ import io.usoamic.wallet.extensions.addSchedulers
 
 import io.usoamic.wallet.extensions.emit
 import io.usoamic.wallet.ui.base.BaseViewModel
-import io.usoamic.wallet.usecases.AddAccountUseCase
+import io.usoamic.wallet.usecases.AddAccountUseCases
 import javax.inject.Inject
 
 class AddViewModel @Inject constructor(
-    private val mModel: AddAccountUseCase
+    private val mModel: AddAccountUseCases
 ) : BaseViewModel() {
     val leAccountAdd = LiveEvent<Unit>()
 

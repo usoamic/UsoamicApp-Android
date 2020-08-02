@@ -8,7 +8,7 @@ import org.threeten.bp.ZoneOffset
 import org.threeten.bp.temporal.ChronoUnit
 import javax.inject.Inject
 
-class SingleUseCase @Inject constructor(
+class SingleUseCases @Inject constructor(
     private val mPreferencesRepository: PreferencesRepository
 ) {
     fun isNeedLocked(): Boolean {

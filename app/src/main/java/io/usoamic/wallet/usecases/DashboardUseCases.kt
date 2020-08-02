@@ -12,7 +12,7 @@ import java.math.BigDecimal
 import java.math.BigInteger
 import javax.inject.Inject
 
-class DashboardUseCase @Inject constructor(
+class DashboardUseCases @Inject constructor(
     private val mTokenRepository: TokenRepository,
     private val mEthereumRepository: EthereumRepository,
     private val mRealmRepository: RealmRepository

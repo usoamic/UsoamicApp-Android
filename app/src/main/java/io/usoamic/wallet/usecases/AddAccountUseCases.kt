@@ -6,7 +6,7 @@ import io.usoamic.wallet.domain.models.add.AddAccountModel
 import io.usoamic.wallet.domain.repositories.*
 import javax.inject.Inject
 
-class AddAccountUseCase @Inject constructor(
+class AddAccountUseCases @Inject constructor(
     private val mValidateRepository: ValidateRepository,
     private val mEthereumRepository: EthereumRepository
 ) {

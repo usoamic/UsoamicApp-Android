@@ -5,11 +5,11 @@ import io.usoamic.wallet.domain.models.deposit.DepositInfo
 import io.usoamic.wallet.extensions.addSchedulers
 
 import io.usoamic.wallet.ui.base.BaseViewModel
-import io.usoamic.wallet.usecases.DepositUseCase
+import io.usoamic.wallet.usecases.DepositUseCases
 import javax.inject.Inject
 
 class DepositViewModel @Inject constructor(
-    private val mDepositUseCase: DepositUseCase
+    private val mDepositUseCases: DepositUseCases
 ) : BaseViewModel() {
     val ldData = MutableLiveData<DepositInfo>()
 
@@ -18,8 +18,8 @@ class DepositViewModel @Inject constructor(
     }
 
     private fun getAddress() {
-        val address = mDepositUseCase.getAddress()
-        mDepositUseCase.generateQrCode(address)
+        val address = mDepositUseCases.getAddress()
+        mDepositUseCases.generateQrCode(address)
             .addSchedulers()
             .addProgress()
             .subscribe({

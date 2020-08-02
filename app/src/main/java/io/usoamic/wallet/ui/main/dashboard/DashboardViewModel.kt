@@ -5,11 +5,11 @@ import io.usoamic.wallet.domain.models.dashboard.DashboardInfo
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.ui.base.BaseSrViewModel
 import io.usoamic.wallet.ui.main.dashboard.adapter.DashboardItem
-import io.usoamic.wallet.usecases.DashboardUseCase
+import io.usoamic.wallet.usecases.DashboardUseCases
 import javax.inject.Inject
 
 class DashboardViewModel @Inject constructor(
-    private val mDashboardUseCase: DashboardUseCase
+    private val mDashboardUseCases: DashboardUseCases
 ) : BaseSrViewModel() {
     val ldData = MutableLiveData<List<DashboardItem>>()
 
@@ -18,7 +18,7 @@ class DashboardViewModel @Inject constructor(
     }
 
     private fun updateInfo(force: Boolean = false) {
-        mDashboardUseCase.getDashboardInfo(force)
+        mDashboardUseCases.getDashboardInfo(force)
             .addSchedulers()
             .addProgress(force)
             .subscribe(::onResult, ::throwError)

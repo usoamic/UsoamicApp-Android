@@ -9,7 +9,7 @@ import org.threeten.bp.LocalDateTime
 import org.threeten.bp.ZoneOffset
 import javax.inject.Inject
 
-class UnlockUseCase @Inject constructor(
+class UnlockUseCases @Inject constructor(
     private val mValidateRepository: ValidateRepository,
     private val mEthereumRepository: EthereumRepository,
     private val mUserRepository: UserRepository,

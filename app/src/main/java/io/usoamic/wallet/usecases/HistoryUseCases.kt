@@ -9,7 +9,7 @@ import io.usoamic.wallet.domain.repositories.TokenRepository
 import java.math.BigInteger
 import javax.inject.Inject
 
-class HistoryUseCase @Inject constructor(
+class HistoryUseCases @Inject constructor(
     private val mTokenRepository: TokenRepository,
     private val mRealmRepository: RealmRepository
 ) {

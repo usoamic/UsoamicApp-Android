@@ -5,11 +5,11 @@ import io.usoamic.wallet.extensions.addSchedulers
 
 import io.usoamic.wallet.extensions.emit
 import io.usoamic.wallet.ui.base.BaseViewModel
-import io.usoamic.wallet.usecases.UnlockUseCase
+import io.usoamic.wallet.usecases.UnlockUseCases
 import javax.inject.Inject
 
 class UnlockViewModel @Inject constructor(
-    private val mModel: UnlockUseCase
+    private val mModel: UnlockUseCases
 ) : BaseViewModel() {
     val leNext = LiveEvent<Unit>()
     val leLogout = LiveEvent<Boolean>()

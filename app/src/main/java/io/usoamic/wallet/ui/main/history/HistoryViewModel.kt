@@ -4,11 +4,11 @@ import androidx.lifecycle.MutableLiveData
 import io.usoamic.wallet.domain.models.history.TransactionItem
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.ui.base.BaseSrViewModel
-import io.usoamic.wallet.usecases.HistoryUseCase
+import io.usoamic.wallet.usecases.HistoryUseCases
 import javax.inject.Inject
 
 class HistoryViewModel @Inject constructor(
-    private val mUseCase: HistoryUseCase
+    private val mUseCases: HistoryUseCases
 ) : BaseSrViewModel() {
     val ldData = MutableLiveData<List<TransactionItem>>()
 
@@ -17,7 +17,7 @@ class HistoryViewModel @Inject constructor(
     }
 
     private fun updateTransactions(force: Boolean = false) {
-        mUseCase.getTransactions(force)
+        mUseCases.getTransactions(force)
             .addSchedulers()
             .addProgress()
             .subscribe(::setHistory, ::throwError)
