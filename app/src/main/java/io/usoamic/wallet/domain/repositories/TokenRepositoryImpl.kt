@@ -2,11 +2,13 @@ package io.usoamic.wallet.domain.repositories
 
 import io.reactivex.Single
 import io.usoamic.usoamickt.core.Usoamic
-import io.usoamic.usoamickt.enumcls.TxSpeed
 import io.usoamic.usoamickt.model.Transaction
 import io.usoamic.usoamickt.util.Coin
 import io.usoamic.wallet.domain.models.history.TransactionItem
 import io.usoamic.wallet.domain.models.history.toDomain
+import io.usoamic.wallet.domain.models.withdraw.WithdrawCoin.ETH
+import io.usoamic.wallet.domain.models.withdraw.WithdrawCoin.USO
+import io.usoamic.wallet.domain.models.withdraw.WithdrawData
 import io.usoamic.wallet.exceptions.ContractNullException
 import io.usoamic.wallet.exceptions.orZero
 import io.usoamic.wallet.extensions.addDebugDelay
@@ -57,35 +59,22 @@ class TokenRepositoryImpl @Inject constructor(
         // .addDebugDelay()
     }
 
-    override fun transferUso(
-        password: String,
-        to: String,
-        value: BigInteger,
-        txSpeed: TxSpeed
-    ): Single<String> {
+    override fun withdraw(data: WithdrawData): Single<String> {
         return Single.fromCallable {
-            usoamic.transferUso(
-                password,
-                to,
-                value,
-                txSpeed
-            )
-        }.addDebugDelay()
-    }
-
-    override fun transferEth(
-        password: String,
-        to: String,
-        value: BigInteger,
-        txSpeed: TxSpeed
-    ): Single<String> {
-        return Single.fromCallable {
-            usoamic.transferEth(
-                password,
-                to,
-                value,
-                txSpeed
-            )
+            when(data.coin) {
+                ETH -> usoamic.transferEth(
+                    password = data.password,
+                    to = data.to,
+                    value = data.value,
+                    txSpeed = data.txSpeed
+                )
+                USO -> usoamic.transferUso(
+                    password = data.password,
+                    to = data.to,
+                    value = data.value,
+                    txSpeed = data.txSpeed
+                )
+            }
         }.addDebugDelay()
     }
 

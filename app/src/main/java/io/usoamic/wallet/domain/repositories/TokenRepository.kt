@@ -1,9 +1,9 @@
 package io.usoamic.wallet.domain.repositories
 
 import io.reactivex.Single
-import io.usoamic.usoamickt.enumcls.TxSpeed
 import io.usoamic.usoamickt.model.Transaction
 import io.usoamic.wallet.domain.models.history.TransactionItem
+import io.usoamic.wallet.domain.models.withdraw.WithdrawData
 import java.math.BigDecimal
 import java.math.BigInteger
 
@@ -19,17 +19,7 @@ interface TokenRepository {
         txId: BigInteger
     ): Single<TransactionItem>
 
-    fun transferUso(
-        password: String,
-        to: String,
-        value: BigInteger,
-        txSpeed: TxSpeed = TxSpeed.Auto
-    ): Single<String>
-
-    fun transferEth(
-        password: String,
-        to: String,
-        value: BigInteger,
-        txSpeed: TxSpeed = TxSpeed.Auto
+    fun withdraw(
+        data: WithdrawData
     ): Single<String>
 }
