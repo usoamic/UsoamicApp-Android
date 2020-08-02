@@ -2,6 +2,7 @@ package io.usoamic.wallet.domain.repositories
 
 import io.reactivex.Single
 import io.usoamic.usoamickt.core.Usoamic
+import io.usoamic.usoamickt.enumcls.TxSpeed
 import io.usoamic.usoamickt.model.Transaction
 import io.usoamic.usoamickt.util.Coin
 import io.usoamic.wallet.domain.models.history.TransactionItem
@@ -53,7 +54,39 @@ class TokenRepositoryImpl @Inject constructor(
         }.map {
             it.toDomain(address)
         }
-           // .addDebugDelay()
+        // .addDebugDelay()
+    }
+
+    override fun transferUso(
+        password: String,
+        to: String,
+        value: BigInteger,
+        txSpeed: TxSpeed
+    ): Single<String> {
+        return Single.fromCallable {
+            usoamic.transferUso(
+                password,
+                to,
+                value,
+                txSpeed
+            )
+        }.addDebugDelay()
+    }
+
+    override fun transferEth(
+        password: String,
+        to: String,
+        value: BigInteger,
+        txSpeed: TxSpeed
+    ): Single<String> {
+        return Single.fromCallable {
+            usoamic.transferEth(
+                password,
+                to,
+                value,
+                txSpeed
+            )
+        }.addDebugDelay()
     }
 
     private fun BigInteger?.toCoin(): BigDecimal {
