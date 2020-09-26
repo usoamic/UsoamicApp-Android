@@ -17,12 +17,12 @@ class UnlockUseCases @Inject constructor(
 ) {
     fun getAddress(password: String): Single<String> {
         return mValidateRepository.validatePassword(password)
-            .flatMap {
+            .andThen(
                 mEthereumRepository.getAddress(password)
                     .map {
                         it
                     }
-            }
+            )
     }
 
     fun saveData(address: String) {
