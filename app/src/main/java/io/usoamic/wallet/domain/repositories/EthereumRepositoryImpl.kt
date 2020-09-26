@@ -5,11 +5,13 @@ import io.usoamic.usoamickt.core.Usoamic
 import io.usoamic.wallet.domain.models.add.AddAccountModel
 import io.usoamic.wallet.domain.models.ethereum.AccountCredentials
 import io.usoamic.wallet.domain.models.ethereum.toDomain
+import io.usoamic.wallet.domain.models.withdraw.WithdrawData
 import io.usoamic.wallet.extensions.addDebugDelay
 import io.usoamic.wallet.extensions.privateKey
 import org.web3j.crypto.Credentials
 import org.web3j.crypto.Keys
 import org.web3j.crypto.WalletUtils
+import org.web3j.utils.Convert
 import java.math.BigDecimal
 import java.math.BigInteger
 import javax.inject.Inject
@@ -49,7 +51,7 @@ class EthereumRepositoryImpl @Inject constructor(
             return Single.fromCallable {
                 usoamic.getConvertedBalance()
             }
-               .addDebugDelay()
+                .addDebugDelay()
         }
 
     override val ethHeight: Single<BigInteger>
@@ -59,4 +61,16 @@ class EthereumRepositoryImpl @Inject constructor(
             }
                 .addDebugDelay()
         }
+
+    override fun withdraw(data: WithdrawData): Single<String> {
+        return Single.fromCallable {
+            val value = Convert.toWei(data.value, Convert.Unit.ETHER)
+            usoamic.transferEth(
+                password = data.password,
+                to = data.to,
+                value = value.toBigInteger(),
+                txSpeed = data.txSpeed
+            )
+        }.addDebugDelay()
+    }
 }

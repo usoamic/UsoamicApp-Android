@@ -61,21 +61,15 @@ class TokenRepositoryImpl @Inject constructor(
 
     override fun withdraw(data: WithdrawData): Single<String> {
         return Single.fromCallable {
-            when(data.coin) {
-                ETH -> usoamic.transferEth(
-                    password = data.password,
-                    to = data.to,
-                    value = data.value,
-                    txSpeed = data.txSpeed
-                )
-                USO -> usoamic.transferUso(
-                    password = data.password,
-                    to = data.to,
-                    value = data.value,
-                    txSpeed = data.txSpeed
-                )
-            }
-        }.addDebugDelay()
+            val value = Coin.fromCoin(data.value).toSat()
+            usoamic.transferUso(
+                password = data.password,
+                to = data.to,
+                value = value,
+                txSpeed = data.txSpeed
+            )
+        }
+            .addDebugDelay()
     }
 
     private fun BigInteger?.toCoin(): BigDecimal {
