@@ -17,6 +17,7 @@ import io.usoamic.wallet.di.other.ViewModelFactory
 import io.usoamic.wallet.domain.models.withdraw.WithdrawCoin
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.extensions.showMessage
+import io.usoamic.wallet.extensions.value
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
 import javax.inject.Inject
 
@@ -67,8 +68,10 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
 
     private fun initTxSpeed() {
         binding.etTxSpeed.apply {
-            setOnFocusChangeListener { _, _ ->
-                showSelectGasPriceDialog()
+            setOnFocusChangeListener { _, hasFocus ->
+                if(hasFocus) {
+                    showSelectGasPriceDialog()
+                }
             }
             setOnClickListener {
                 showSelectGasPriceDialog()
@@ -116,7 +119,7 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
     }
 
     private fun setGasPrice(txSpeed: TxSpeed) {
-        val gasPriceResId = when(txSpeed) {
+        val gasPriceResId = when (txSpeed) {
             TxSpeed.Auto -> R.string.gp_auto
             TxSpeed.GP20 -> R.string.gp_20
             TxSpeed.GP40 -> R.string.gp_40
@@ -135,16 +138,16 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
         binding.apply {
             viewModel.withdraw(
                 coin = coin,
-                password = etPassword.toString(),
-                to = etAddress.toString(),
-                value = etValue.toString(),
-                gasPrice = etTxSpeed.toString()
+                password = etPassword.value,
+                to = etAddress.value,
+                value = etValue.value,
+                gasPrice = etTxSpeed.value
             )
         }
     }
 
     override fun onDestroyView() {
-        if(::txSpeedDialog.isInitialized) {
+        if (::txSpeedDialog.isInitialized) {
             txSpeedDialog.dismiss()
         }
         super.onDestroyView()
