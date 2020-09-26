@@ -1,49 +1,38 @@
 package io.usoamic.wallet.domain.repositories
 
-import io.reactivex.Single
+import io.reactivex.Completable
 import io.usoamic.validateutilkt.ValidateUtil
 import io.usoamic.wallet.extensions.addDebugDelay
 import javax.inject.Inject
 
 class ValidateRepositoryImpl @Inject constructor() : ValidateRepository {
-    override fun validatePasswords(password: String, confirmPassword: String): Single<Boolean> {
-        return Single.fromCallable {
+    override fun validatePasswords(password: String, confirmPassword: String): Completable {
+        return Completable.fromAction {
             ValidateUtil.validatePasswords(password, confirmPassword)
-            true
-        }
-
-            .addDebugDelay()
-    }
-
-    override fun validatePassword(password: String): Single<Boolean> {
-        return Single.fromCallable {
-            ValidateUtil.validatePassword(password)
-            true
-        }
-
-            .addDebugDelay()
-    }
-
-    override fun validatePrivateKey(privateKey: String): Single<Boolean> {
-        return Single.fromCallable {
-            ValidateUtil.validatePrivateKey(privateKey)
-            true
-        }
-
-            .addDebugDelay()
-    }
-
-    override fun validateTransferValue(value: String): Single<Boolean> {
-        return Single.fromCallable {
-            ValidateUtil.validateTransferValue(value)
-            true
         }.addDebugDelay()
     }
 
-    override fun validateAddress(address: String): Single<Boolean> {
-        return Single.fromCallable {
+    override fun validatePassword(password: String): Completable {
+        return Completable.fromAction {
+            ValidateUtil.validatePassword(password)
+        }.addDebugDelay()
+    }
+
+    override fun validatePrivateKey(privateKey: String): Completable {
+        return Completable.fromAction {
+            ValidateUtil.validatePrivateKey(privateKey)
+        }.addDebugDelay()
+    }
+
+    override fun validateTransferValue(value: String): Completable {
+        return Completable.fromAction {
+            ValidateUtil.validateTransferValue(value)
+        }.addDebugDelay()
+    }
+
+    override fun validateAddress(address: String): Completable {
+        return Completable.fromAction {
             ValidateUtil.validateAddress(address)
-            true
         }.addDebugDelay()
     }
 }

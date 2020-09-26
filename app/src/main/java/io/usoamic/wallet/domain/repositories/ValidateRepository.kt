@@ -1,11 +1,11 @@
 package io.usoamic.wallet.domain.repositories
 
-import io.reactivex.Single
+import io.reactivex.Completable
 
 interface ValidateRepository {
-    fun validatePasswords(password: String, confirmPassword: String): Single<Boolean>
-    fun validatePassword(password: String): Single<Boolean>
-    fun validatePrivateKey(privateKey: String): Single<Boolean>
-    fun validateAddress(address: String): Single<Boolean>
-    fun validateTransferValue(value: String): Single<Boolean>
+    fun validatePasswords(password: String, confirmPassword: String): Completable
+    fun validatePassword(password: String): Completable
+    fun validatePrivateKey(privateKey: String): Completable
+    fun validateAddress(address: String): Completable
+    fun validateTransferValue(value: String): Completable
 }
