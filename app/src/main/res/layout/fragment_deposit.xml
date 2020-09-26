@@ -13,16 +13,14 @@
         app:title="@string/title_deposit_fragment" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clContainer"
         android:layout_marginStart="@dimen/default_indent"
         android:layout_marginEnd="@dimen/default_indent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?actionBarSize"
-        android:visibility="gone"
-        tools:visibility="visible">
+        android:layout_marginTop="?actionBarSize">
 
         <LinearLayout
+            android:id="@+id/llContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -48,10 +46,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView"
                 tools:text="@string/address" />
         </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <include
-        android:id="@+id/pbContainer"
-        layout="@layout/layout_progress_bar"
-        tools:visibility="invisible" />
+        <include
+            android:id="@+id/pbContainer"
+            layout="@layout/layout_progress_bar"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

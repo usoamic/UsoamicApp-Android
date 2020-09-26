@@ -35,7 +35,7 @@ class DepositFragment : BaseViewModelFragment(R.layout.fragment_deposit) {
     override fun showProgress(isProgress: Boolean) {
         binding.apply {
             pbContainer.progressBar.isVisible = isProgress
-            clContainer.isInvisible = isProgress
+            llContainer.isInvisible = isProgress
         }
     }
 
@@ -43,7 +43,7 @@ class DepositFragment : BaseViewModelFragment(R.layout.fragment_deposit) {
         val address = info.address
         binding.apply {
             tvAddress.text = address
-            clContainer.setOnClickListener {
+            llContainer.setOnClickListener {
                 copyToClipboard(address)
             }
             ivQrCode.setImageBitmap(info.qrCode)
