@@ -1,6 +1,7 @@
 package io.usoamic.wallet.ui.single
 
 import com.hadilq.liveevent.LiveEvent
+import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.extensions.emit
 import io.usoamic.wallet.ui.base.BaseViewModel
 import io.usoamic.wallet.usecases.SingleUseCases
@@ -12,14 +13,16 @@ class SingleViewModel @Inject constructor(
     val leLocked = LiveEvent<Unit>()
 
     fun checkThatNeedLock() {
-        try {
-            if (mUseCases.isNeedLocked()) {
-                mUseCases.lockApp()
-                leLocked.emit()
-            }
-        }
-        catch (t: Throwable) {
-            t.printStackTrace()
+        mUseCases.hasAccount()
+            .addSchedulers()
+            .subscribe(::tryLockApp, ::throwError)
+            .addToDisposable()
+    }
+
+    private fun tryLockApp(hasAccount: Boolean) {
+        if (hasAccount && mUseCases.isNeedLocked()) {
+            mUseCases.lockApp()
+            leLocked.emit()
         }
     }
 }

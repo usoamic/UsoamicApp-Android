@@ -1,7 +1,9 @@
 package io.usoamic.wallet.usecases
 
+import io.reactivex.Single
 import io.usoamic.wallet.BuildConfig
 import io.usoamic.wallet.domain.repositories.PreferencesRepository
+import io.usoamic.wallet.domain.repositories.UserRepository
 import io.usoamic.wallet.util.PreferenceKey
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.ZoneOffset
@@ -9,8 +11,13 @@ import org.threeten.bp.temporal.ChronoUnit
 import javax.inject.Inject
 
 class SingleUseCases @Inject constructor(
+    private val mUserRepository: UserRepository,
     private val mPreferencesRepository: PreferencesRepository
 ) {
+    fun hasAccount(): Single<Boolean> {
+        return mUserRepository.hasAccount()
+    }
+
     fun isNeedLocked(): Boolean {
         val unlockTime = mPreferencesRepository.getUnlockTime()
         val currentTime = LocalDateTime.now(ZoneOffset.UTC)
