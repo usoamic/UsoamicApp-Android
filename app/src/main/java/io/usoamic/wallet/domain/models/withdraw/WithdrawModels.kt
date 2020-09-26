@@ -1,13 +1,12 @@
 package io.usoamic.wallet.domain.models.withdraw
 
 import io.usoamic.usoamickt.enumcls.TxSpeed
-import java.math.BigInteger
+import java.math.BigDecimal
 
 data class WithdrawData(
-    val coin: WithdrawCoin,
     val password: String,
     val to: String,
-    val value: BigInteger,
+    val value: BigDecimal,
     val txSpeed: TxSpeed
 )
 
