@@ -22,7 +22,7 @@
     <string name="logout_message">Are you sure you want to DELETE wallet?</string>
     <string name="remove_wallet_error">Failed to remove account</string>
 
-    <string name="app_name">UsoWallet-Android</string>
+    <string name="app_name">UsoWallet</string>
     <string name="title">Usoamic</string>
     <string name="error">Error</string>
     <string name="unknown_error">Unknown error</string>
