@@ -47,12 +47,14 @@
 
                 <Button
                     android:id="@+id/addBtn"
+                    style="@style/App.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/add_account" />
 
                 <Button
                     android:id="@+id/createBtn"
+                    style="@style/App.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/create_account" />
