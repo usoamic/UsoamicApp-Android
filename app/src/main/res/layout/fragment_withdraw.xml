@@ -43,7 +43,7 @@
             <EditText
                 android:id="@+id/etValue"
                 style="@style/App.EditText"
-                android:hint="@string/amount"
+                android:hint="@string/value"
                 android:inputType="numberDecimal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

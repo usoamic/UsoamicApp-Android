@@ -31,7 +31,7 @@
     <string name="add_account">Add Account</string>
     <string name="address">Address</string>
     <string name="auto">Auto</string>
-    <string name="amount">Amount</string>
+    <string name="value">Value</string>
     <string name="withdraw_uso">Withdraw USO</string>
     <string name="withdraw_eth">Withdraw ETH</string>
     <string name="private_key">Private Key</string>
