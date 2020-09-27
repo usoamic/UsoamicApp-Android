@@ -20,7 +20,8 @@
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/srLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            tools:visibility="visible">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
@@ -28,6 +29,13 @@
                 android:layout_height="wrap_content"
                 tools:listitem="@layout/item_dashboard" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <io.usoamic.wallet.custom.other.NoDataView
+            android:id="@+id/viewNoData"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:visibility="visible"/>
 
         <include
             android:id="@+id/pbContainer"

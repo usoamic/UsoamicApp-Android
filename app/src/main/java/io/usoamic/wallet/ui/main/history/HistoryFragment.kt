@@ -46,6 +46,7 @@ class HistoryFragment : BaseSrViewModelFragment(R.layout.fragment_history) {
     }
 
     private fun setData(list: List<TransactionItem>) {
+        binding.viewNoData.isVisible = list.isEmpty()
         historyAdapter.addAll(list)
     }
 
