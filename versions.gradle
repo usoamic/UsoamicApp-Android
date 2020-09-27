@@ -119,7 +119,7 @@ deps.junit = junit
 
 def usoamic = [:]
 usoamic.kt = "com.github.usoamic:usoamickt:v$versions.usoamickt"
-usoamic.validateutilkt = "com.github.usoamic:validateutil:$versions.validateutilkt"
+usoamic.validateutilkt = "com.github.usoamic:validateutil:v$versions.validateutilkt"
 deps.usoamic = usoamic
 
 ext.deps = deps
