@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UsoWallet</string>
+    <string name="app_name">Usoamic Wallet</string>
 
     <!-- Titles -->
     <string name="title_auth_fragment">Authorization</string>
