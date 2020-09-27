@@ -1,4 +1,6 @@
 <resources>
+    <string name="app_name">UsoWallet</string>
+
     <!-- Titles -->
     <string name="title_auth_fragment">Authorization</string>
     <string name="title_add_fragment">Add</string>
@@ -8,6 +10,7 @@
     <string name="title_deposit_fragment">Deposit</string>
     <string name="title_withdraw_fragment">Withdraw</string>
     <string name="title_history_fragment">History</string>
+    <string name="title">Usoamic Wallet</string>
 
     <!-- Dashboard -->
     <string name="title_dashboard_eth_balance">USO Balance</string>
@@ -19,35 +22,12 @@
     <string name="next">Next</string>
     <string name="unlock">Unlock</string>
     <string name="logout">Logout</string>
-    <string name="logout_message">Are you sure you want to DELETE wallet?</string>
     <string name="remove_wallet_error">Failed to remove account</string>
-
-    <string name="app_name">UsoWallet</string>
-    <string name="title">Usoamic Wallet</string>
-    <string name="error">Error</string>
-    <string name="unknown_error">Unknown error</string>
-
-    <string name="create_account">Create Account</string>
-    <string name="add_account">Add Account</string>
-    <string name="address">Address</string>
-    <string name="auto">Auto</string>
-    <string name="value">Value</string>
     <string name="withdraw_uso">Withdraw USO</string>
     <string name="withdraw_eth">Withdraw ETH</string>
-    <string name="private_key">Private Key</string>
-    <string name="copied_to_clipboard">Copied To Clipboard</string>
-    <string name="password">Password</string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="need_save_private_key_warning">Please back up your private key in a reliable place! We DO NOT KEEP private keys. If you lose your private key, you won\'t be able to access your funds. </string>
 
-    <string name="gp_auto">Auto</string>
-    <string name="gp_20">20 Gwei</string>
-    <string name="gp_40">40 Gwei</string>
-    <string name="gp_60">60 Gwei</string>
-    <string name="gp_80">80 Gwei</string>
-    <string name="gp_100">100 Gwei</string>
-    <string name="gp_120">120 Gwei</string>
-
+    <!-- Messages -->
+    <string name="logout_message">Are you sure you want to DELETE wallet?</string>
     <string name="empty_address">Address Required</string>
     <string name="empty_app_id">AppId Required</string>
     <string name="empty_comment">Comment Required</string>
@@ -66,4 +46,28 @@
     <string name="invalid_value">Invalid Value</string>
     <string name="passwords_do_not_match">Passwords don\'t match</string>
     <string name="private_key_required">Private Key Required</string>
+    <string name="need_save_private_key_warning">Please back up your private key in a reliable place! We DO NOT KEEP private keys. If you lose your private key, you won\'t be able to access your funds. </string>
+
+    <!-- Gas Price -->
+    <string name="gp_auto">Auto</string>
+    <string name="gp_20">20 Gwei</string>
+    <string name="gp_40">40 Gwei</string>
+    <string name="gp_60">60 Gwei</string>
+    <string name="gp_80">80 Gwei</string>
+    <string name="gp_100">100 Gwei</string>
+    <string name="gp_120">120 Gwei</string>
+
+    <!-- Other -->
+    <string name="error">Error</string>
+    <string name="no_data">No Data</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="create_account">Create Account</string>
+    <string name="add_account">Add Account</string>
+    <string name="address">Address</string>
+    <string name="auto">Auto</string>
+    <string name="value">Value</string>
+    <string name="private_key">Private Key</string>
+    <string name="copied_to_clipboard">Copied To Clipboard</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>
