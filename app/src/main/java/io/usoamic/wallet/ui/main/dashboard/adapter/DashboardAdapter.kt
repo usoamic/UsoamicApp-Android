@@ -3,6 +3,7 @@ package io.usoamic.wallet.ui.main.dashboard.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import io.usoamic.wallet.R
 import io.usoamic.wallet.databinding.ItemDashboardBinding
 import io.usoamic.wallet.custom.adapter.BaseRecyclerAdapter
@@ -50,6 +51,7 @@ class DashboardAdapter : BaseRecyclerAdapter<DashboardItem, DashboardAdapter.Vie
                 ivIcon.setImageDrawable(drawable)
                 tvTitle.text = getString(titleRes)
                 tvValue.text = value
+                bottom.isVisible = (adapterPosition == lastItem)
             }
         }
     }

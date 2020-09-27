@@ -3,6 +3,7 @@ package io.usoamic.wallet.ui.main.history.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import io.usoamic.wallet.R
 import io.usoamic.wallet.custom.adapter.BaseRecyclerAdapter
 import io.usoamic.wallet.custom.adapter.BaseViewHolder
@@ -52,6 +53,7 @@ class HistoryAdapter : BaseRecyclerAdapter<TransactionItem, HistoryAdapter.ViewH
                 tvAddress.text = address
                 tvAmount.text = "${item.value.toBigDecimal().stripTrailingZeros().toPlainString()} USO"
                 tvDate.text = formatter.format(date)
+                bottom.isVisible = (adapterPosition == lastItem)
             }
         }
     }

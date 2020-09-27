@@ -19,7 +19,7 @@ class HistoryViewModel @Inject constructor(
     private fun updateTransactions(force: Boolean = false) {
         mUseCases.getTransactions(force)
             .addSchedulers()
-            .addProgress()
+            .addProgress(force)
             .subscribe(::setHistory, ::throwError)
             .addToDisposable()
     }
