@@ -13,4 +13,8 @@ abstract class BaseFrameLayout @JvmOverloads constructor(
     private val view: View by lazy { View.inflate(context, layoutRes, this) }
     protected abstract val binding: ViewBinding
     protected fun requireView(): View = view
+
+    init {
+        view
+    }
 }
