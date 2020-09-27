@@ -1,20 +1,52 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+apply plugin: 'realm-android'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "29.0.3"
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
+
+    viewBinding {
+        enabled = true
+    }
 
     defaultConfig {
         applicationId "io.usoamic.wallet"
-        minSdkVersion 21
-        targetSdkVersion 28
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
+
+        buildConfigField "String", "ACCOUNT_FILENAME", '"account.json"'
+        buildConfigField "String", "NODE_PROVIDER", '"infura"'
+        buildConfigField "String", "DATE_FORMAT", '"yyyy-MM-dd HH:mm"'
+        buildConfigField "String", "PROJECT_ID", '"fa8e5195184149f79e644292d2b31707"'
+        buildConfigField "long", "LOCK_SECONDS", '30'
+
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    repositories {
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+        maven { url 'https://jitpack.io' }
+    }
+
+    flavorDimensions "network"
+    productFlavors {
+        MainNet {
+            dimension "network"
+        }
+
+        TestNet {
+            dimension "network"
+            applicationIdSuffix ".testnet"
+        }
+    }
+
 
     buildTypes {
         release {
@@ -23,17 +55,78 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")
+    }
+}
+
+kapt {
+    generateStubs = true
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation deps.kotlin.stdlib
+    implementation deps.app_compat
+    implementation deps.core_ktx
+    implementation deps.constraint_layout
+    implementation deps.recyclerview
+    implementation deps.gson
+    implementation deps.liveevent
+    implementation deps.zxing
+    implementation deps.viewbindingpropertydelegate
+    implementation (deps.web3j) {
+        force = true
+    }
+    implementation deps.fragment.runtime_ktx
+
+    implementation deps.rx.android
+    implementation deps.rx.java
+    implementation deps.rx.kotlin
+
+    implementation deps.lifecycle.extensions
+    implementation deps.lifecycle.viewmodel_ktx
+    implementation deps.lifecycle.livedata_ktx
+
+    implementation deps.dagger.runtime
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
+    //implementation deps.dagger.compiler
+    //implementation deps.dagger.android_support_compiler
+
+    kapt deps.dagger.compiler
+
+    implementation deps.threetenabp
+    implementation deps.usoamic.kt
+    implementation deps.usoamic.validateutilkt
+
+    implementation deps.navigation.runtime
+    implementation deps.navigation.runtime_ktx
+    implementation deps.navigation.fragment
+    implementation deps.navigation.fragment_ktx
+    implementation deps.navigation.ui
+    implementation deps.navigation.ui_ktx
+
+    testImplementation deps.kotlin.jnit
+    testImplementation deps.junit.jupiter
+    testImplementation deps.dagger.runtime
+    testImplementation deps.dagger.compiler
+    testAnnotationProcessor deps.dagger.compiler
 }

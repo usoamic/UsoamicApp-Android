@@ -1,0 +1,125 @@
+/*
+ * Based on https://github.com/android/architecture-components-samples/blob/master/versions.gradle
+ */
+
+ext.deps = [:]
+def versions = [:]
+versions.kotlin = '1.3.71'
+versions.android_plugin_version = '2.3.0'
+versions.android_gradle_plugin = '4.0.0'
+versions.appcompat = '1.1.0'
+versions.recyclerview = '1.1.0'
+versions.core_ktx = '1.2.0'
+versions.constraint_layout = '1.1.3'
+versions.lifecycle = '2.2.0'
+
+versions.rxandroid2 = '2.1.1'
+versions.rxjava2 = '2.2.19'
+versions.rxkotlin2 = '2.4.0'
+
+versions.rxandroid3 = '3.0.0'
+versions.rxjava3 = '3.0.4'
+versions.rxkotlin3 = '3.0.0'
+versions.usoamickt = '1.2.1-android'
+versions.validateutilkt = '1.0.0'
+versions.threetenabp = '1.2.3'
+versions.dagger = '2.27'
+versions.gson = "2.8.5"
+versions.web3j = "4.6.0-android"
+versions.jupiter = "5.5.0"
+versions.fragment = "1.2.4"
+versions.navigation = "2.0.0"
+versions.realm = "6.0.2"
+versions.liveevent = "1.2.0"
+versions.zxing = "3.4.0"
+versions.viewbindingpropertydelegate = "0.3"
+ext.versions = versions
+
+def build_versions = [:]
+build_versions.min_sdk = 21
+build_versions.compile_sdk = 29
+build_versions.target_sdk = 29
+build_versions.build_tools = "29.0.3"
+ext.build_versions = build_versions
+
+def deps = [:]
+deps.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+deps.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
+deps.robolectric = "org.robolectric:robolectric:$versions.robolectric"
+deps.robolectric = "org.robolectric:robolectric:$versions.robolectric"
+deps.threetenabp = "com.jakewharton.threetenabp:threetenabp:$versions.threetenabp"
+deps.gson = "com.google.code.gson:gson:$versions.gson"
+deps.web3j = "org.web3j:core:$versions.web3j"
+deps.annotations = "androidx.annotation:annotation:$versions.annotations"
+deps.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
+deps.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
+deps.activity_ktx = "androidx.activity:activity-ktx:$versions.activity"
+deps.liveevent = "com.github.hadilq.liveevent:liveevent:$versions.liveevent"
+deps.zxing = "com.google.zxing:core:$versions.zxing"
+deps.viewbindingpropertydelegate = "com.github.kirich1409:ViewBindingPropertyDelegate:$versions.viewbindingpropertydelegate"
+
+def android = [:]
+android.plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+android.databinding_compiler = 'com.android.databinding:compiler:$versions.android_gradle_plugin'
+deps.android = android
+
+def rx = [:]
+rx.android = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid2"
+rx.java = "io.reactivex.rxjava2:rxjava:$versions.rxjava2"
+rx.kotlin = "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin2"
+deps.rx = rx
+
+def realm = [:]
+realm.plugin = "io.realm:realm-gradle-plugin:$versions.realm"
+deps.realm = realm
+
+def dagger = [:]
+dagger.runtime = "com.google.dagger:dagger:$versions.dagger"
+dagger.android = "com.google.dagger:dagger-android:$versions.dagger"
+dagger.android_support = "com.google.dagger:dagger-android-support:$versions.dagger"
+dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+dagger.android_support_compiler = "com.google.dagger:dagger-android-processor:$versions.dagger"
+deps.dagger = dagger
+
+def fragment = [:]
+fragment.runtime = "androidx.fragment:fragment:$versions.fragment"
+fragment.runtime_ktx = "androidx.fragment:fragment-ktx:$versions.fragment"
+fragment.testing = "androidx.fragment:fragment-testing:$versions.fragment"
+deps.fragment = fragment
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+kotlin.jnit = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+deps.kotlin = kotlin
+
+def lifecycle = [:]
+lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle"
+lifecycle.java8 = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
+lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+lifecycle.livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
+lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+def navigation = [:]
+navigation.runtime = "androidx.navigation:navigation-runtime:$versions.navigation"
+navigation.runtime_ktx = "androidx.navigation:navigation-runtime-ktx:$versions.navigation"
+navigation.fragment = "androidx.navigation:navigation-fragment:$versions.navigation"
+navigation.fragment_ktx = "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+navigation.testing = "androidx.navigation:navigation-testing:$versions.navigation"
+navigation.ui = "androidx.navigation:navigation-ui:$versions.navigation"
+navigation.ui_ktx = "androidx.navigation:navigation-ui-ktx:$versions.navigation"
+navigation.safe_args_plugin = "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
+deps.navigation = navigation
+
+def junit = [:]
+junit.jupiter = "org.junit.jupiter:junit-jupiter:$versions.jupiter"
+deps.junit = junit
+
+def usoamic = [:]
+usoamic.kt = "com.github.usoamic:usoamickt:v$versions.usoamickt"
+usoamic.validateutilkt = "com.github.usoamic:validateutil:v$versions.validateutilkt"
+deps.usoamic = usoamic
+
+ext.deps = deps

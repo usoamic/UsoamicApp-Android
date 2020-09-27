@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_general"
+    app:navGraph="@id/startFragment"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="io.usoamic.wallet.ui.start.StartFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_start" />
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="io.usoamic.wallet.ui.auth.auth.AuthFragment"
+        android:label="@string/title_auth_fragment"
+        tools:layout="@layout/fragment_auth">
+        <action
+            android:id="@+id/action_authFragment_to_createFragment"
+            app:destination="@id/createFragment" />
+        <action
+            android:id="@+id/action_authFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="io.usoamic.wallet.ui.auth.add.AddFragment"
+        android:label="@string/title_add_fragment"
+        tools:layout="@layout/fragment_add">
+
+        <action
+            android:id="@+id/action_addFragment_to_unlockFragment"
+            app:popUpTo="@+id/startFragment"
+            app:popUpToInclusive="false"
+            app:destination="@id/unlockFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createFragment"
+        android:name="io.usoamic.wallet.ui.auth.create.CreateFragment"
+        android:label="@string/title_add_fragment"
+        tools:layout="@layout/fragment_create">
+        <action
+            android:id="@+id/action_createFragment_to_addFragment"
+            app:destination="@id/addFragment"
+            app:popUpTo="@+id/authFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="io.usoamic.wallet.ui.main.wallet.WalletFragment"
+        tools:layout="@layout/fragment_wallet" />
+
+    <fragment
+        android:id="@+id/unlockFragment"
+        android:name="io.usoamic.wallet.ui.auth.unlock.UnlockFragment"
+        android:label="fragment_unlock_wallet"
+        tools:layout="@layout/fragment_unlock">
+
+        <action
+            android:id="@+id/action_unlockFragment_to_walletFragment"
+            app:destination="@id/walletFragment"
+            app:popUpTo="@+id/authFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+
+</navigation>

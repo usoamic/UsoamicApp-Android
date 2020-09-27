@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="InformationView">
+        <attr name="informationText" format="string" localization="suggested" />
+    </declare-styleable>
+
+    <declare-styleable name="NoDataView">
+        <attr name="no_data_title" format="string" localization="suggested" />
+    </declare-styleable>
+</resources>
