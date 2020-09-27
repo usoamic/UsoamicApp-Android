@@ -20,6 +20,11 @@ class HistoryUseCases @Inject constructor(
         else {
             getTransactionsFromRealm()
         }
+            .map { items ->
+                items.sortedByDescending {
+                    it.timestamp
+                }
+            }
     }
 
     private fun getTransactionsFromRealm(): Single<List<TransactionItem>> {
