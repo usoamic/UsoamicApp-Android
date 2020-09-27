@@ -15,6 +15,7 @@ import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentWithdrawBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
 import io.usoamic.wallet.domain.models.withdraw.WithdrawCoin
+import io.usoamic.wallet.extensions.clear
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.extensions.showMessage
 import io.usoamic.wallet.extensions.value
@@ -43,7 +44,12 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
 
     override fun initObservers() {
         super.initObservers()
-        observe(viewModel.leWithdraw, ::showMessage)
+        observe(viewModel.leWithdraw, ::setAsWithdrawn)
+    }
+
+    private fun setAsWithdrawn(message: String) {
+        binding.etPassword.clear()
+        showMessage(message)
     }
 
     override fun showProgress(isProgress: Boolean) {

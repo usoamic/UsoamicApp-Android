@@ -41,6 +41,8 @@ fun Fragment.copyToClipboard(text: String) {
 
 val EditText.value: String get() = text.toString()
 
+fun EditText.clear() = setText("")
+
 fun View.show() {
     isVisible = true
 }
