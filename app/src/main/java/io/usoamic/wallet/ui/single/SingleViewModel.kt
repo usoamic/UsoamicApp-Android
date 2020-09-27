@@ -1,6 +1,7 @@
 package io.usoamic.wallet.ui.single
 
 import com.hadilq.liveevent.LiveEvent
+import io.usoamic.wallet.exceptions.PreferenceKeyNotFoundException
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.extensions.emit
 import io.usoamic.wallet.ui.base.BaseViewModel
@@ -20,9 +21,14 @@ class SingleViewModel @Inject constructor(
     }
 
     private fun tryLockApp(hasAccount: Boolean) {
-        if (hasAccount && mUseCases.isNeedLocked()) {
-            mUseCases.lockApp()
-            leLocked.emit()
+        try {
+            if (hasAccount && mUseCases.isNeedLocked()) {
+                mUseCases.lockApp()
+                leLocked.emit()
+            }
+        }
+        catch (e: PreferenceKeyNotFoundException) {
+
         }
     }
 }
