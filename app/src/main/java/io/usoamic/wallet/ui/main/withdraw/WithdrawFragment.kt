@@ -96,7 +96,7 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
         val builder = AlertDialog.Builder(context)
 
         // add a list
-        val animals = arrayOf(
+        val gasPrices = arrayOf(
             getString(R.string.gp_auto),
             getString(R.string.gp_20),
             getString(R.string.gp_40),
@@ -106,7 +106,7 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
             getString(R.string.gp_120)
         )
 
-        builder.setItems(animals) { _, which ->
+        builder.setItems(gasPrices) { _, which ->
             val txSpeed = when (which) {
                 1 -> TxSpeed.GP20
                 2 -> TxSpeed.GP40
