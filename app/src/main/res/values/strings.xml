@@ -13,8 +13,8 @@
     <string name="title">Usoamic Wallet</string>
 
     <!-- Dashboard -->
-    <string name="title_dashboard_eth_balance">USO Balance</string>
-    <string name="title_dashboard_uso_balance">ETH Balance</string>
+    <string name="title_dashboard_eth_balance">ETH Balance</string>
+    <string name="title_dashboard_uso_balance">USO Balance</string>
     <string name="title_dashboard_height">Height</string>
     <string name="title_dashboard_supply">Supply</string>
 

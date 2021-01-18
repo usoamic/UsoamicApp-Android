@@ -28,12 +28,12 @@ class DashboardAdapter : BaseRecyclerAdapter<DashboardItem, DashboardAdapter.Vie
                 when (item) {
                     is DashboardItem.UsoBalance -> {
                         drawableRes = R.drawable.ic_asterisk
-                        titleRes = R.string.title_dashboard_eth_balance
+                        titleRes = R.string.title_dashboard_uso_balance
                         value = item.data.stripTrailingZeros().toPlainString()
                     }
                     is DashboardItem.EthBalance -> {
                         drawableRes = R.drawable.ic_modx
-                        titleRes = R.string.title_dashboard_uso_balance
+                        titleRes = R.string.title_dashboard_eth_balance
                         value = item.data.stripTrailingZeros().toPlainString()
                     }
                     is DashboardItem.Height -> {
