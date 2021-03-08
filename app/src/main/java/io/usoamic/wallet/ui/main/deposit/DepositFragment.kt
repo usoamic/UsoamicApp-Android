@@ -32,21 +32,17 @@ class DepositFragment : BaseViewModelFragment(R.layout.fragment_deposit) {
         observe(viewModel.ldData, ::setData)
     }
 
-    override fun showProgress(isProgress: Boolean) {
-        binding.apply {
-            pbContainer.progressBar.isVisible = isProgress
-            llContainer.isInvisible = isProgress
-        }
+    override fun showProgress(isProgress: Boolean) = with(binding) {
+        pbContainer.progressBar.isVisible = isProgress
+        llContainer.isInvisible = isProgress
     }
 
-    private fun setData(info: DepositInfo) {
+    private fun setData(info: DepositInfo) = with(binding) {
         val address = info.address
-        binding.apply {
-            tvAddress.text = address
-            llContainer.setOnClickListener {
-                copyToClipboard(address)
-            }
-            ivQrCode.setImageBitmap(info.qrCode)
+        tvAddress.text = address
+        llContainer.setOnClickListener {
+            copyToClipboard(address)
         }
+        ivQrCode.setImageBitmap(info.qrCode)
     }
 }

@@ -36,11 +36,9 @@ class CreateFragment : BaseViewModelFragment(R.layout.fragment_create) {
         initToolbar()
     }
 
-    override fun showProgress(isProgress: Boolean) {
-        binding.apply {
-            pbContainer.progressBar.isVisible = isProgress
-            clContainer.isInvisible = isProgress
-        }
+    override fun showProgress(isProgress: Boolean) = with(binding) {
+        pbContainer.progressBar.isVisible = isProgress
+        clContainer.isInvisible = isProgress
     }
 
     override fun initObservers() {
@@ -57,10 +55,12 @@ class CreateFragment : BaseViewModelFragment(R.layout.fragment_create) {
 
     private fun setAccountCredentials(data: AccountCredentials) {
         binding.listView.apply {
-            addAll(listOf(
-                ListItem(getString(R.string.address), data.address),
-                ListItem(getString(R.string.private_key), data.privateKey)
-            ))
+            addAll(
+                listOf(
+                    ListItem(getString(R.string.address), data.address),
+                    ListItem(getString(R.string.private_key), data.privateKey)
+                )
+            )
             setOnItemClickListener { _, item ->
                 copyToClipboard(item.subtitle)
             }

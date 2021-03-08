@@ -17,15 +17,13 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
         UsoamicWallet.component.authSubcomponent.inject(this)
     }
 
-    override fun initListeners() {
-        binding.apply {
-            addBtn.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.addFragment)
-            )
-            createBtn.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.createFragment)
-            )
-        }
+    override fun initListeners() = with(binding) {
+        addBtn.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.addFragment)
+        )
+        createBtn.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.createFragment)
+        )
     }
 
 }

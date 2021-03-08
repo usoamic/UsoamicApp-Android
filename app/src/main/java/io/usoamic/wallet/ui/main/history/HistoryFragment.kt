@@ -57,10 +57,8 @@ class HistoryFragment : BaseSrViewModelFragment(R.layout.fragment_history) {
         }
     }
 
-    override fun showProgress(isProgress: Boolean) {
-        binding.apply {
-            pbContainer.progressBar.isVisible = isProgress
-            srLayout.isInvisible = isProgress
-        }
+    override fun showProgress(isProgress: Boolean) = with(binding) {
+        pbContainer.progressBar.isVisible = isProgress
+        srLayout.isInvisible = isProgress
     }
 }
