@@ -11,7 +11,7 @@ versions.appcompat = '1.2.0'
 versions.recyclerview = '1.1.0'
 versions.core_ktx = '1.3.2'
 versions.constraint_layout = '2.0.4'
-versions.lifecycle = '2.3.0'
+versions.lifecycle = '2.2.0'
 
 versions.rxandroid2 = '2.1.1'
 versions.rxjava2 = '2.2.21'
@@ -35,6 +35,7 @@ versions.navigation = "2.0.0"
 versions.realm = "10.3.1"
 versions.liveevent = "1.2.0"
 versions.zxing = "3.4.0"
+versions.zxing_android_embedded = "3.3.0@aar"
 versions.viewbindingpropertydelegate = "1.4.4"
 ext.versions = versions
 
@@ -59,11 +60,12 @@ deps.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
 deps.activity_ktx = "androidx.activity:activity-ktx:$versions.activity"
 deps.liveevent = "com.github.hadilq.liveevent:liveevent:$versions.liveevent"
 deps.zxing = "com.google.zxing:core:$versions.zxing"
-deps.viewbindingpropertydelegate = "com.github.kirich1409:ViewBindingPropertyDelegate:$versions.viewbindingpropertydelegate"
+deps.zxing_android_embedded = "com.journeyapps:zxing-android-embedded:$versions.zxing_android_embedded"
+deps.viewbindingpropertydelegate = "com.github.kirich1409:viewbindingpropertydelegate:$versions.viewbindingpropertydelegate"
 
 def android = [:]
 android.plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
-android.databinding_compiler = 'com.android.databinding:compiler:$versions.android_gradle_plugin'
+android.databinding_compiler = "com.android.databinding:compiler:$versions.android_gradle_plugin"
 deps.android = android
 
 def rx = [:]
