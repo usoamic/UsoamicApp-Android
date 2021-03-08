@@ -7,5 +7,5 @@ import javax.inject.Inject
 
 class DateCompatImpl @Inject constructor() : DateCompat {
     override val currentTimestamp: Long
-        get() = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC)
+        get() = LocalDateTime.now(ZoneOffset.UTC).toEpochSecond(ZoneOffset.UTC)
 }
