@@ -9,9 +9,7 @@ android {
     buildToolsVersion build_versions.build_tools
 
     buildFeatures {
-        viewBinding {
-            enabled = true
-        }
+        viewBinding true
     }
 
     defaultConfig {
