@@ -118,7 +118,7 @@ dependencies {
     implementation deps.threetenabp
     implementation deps.usoamic.kt
     implementation deps.usoamic.validateutilkt
-    //implementation deps.usoamic.commonskt
+    implementation deps.usoamic.commonskt_crossplatform
 
     implementation deps.navigation.runtime
     implementation deps.navigation.runtime_ktx

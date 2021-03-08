@@ -21,6 +21,7 @@ versions.rxandroid3 = '3.0.0'
 versions.rxjava3 = '3.0.4'
 versions.rxkotlin3 = '3.0.0'
 versions.usoamickt = '1.2.1-android'
+versions.commonskt_crossplatform = '1.1.1'
 versions.validateutilkt = '1.0.0'
 versions.threetenabp = '1.2.3'
 versions.dagger = '2.27'
@@ -120,6 +121,7 @@ deps.junit = junit
 def usoamic = [:]
 usoamic.kt = "com.github.usoamic:usoamickt:v$versions.usoamickt"
 usoamic.validateutilkt = "com.github.usoamic:validateutil:v$versions.validateutilkt"
+usoamic.commonskt_crossplatform = "com.github.usoamic:usoamic-commons-crossplatform:v$versions.commonskt_crossplatform"
 deps.usoamic = usoamic
 
 ext.deps = deps
