@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import io.usoamic.commons.crossplatform.models.history.TransactionItem
+import io.usoamic.commons.crossplatform.models.history.TransactionType
 import io.usoamic.wallet.R
 import io.usoamic.wallet.custom.adapter.BaseRecyclerAdapter
 import io.usoamic.wallet.custom.adapter.BaseViewHolder
 import io.usoamic.wallet.databinding.ItemHistoryBinding
-import io.usoamic.wallet.domain.models.history.TransactionItem
-import io.usoamic.wallet.domain.models.history.TransactionType
 import io.usoamic.wallet.extensions.getDrawable
 import org.threeten.bp.Instant
 import org.threeten.bp.LocalDateTime
@@ -51,7 +51,12 @@ class HistoryAdapter : BaseRecyclerAdapter<TransactionItem, HistoryAdapter.ViewH
                 ivIcon.setImageDrawable(getDrawable(drawableRes))
 
                 tvAddress.text = address
-                tvAmount.text = "${item.value.toBigDecimal().stripTrailingZeros().toPlainString()} USO"
+                tvAmount.text = buildString {
+                    append(item.value.toBigDecimal().stripTrailingZeros().toPlainString())
+                    append(" ")
+                    append("USO")
+                }
+
                 tvDate.text = formatter.format(date)
                 bottom.isVisible = (adapterPosition == lastItem)
             }

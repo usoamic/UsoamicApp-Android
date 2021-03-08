@@ -1,10 +1,10 @@
 package io.usoamic.wallet.ui.main.history
 
 import androidx.lifecycle.MutableLiveData
-import io.usoamic.wallet.domain.models.history.TransactionItem
+import io.usoamic.commons.crossplatform.models.history.TransactionItem
+import io.usoamic.commons.crossplatform.usecases.HistoryUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.ui.base.BaseSrViewModel
-import io.usoamic.wallet.usecases.HistoryUseCases
 import javax.inject.Inject
 
 class HistoryViewModel @Inject constructor(

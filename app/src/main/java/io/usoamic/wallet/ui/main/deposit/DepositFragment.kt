@@ -9,9 +9,9 @@ import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentAddBinding
 import io.usoamic.wallet.databinding.FragmentDepositBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
-import io.usoamic.wallet.domain.models.deposit.DepositInfo
 import io.usoamic.wallet.extensions.copyToClipboard
 import io.usoamic.wallet.extensions.observe
+import io.usoamic.wallet.models.DepositInfo
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
 import javax.inject.Inject
 

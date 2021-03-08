@@ -1,11 +1,11 @@
 package io.usoamic.wallet.ui.main.deposit
 
 import androidx.lifecycle.MutableLiveData
-import io.usoamic.wallet.domain.models.deposit.DepositInfo
+import io.usoamic.commons.crossplatform.usecases.DepositUseCases
 import io.usoamic.wallet.extensions.addSchedulers
-
+import io.usoamic.wallet.extensions.toBitmap
+import io.usoamic.wallet.models.DepositInfo
 import io.usoamic.wallet.ui.base.BaseViewModel
-import io.usoamic.wallet.usecases.DepositUseCases
 import javax.inject.Inject
 
 class DepositViewModel @Inject constructor(
@@ -23,7 +23,7 @@ class DepositViewModel @Inject constructor(
             .addSchedulers()
             .addProgress()
             .subscribe({
-                ldData.value = DepositInfo(address, it)
+                ldData.value = DepositInfo(address, it.toBitmap())
             }, ::throwError)
             .addToDisposable()
     }

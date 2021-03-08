@@ -2,6 +2,8 @@ package io.usoamic.wallet.di.modules
 
 import dagger.Binds
 import dagger.Module
+import io.usoamic.commons.crossplatform.repositories.api.*
+import io.usoamic.commons.crossplatform.repositories.impl.*
 import io.usoamic.wallet.domain.repositories.*
 
 @Module
@@ -10,7 +12,7 @@ abstract class RepositoryModule {
     abstract fun bindTokenRepository(repository: TokenRepositoryImpl): TokenRepository
 
     @Binds
-    abstract fun bindRealmRepository(repository: RealmRepositoryImpl): RealmRepository
+    abstract fun bindRealmRepository(repository: DbRepositoryImpl): DbRepository
 
     @Binds
     abstract fun bindEthereumRepository(repository: EthereumRepositoryImpl): EthereumRepository

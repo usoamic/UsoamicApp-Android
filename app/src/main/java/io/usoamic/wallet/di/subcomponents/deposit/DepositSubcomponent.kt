@@ -1,10 +1,10 @@
 package io.usoamic.wallet.di.subcomponents.deposit
 
 import dagger.Subcomponent
-import io.usoamic.wallet.di.scopes.WalletScope
+import io.usoamic.commons.crossplatform.scopes.AccountScope
 import io.usoamic.wallet.ui.main.deposit.DepositFragment
 
-@WalletScope
+@AccountScope
 @Subcomponent
 interface DepositSubcomponent {
     fun inject(depositFragment: DepositFragment)

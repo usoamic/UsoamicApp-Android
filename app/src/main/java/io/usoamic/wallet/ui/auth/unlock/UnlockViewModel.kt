@@ -1,11 +1,10 @@
 package io.usoamic.wallet.ui.auth.unlock
 
 import com.hadilq.liveevent.LiveEvent
+import io.usoamic.commons.crossplatform.usecases.UnlockUseCases
 import io.usoamic.wallet.extensions.addSchedulers
-
 import io.usoamic.wallet.extensions.emit
 import io.usoamic.wallet.ui.base.BaseViewModel
-import io.usoamic.wallet.usecases.UnlockUseCases
 import javax.inject.Inject
 
 class UnlockViewModel @Inject constructor(

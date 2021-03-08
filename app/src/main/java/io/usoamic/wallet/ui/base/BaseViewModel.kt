@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import io.usoamic.wallet.domain.models.base.ErrorArguments
+import io.usoamic.commons.crossplatform.models.base.ErrorArguments
 
 open class BaseViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()

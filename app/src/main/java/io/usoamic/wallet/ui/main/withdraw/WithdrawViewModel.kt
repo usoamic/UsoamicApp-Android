@@ -1,10 +1,10 @@
 package io.usoamic.wallet.ui.main.withdraw
 
 import com.hadilq.liveevent.LiveEvent
-import io.usoamic.wallet.domain.models.withdraw.WithdrawCoin
+import io.usoamic.commons.crossplatform.models.withdraw.WithdrawCoin
+import io.usoamic.commons.crossplatform.usecases.WithdrawUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.ui.base.BaseViewModel
-import io.usoamic.wallet.usecases.WithdrawUseCases
 import javax.inject.Inject
 
 class WithdrawViewModel @Inject constructor(

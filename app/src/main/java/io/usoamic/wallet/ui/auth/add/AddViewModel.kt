@@ -1,11 +1,11 @@
 package io.usoamic.wallet.ui.auth.add
 
 import com.hadilq.liveevent.LiveEvent
+import io.usoamic.commons.crossplatform.usecases.AddAccountUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 
 import io.usoamic.wallet.extensions.emit
 import io.usoamic.wallet.ui.base.BaseViewModel
-import io.usoamic.wallet.usecases.AddAccountUseCases
 import javax.inject.Inject
 
 class AddViewModel @Inject constructor(

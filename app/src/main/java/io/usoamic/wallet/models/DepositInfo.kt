@@ -1,4 +1,4 @@
-package io.usoamic.wallet.domain.models.deposit
+package io.usoamic.wallet.models
 
 import android.graphics.Bitmap
 

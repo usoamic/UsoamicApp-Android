@@ -9,12 +9,12 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
+import io.usoamic.commons.crossplatform.models.withdraw.WithdrawCoin
 import io.usoamic.usoamickt.enumcls.TxSpeed
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentWithdrawBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
-import io.usoamic.wallet.domain.models.withdraw.WithdrawCoin
 import io.usoamic.wallet.extensions.clear
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.extensions.showMessage

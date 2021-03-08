@@ -1,10 +1,11 @@
 package io.usoamic.wallet.di
 
 import dagger.Component
+import io.usoamic.commons.crossplatform.scopes.AppScope
+import io.usoamic.wallet.di.modules.CompatModule
 import io.usoamic.wallet.ui.single.SingleActivity
 import io.usoamic.wallet.di.modules.RepositoryModule
 import io.usoamic.wallet.di.modules.UsoamicModule
-import io.usoamic.wallet.di.scopes.AppScope
 import io.usoamic.wallet.di.subcomponents.add.AddSubcomponent
 import io.usoamic.wallet.di.subcomponents.auth.AuthSubcomponent
 import io.usoamic.wallet.di.subcomponents.unlock.UnlockSubcomponent
@@ -18,7 +19,7 @@ import javax.inject.Singleton
 
 @Singleton
 @AppScope
-@Component(modules = [UsoamicModule::class, RepositoryModule::class])
+@Component(modules = [UsoamicModule::class, RepositoryModule::class, RepositoryModule::class, CompatModule::class])
 interface AppComponent {
     val authSubcomponent: AuthSubcomponent
     val addSubcomponent: AddSubcomponent.Factory

@@ -1,11 +1,11 @@
 package io.usoamic.wallet.ui.main.dashboard
 
 import androidx.lifecycle.MutableLiveData
-import io.usoamic.wallet.domain.models.dashboard.DashboardInfo
+import io.usoamic.commons.crossplatform.models.dashboard.DashboardInfo
+import io.usoamic.commons.crossplatform.usecases.DashboardUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.ui.base.BaseSrViewModel
 import io.usoamic.wallet.ui.main.dashboard.adapter.DashboardItem
-import io.usoamic.wallet.usecases.DashboardUseCases
 import javax.inject.Inject
 
 class DashboardViewModel @Inject constructor(

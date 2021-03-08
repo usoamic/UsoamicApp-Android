@@ -1,10 +1,10 @@
 package io.usoamic.wallet.ui.start
 
 import androidx.lifecycle.MutableLiveData
+import io.usoamic.commons.crossplatform.usecases.StartUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 
 import io.usoamic.wallet.ui.base.BaseViewModel
-import io.usoamic.wallet.usecases.StartUseCases
 import javax.inject.Inject
 
 class StartViewModel @Inject constructor(
