@@ -74,6 +74,7 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
     }
 
     private fun scanQrCode() {
+        //TODO: FIX CRASH AFTER SECOND SCANNING
         IntentIntegrator.forSupportFragment(this).initiateScan()
     }
 
