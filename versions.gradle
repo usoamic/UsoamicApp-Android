@@ -23,7 +23,7 @@ versions.rxjava3 = '3.0.4'
 versions.rxkotlin3 = '3.0.0'
  */
 versions.usoamickt = '1.2.1-android'
-versions.commonskt_crossplatform = '1.1.1'
+versions.commonskt_crossplatform = '1.1.2'
 versions.validateutilkt = '1.0.0'
 versions.threetenabp = '1.3.0'
 versions.dagger = '2.27'
