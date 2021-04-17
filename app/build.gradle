@@ -23,8 +23,8 @@ android {
         buildConfigField "String", "NODE_PROVIDER", '"infura"'
         buildConfigField "String", "DATE_FORMAT", '"yyyy-MM-dd HH:mm"'
         buildConfigField "String", "PROJECT_ID", '"fa8e5195184149f79e644292d2b31707"'
-        // TODO: Increase LOCK_SECONDS to 30 * 60 seconds (half hour).
-        buildConfigField "long", "LOCK_SECONDS", '30'
+
+        buildConfigField "long", "LOCK_SECONDS", '600'
 
         multiDexEnabled true
 
