@@ -16,6 +16,7 @@ abstract class BaseViewModelFragment(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
+        viewModel.onViewCreated()
     }
 
     protected open fun showError(error: ErrorArguments) {

@@ -1,6 +1,8 @@
 package io.usoamic.wallet.ui.main.deposit
 
 import androidx.lifecycle.MutableLiveData
+import io.usoamic.commons.crossplatform.models.base.ScreenTag
+import io.usoamic.wallet.usecases.AppUseCases
 import io.usoamic.commons.crossplatform.usecases.DepositUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.extensions.toBitmap
@@ -9,8 +11,9 @@ import io.usoamic.wallet.ui.base.BaseViewModel
 import javax.inject.Inject
 
 class DepositViewModel @Inject constructor(
-    private val mDepositUseCases: DepositUseCases
-) : BaseViewModel() {
+    private val mDepositUseCases: DepositUseCases,
+    mAppUseCases: AppUseCases
+) : BaseViewModel(mAppUseCases, ScreenTag.WALLET) {
     val ldData = MutableLiveData<DepositInfo>()
 
     init {

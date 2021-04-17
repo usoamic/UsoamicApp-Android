@@ -1,7 +1,9 @@
 package io.usoamic.wallet.ui.main.dashboard
 
 import androidx.lifecycle.MutableLiveData
+import io.usoamic.commons.crossplatform.models.base.ScreenTag
 import io.usoamic.commons.crossplatform.models.dashboard.DashboardInfo
+import io.usoamic.wallet.usecases.AppUseCases
 import io.usoamic.commons.crossplatform.usecases.DashboardUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.ui.base.BaseSrViewModel
@@ -9,8 +11,9 @@ import io.usoamic.wallet.ui.main.dashboard.adapter.DashboardItem
 import javax.inject.Inject
 
 class DashboardViewModel @Inject constructor(
-    private val mDashboardUseCases: DashboardUseCases
-) : BaseSrViewModel() {
+    private val mDashboardUseCases: DashboardUseCases,
+    mAppUseCases: AppUseCases
+) : BaseSrViewModel(mAppUseCases, ScreenTag.WALLET) {
     val ldData = MutableLiveData<List<DashboardItem>>()
 
     init {

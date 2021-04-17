@@ -20,7 +20,7 @@ class AppUseCases @Inject constructor(
         return mUserRepository.hasAccount()
     }
 
-    fun updateLastAction() {
+    fun updateLastActionTime() {
         if(!isNeedLocked()) {
             mPreferencesRepository.setLastActionTime(mDateCompat.currentTimestamp)
         }

@@ -1,6 +1,8 @@
 package io.usoamic.wallet.ui.start
 
 import androidx.lifecycle.MutableLiveData
+import io.usoamic.commons.crossplatform.models.base.ScreenTag
+import io.usoamic.wallet.usecases.AppUseCases
 import io.usoamic.commons.crossplatform.usecases.StartUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 
@@ -8,8 +10,9 @@ import io.usoamic.wallet.ui.base.BaseViewModel
 import javax.inject.Inject
 
 class StartViewModel @Inject constructor(
-    private val mStartUseCases: StartUseCases
-) : BaseViewModel() {
+    private val mStartUseCases: StartUseCases,
+    mAppUseCases: AppUseCases
+) : BaseViewModel(mAppUseCases, ScreenTag.AUTH) {
     val ldHasAccount = MutableLiveData<Boolean>()
 
     init {
