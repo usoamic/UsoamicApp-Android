@@ -2,6 +2,7 @@ package io.usoamic.wallet.ui.main.withdraw
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.text.InputType
 import android.view.*
@@ -62,7 +63,9 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.withdraw_menu, menu)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            inflater.inflate(R.menu.withdraw_menu, menu)
+        }
         super.onCreateOptionsMenu(menu, inflater)
     }
 
@@ -74,7 +77,6 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
     }
 
     private fun scanQrCode() {
-        //TODO: FIX CRASH AFTER SECOND SCANNING
         IntentIntegrator.forSupportFragment(this).initiateScan()
     }
 
