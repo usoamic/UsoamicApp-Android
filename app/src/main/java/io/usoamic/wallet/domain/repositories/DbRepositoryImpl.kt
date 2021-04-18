@@ -49,4 +49,10 @@ class DbRepositoryImpl @Inject constructor() : DbRepository {
     override fun getDashboardInfo(): DashboardInfo? {
         return realm.where(DashboardInfoRealm::class.java).findFirst()?.toDomain()
     }
+
+    override fun removeAll() {
+        realm.executeTransaction {
+            it.deleteAll()
+        }
+    }
 }
