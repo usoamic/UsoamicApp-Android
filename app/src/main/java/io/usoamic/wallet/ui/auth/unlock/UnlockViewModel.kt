@@ -2,11 +2,11 @@ package io.usoamic.wallet.ui.auth.unlock
 
 import com.hadilq.liveevent.LiveEvent
 import io.usoamic.commons.crossplatform.models.base.ScreenTag
-import io.usoamic.wallet.usecases.AppUseCases
 import io.usoamic.commons.crossplatform.usecases.UnlockUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.extensions.emit
 import io.usoamic.wallet.ui.base.BaseViewModel
+import io.usoamic.wallet.usecases.AppUseCases
 import javax.inject.Inject
 
 class UnlockViewModel @Inject constructor(
@@ -25,7 +25,9 @@ class UnlockViewModel @Inject constructor(
     }
 
     fun onLogoutClick() {
-        mModel.removeAccount()
+        mModel.clearDb()
+            .onErrorComplete()
+            .andThen(mModel.removeAccount())
             .addSchedulers()
             .addProgress()
             .subscribe({

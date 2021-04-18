@@ -65,7 +65,7 @@ class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
         logoutDialog = showDialogWithMessage(
             title = R.string.app_name,
             message = R.string.logout_message,
-            listener = DialogInterface.OnClickListener { _, _ ->
+            listener = { _, _ ->
                 viewModel.onLogoutClick()
             },
             withCancel = true
