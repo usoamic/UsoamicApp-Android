@@ -1,15 +1,22 @@
 package io.usoamic.wallet.domain.repositories
 
+import android.content.Context
+import android.content.SharedPreferences
 import io.usoamic.commons.crossplatform.api.PreferencesCompat
 import io.usoamic.commons.crossplatform.exceptions.PreferenceKeyNotFoundThrowable
-import java.util.prefs.Preferences
+import io.usoamic.wallet.UsoamicWallet
 import javax.inject.Inject
 
 class PreferencesCompatImpl @Inject constructor() : PreferencesCompat {
-    private val preferences: Preferences get() = Preferences.userNodeForPackage(this::class.java)
+    private val preferences: SharedPreferences by lazy {
+        UsoamicWallet.appContext.getSharedPreferences(
+                PreferencesCompat.Key.SHARED_PREFS,
+                Context.MODE_PRIVATE
+        )
+    }
 
     override fun getString(key: String): String {
-        preferences.get(key, null)?.let {
+        preferences.getString(key, null)?.let {
             return it
         } ?: run {
             throw PreferenceKeyNotFoundThrowable(key)
@@ -25,18 +32,29 @@ class PreferencesCompatImpl @Inject constructor() : PreferencesCompat {
     }
 
     override fun putString(key: String, value: String) {
-        preferences.put(key, value)
+        with(preferences.edit()) {
+            putString(key, value)
+            commit()
+        }
     }
 
     override fun putLong(key: String, value: Long) {
-        preferences.putLong(key, value)
+        with(preferences.edit()) {
+            putLong(key, value)
+            commit()
+        }
     }
 
     override fun remove(key: String) {
-        preferences.remove(key)
+        with(preferences.edit()) {
+            remove(key)
+            commit()
+        }
     }
 
     override fun removeAll() {
-        preferences.removeNode()
+        preferences.all.forEach {
+            remove(it.key)
+        }
     }
 }
