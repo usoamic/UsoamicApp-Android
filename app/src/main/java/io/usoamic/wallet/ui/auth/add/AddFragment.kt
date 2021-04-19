@@ -40,19 +40,15 @@ class AddFragment : BaseViewModelFragment(R.layout.fragment_add) {
         }
     }
 
-    override fun initListeners() {
-        binding.apply {
-            btnAdd.setOnClickListener {
-                viewModel.onAddClick(etPrivateKey.value, etPassword.value, etConfirmPassword.value)
-            }
+    override fun initListeners() = with(binding) {
+        btnAdd.setOnClickListener {
+            viewModel.onAddClick(etPrivateKey.value, etPassword.value, etConfirmPassword.value)
         }
     }
 
-    override fun showProgress(isProgress: Boolean) {
-        binding.apply {
-            pbContainer.progressBar.isVisible = isProgress
-            clContainer.isInvisible = isProgress
-        }
+    override fun showProgress(isProgress: Boolean) = with(binding) {
+        pbContainer.progressBar.isVisible = isProgress
+        clContainer.isInvisible = isProgress
     }
 
     private fun goToUnlock() {

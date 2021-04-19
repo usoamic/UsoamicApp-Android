@@ -1,7 +1,7 @@
 package io.usoamic.wallet.di.subcomponents.create
 
 import dagger.Subcomponent
-import io.usoamic.wallet.di.scopes.AuthScope
+import io.usoamic.commons.crossplatform.scopes.AuthScope
 import io.usoamic.wallet.ui.auth.create.CreateFragment
 
 @AuthScope

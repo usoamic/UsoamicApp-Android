@@ -1,16 +1,19 @@
 package io.usoamic.wallet.ui.main.deposit
 
 import androidx.lifecycle.MutableLiveData
-import io.usoamic.wallet.domain.models.deposit.DepositInfo
+import io.usoamic.commons.crossplatform.models.base.ScreenTag
+import io.usoamic.wallet.usecases.AppUseCases
+import io.usoamic.commons.crossplatform.usecases.DepositUseCases
 import io.usoamic.wallet.extensions.addSchedulers
-
+import io.usoamic.wallet.extensions.toBitmap
+import io.usoamic.wallet.models.DepositInfo
 import io.usoamic.wallet.ui.base.BaseViewModel
-import io.usoamic.wallet.usecases.DepositUseCases
 import javax.inject.Inject
 
 class DepositViewModel @Inject constructor(
-    private val mDepositUseCases: DepositUseCases
-) : BaseViewModel() {
+    private val mDepositUseCases: DepositUseCases,
+    mAppUseCases: AppUseCases
+) : BaseViewModel(mAppUseCases, ScreenTag.WALLET) {
     val ldData = MutableLiveData<DepositInfo>()
 
     init {
@@ -23,7 +26,7 @@ class DepositViewModel @Inject constructor(
             .addSchedulers()
             .addProgress()
             .subscribe({
-                ldData.value = DepositInfo(address, it)
+                ldData.value = DepositInfo(address, it.toBitmap())
             }, ::throwError)
             .addToDisposable()
     }

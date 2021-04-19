@@ -9,9 +9,9 @@ import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentAddBinding
 import io.usoamic.wallet.databinding.FragmentDepositBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
-import io.usoamic.wallet.domain.models.deposit.DepositInfo
 import io.usoamic.wallet.extensions.copyToClipboard
 import io.usoamic.wallet.extensions.observe
+import io.usoamic.wallet.models.DepositInfo
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
 import javax.inject.Inject
 
@@ -32,21 +32,17 @@ class DepositFragment : BaseViewModelFragment(R.layout.fragment_deposit) {
         observe(viewModel.ldData, ::setData)
     }
 
-    override fun showProgress(isProgress: Boolean) {
-        binding.apply {
-            pbContainer.progressBar.isVisible = isProgress
-            llContainer.isInvisible = isProgress
-        }
+    override fun showProgress(isProgress: Boolean) = with(binding) {
+        pbContainer.progressBar.isVisible = isProgress
+        llContainer.isInvisible = isProgress
     }
 
-    private fun setData(info: DepositInfo) {
+    private fun setData(info: DepositInfo) = with(binding) {
         val address = info.address
-        binding.apply {
-            tvAddress.text = address
-            llContainer.setOnClickListener {
-                copyToClipboard(address)
-            }
-            ivQrCode.setImageBitmap(info.qrCode)
+        tvAddress.text = address
+        llContainer.setOnClickListener {
+            copyToClipboard(address)
         }
+        ivQrCode.setImageBitmap(info.qrCode)
     }
 }

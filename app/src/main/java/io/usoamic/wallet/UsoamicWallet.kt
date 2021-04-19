@@ -4,16 +4,19 @@ import android.app.Application
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import com.jakewharton.threetenabp.AndroidThreeTen
+import io.usoamic.commons.crossplatform.UsoamicCommonsConfig
 import io.usoamic.wallet.di.AppComponent
 import io.usoamic.wallet.di.DaggerAppComponent
 import io.usoamic.wallet.di.modules.UsoamicModule
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 
-
 class UsoamicWallet : Application() {
     override fun onCreate() {
         super.onCreate()
+
+        UsoamicCommonsConfig.DEBUG = BuildConfig.DEBUG
+
         appContext = applicationContext
         AndroidThreeTen.init(this)
         setupBouncyCastle()

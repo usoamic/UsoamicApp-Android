@@ -15,8 +15,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.viewbinding.ViewBinding
+import io.usoamic.commons.crossplatform.models.base.ErrorArguments
 import io.usoamic.wallet.R
-import io.usoamic.wallet.domain.models.base.ErrorArguments
 import io.usoamic.wallet.extensions.showErrorDialogWithMessage
 
 

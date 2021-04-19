@@ -44,11 +44,9 @@ class DashboardFragment : BaseSrViewModelFragment(R.layout.fragment_dashboard) {
         observe(viewModel.ldData, ::setData)
     }
 
-    override fun showProgress(isProgress: Boolean) {
-        binding.apply {
+    override fun showProgress(isProgress: Boolean) = with(binding) {
             pbContainer.progressBar.isVisible = isProgress
             srLayout.isInvisible = isProgress
-        }
     }
 
     private fun setData(list: List<DashboardItem>) {

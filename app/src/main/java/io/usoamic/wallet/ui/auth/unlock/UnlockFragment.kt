@@ -45,23 +45,19 @@ class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
         }
     }
 
-    override fun showProgress(isProgress: Boolean) {
-        binding.apply {
-            pbContainer.progressBar.isVisible = isProgress
-            clContainer.isInvisible = isProgress
-        }
+    override fun showProgress(isProgress: Boolean) = with(binding) {
+        pbContainer.progressBar.isVisible = isProgress
+        clContainer.isInvisible = isProgress
     }
 
-    override fun initListeners() {
+    override fun initListeners() = with(binding) {
         super.initListeners()
-        binding.apply {
-            btnNext.setOnClickListener {
-                viewModel.onNextClick(binding.etPassword.value)
-            }
+        btnNext.setOnClickListener {
+            viewModel.onNextClick(binding.etPassword.value)
+        }
 
-            btnLogout.setOnClickListener {
-                onLogoutClick()
-            }
+        btnLogout.setOnClickListener {
+            onLogoutClick()
         }
     }
 
@@ -69,7 +65,7 @@ class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
         logoutDialog = showDialogWithMessage(
             title = R.string.app_name,
             message = R.string.logout_message,
-            listener = DialogInterface.OnClickListener { _, _ ->
+            listener = { _, _ ->
                 viewModel.onLogoutClick()
             },
             withCancel = true

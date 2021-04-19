@@ -1,22 +1,10 @@
 package io.usoamic.wallet.domain.models.history
 
+import io.usoamic.commons.crossplatform.models.history.TransactionItem
+import io.usoamic.commons.crossplatform.models.history.TransactionType
 import io.usoamic.usoamickt.model.Transaction
 import io.usoamic.usoamickt.util.Coin
 import io.usoamic.wallet.domain.models.realm.TransactionItemRealm
-
-data class TransactionItem(
-    val type: TransactionType,
-    val txId: Long,
-    val from: String,
-    val to: String,
-    val value: Coin,
-    val timestamp: Long
-)
-
-enum class TransactionType {
-    DEPOSIT,
-    WITHDRAW
-}
 
 fun TransactionItemRealm.toDomain(): TransactionItem = TransactionItem(
     type = TransactionType.valueOf(type!!),

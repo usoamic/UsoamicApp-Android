@@ -1,10 +1,10 @@
 package io.usoamic.wallet.di.subcomponents.history
 
 import dagger.Subcomponent
-import io.usoamic.wallet.di.scopes.WalletScope
+import io.usoamic.commons.crossplatform.scopes.AccountScope
 import io.usoamic.wallet.ui.main.history.HistoryFragment
 
-@WalletScope
+@AccountScope
 @Subcomponent
 interface HistorySubcomponent {
     fun inject(historyFragment: HistoryFragment)

@@ -8,11 +8,11 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import by.kirich1409.viewbindingdelegate.viewBinding
+import io.usoamic.commons.crossplatform.models.history.TransactionItem
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentHistoryBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
-import io.usoamic.wallet.domain.models.history.TransactionItem
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.ui.base.BaseSrViewModelFragment
 import io.usoamic.wallet.ui.main.history.adapter.HistoryAdapter
@@ -57,10 +57,8 @@ class HistoryFragment : BaseSrViewModelFragment(R.layout.fragment_history) {
         }
     }
 
-    override fun showProgress(isProgress: Boolean) {
-        binding.apply {
-            pbContainer.progressBar.isVisible = isProgress
-            srLayout.isInvisible = isProgress
-        }
+    override fun showProgress(isProgress: Boolean) = with(binding) {
+        pbContainer.progressBar.isVisible = isProgress
+        srLayout.isInvisible = isProgress
     }
 }
