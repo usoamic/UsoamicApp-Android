@@ -5,13 +5,14 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.findNavController
+import by.kirich1409.viewbindingdelegate.viewBinding
 import io.realm.Realm
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
+import io.usoamic.wallet.databinding.ActivitySingleBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
 import io.usoamic.wallet.extensions.observe
-import kotlinx.android.synthetic.main.activity_single.*
 import javax.inject.Inject
 
 class SingleActivity : AppCompatActivity() {
@@ -19,9 +20,11 @@ class SingleActivity : AppCompatActivity() {
     lateinit var viewModelFactory: ViewModelFactory<SingleViewModel>
     private val viewModel: SingleViewModel by viewModels { viewModelFactory }
 
+    private val binding by viewBinding(ActivitySingleBinding::bind, R.id.container)
+
     private lateinit var errorDialog: AlertDialog
     private val navigator: NavController by lazy {
-        NavHostFragment.findNavController(hostFragment)
+        binding.hostFragment.findNavController()
     }
 
     private fun inject() {
