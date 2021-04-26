@@ -1,7 +1,8 @@
 package io.usoamic.wallet.ui.auth.unlock
 
 import android.app.AlertDialog
-import android.content.DialogInterface
+import android.os.Bundle
+import android.view.View
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -15,6 +16,7 @@ import io.usoamic.wallet.extensions.showDialogWithMessage
 import io.usoamic.wallet.extensions.showToast
 import io.usoamic.wallet.extensions.value
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
+import io.usoamic.wallet.utils.BuildConfigHelper
 import javax.inject.Inject
 
 class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
@@ -45,6 +47,12 @@ class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setVersion()
+    }
+
+
     override fun showProgress(isProgress: Boolean) = with(binding) {
         pbContainer.progressBar.isVisible = isProgress
         clContainer.isInvisible = isProgress
@@ -59,6 +67,10 @@ class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
         btnLogout.setOnClickListener {
             onLogoutClick()
         }
+    }
+
+    private fun setVersion() {
+        binding.tvVersion.text = BuildConfigHelper.FULL_VERSION
     }
 
     private fun onLogoutClick() {
