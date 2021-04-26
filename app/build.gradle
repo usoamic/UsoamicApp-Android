@@ -19,6 +19,7 @@ android {
         versionCode 2
         versionName "1.1.0"
 
+        buildConfigField "String", "TICKER", '"USO"'
         buildConfigField "String", "ACCOUNT_FILENAME", '"account.json"'
         buildConfigField "String", "NODE_PROVIDER", '"infura"'
         buildConfigField "String", "DATE_FORMAT", '"yyyy-MM-dd HH:mm"'

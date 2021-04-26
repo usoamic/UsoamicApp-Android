@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import io.usoamic.commons.crossplatform.extensions.toBeautyString
 import io.usoamic.commons.crossplatform.models.history.TransactionItem
 import io.usoamic.commons.crossplatform.models.history.TransactionType
+import io.usoamic.wallet.BuildConfig
 import io.usoamic.wallet.R
 import io.usoamic.wallet.custom.adapter.BaseRecyclerAdapter
 import io.usoamic.wallet.custom.adapter.BaseViewHolder
@@ -15,10 +17,9 @@ import org.threeten.bp.Instant
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.ZoneId
 import org.threeten.bp.format.DateTimeFormatter
-import io.usoamic.wallet.BuildConfig
 
 class HistoryAdapter : BaseRecyclerAdapter<TransactionItem, HistoryAdapter.ViewHolder>() {
-    private val formatter = DateTimeFormatter.ofPattern(BuildConfig.DATE_FORMAT)
+    private val dateFormatter = DateTimeFormatter.ofPattern(BuildConfig.DATE_FORMAT)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -48,16 +49,12 @@ class HistoryAdapter : BaseRecyclerAdapter<TransactionItem, HistoryAdapter.ViewH
                     }
                 }
 
+
                 ivIcon.setImageDrawable(getDrawable(drawableRes))
-
                 tvAddress.text = address
-                tvAmount.text = buildString {
-                    append(item.value.toBigDecimal().stripTrailingZeros().toPlainString())
-                    append(" ")
-                    append("USO")
-                }
+                tvAmount.text = item.value.toBeautyString(BuildConfig.TICKER)
 
-                tvDate.text = formatter.format(date)
+                tvDate.text = dateFormatter.format(date)
                 bottom.isVisible = (adapterPosition == lastItem)
             }
         }

@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import io.usoamic.commons.crossplatform.extensions.toBeautyString
 import io.usoamic.wallet.R
-import io.usoamic.wallet.databinding.ItemDashboardBinding
 import io.usoamic.wallet.custom.adapter.BaseRecyclerAdapter
 import io.usoamic.wallet.custom.adapter.BaseViewHolder
+import io.usoamic.wallet.databinding.ItemDashboardBinding
 import io.usoamic.wallet.extensions.getDrawable
 import io.usoamic.wallet.extensions.getString
 
@@ -29,22 +30,22 @@ class DashboardAdapter : BaseRecyclerAdapter<DashboardItem, DashboardAdapter.Vie
                     is DashboardItem.UsoBalance -> {
                         drawableRes = R.drawable.ic_asterisk
                         titleRes = R.string.title_dashboard_uso_balance
-                        value = item.data.stripTrailingZeros().toPlainString()
+                        value = item.data.toBeautyString()
                     }
                     is DashboardItem.EthBalance -> {
                         drawableRes = R.drawable.ic_modx
                         titleRes = R.string.title_dashboard_eth_balance
-                        value = item.data.stripTrailingZeros().toPlainString()
+                        value = item.data.toBeautyString()
                     }
                     is DashboardItem.Height -> {
                         drawableRes = R.drawable.ic_cubes
                         titleRes = R.string.title_dashboard_height
-                        value = item.data.toString()
+                        value = item.data.toBeautyString()
                     }
                     is DashboardItem.Supply -> {
                         drawableRes = R.drawable.ic_sync_alt
                         titleRes = R.string.title_dashboard_supply
-                        value = item.data.stripTrailingZeros().toPlainString()
+                        value = item.data.toBeautyString()
                     }
                 }
                 val drawable = getDrawable(drawableRes)
