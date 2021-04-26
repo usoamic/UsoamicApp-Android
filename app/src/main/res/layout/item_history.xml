@@ -46,6 +46,8 @@
                 android:id="@+id/tvAmount"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:gravity="end"
                 app:layout_constraintEnd_toEndOf="@+id/tvAddress"
                 app:layout_constraintTop_toTopOf="@+id/tvDate"
                 tools:text="@string/app_name" />
