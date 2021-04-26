@@ -12,3 +12,8 @@ Android Wallet for Usoamic Token.
 
 ## Screenshots
 ![Screenshot 1](./screenshots/rm/1.png) ![Screenshot2](./screenshots/rm/2.png) ![Screenshot3](./screenshots/rm/3.png) ![Screenshot4](./screenshots/rm/4.png) ![Screenshot5](./screenshots/rm/5.png) ![Screenshot6](./screenshots/rm/6.png) ![Screenshot7](./screenshots/rm/7.png) ![Screenshot7](./screenshots/rm/8.png)
+
+## Privacy Policy
+1. We DO NOT store or transfer your information anywhere.
+2. All information is located ONLY on your device or PUBLIC ethereum blockchain.
+3. ONLY YOU are responsible for its safety.
