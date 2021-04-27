@@ -3,7 +3,7 @@ package io.usoamic.wallet.ui.base
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.LayoutRes
-import io.usoamic.commons.crossplatform.models.base.ErrorArguments
+import io.usoamic.commons.crossplatform.models.common.base.ErrorArguments
 import io.usoamic.validateutilkt.error.*
 import io.usoamic.wallet.R
 import io.usoamic.wallet.extensions.observe

@@ -2,6 +2,7 @@ package io.usoamic.wallet.domain.models.realm
 
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
+import io.usoamic.usoamickt.enumcls.NoteVisibility
 
 open class DashboardInfoRealm(
     @PrimaryKey var id: Long = 0,
@@ -17,5 +18,15 @@ open class TransactionItemRealm(
     var from: String? = null,
     var to: String? = null,
     var value: String? = null,
+    var timestamp: Long? = null
+) : RealmObject()
+
+open class NoteItemRealm(
+    @PrimaryKey
+    var id: Long = 0,
+    var refId: Long? = null,
+    var visibility: String? = null,
+    var content: String? = null,
+    var author: String? = null,
     var timestamp: Long? = null
 ) : RealmObject()

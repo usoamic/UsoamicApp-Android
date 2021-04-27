@@ -7,7 +7,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import by.kirich1409.viewbindingdelegate.viewBinding
-import io.usoamic.commons.crossplatform.models.ethereum.AccountCredentials
+import io.usoamic.commons.crossplatform.models.usecases.ethereum.AccountCredentialsModel
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.custom.listview.model.ListItem
@@ -53,7 +53,7 @@ class CreateFragment : BaseViewModelFragment(R.layout.fragment_create) {
         )
     }
 
-    private fun setAccountCredentials(data: AccountCredentials) {
+    private fun setAccountCredentials(data: AccountCredentialsModel) {
         binding.listView.apply {
             addAll(
                 listOf(

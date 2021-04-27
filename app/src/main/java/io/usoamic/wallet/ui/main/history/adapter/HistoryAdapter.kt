@@ -5,8 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import io.usoamic.commons.crossplatform.extensions.toBeautyString
-import io.usoamic.commons.crossplatform.models.history.TransactionItem
-import io.usoamic.commons.crossplatform.models.history.TransactionType
+import io.usoamic.commons.crossplatform.models.usecases.history.TransactionItem
+import io.usoamic.commons.crossplatform.models.usecases.history.TransactionType
 import io.usoamic.wallet.BuildConfig
 import io.usoamic.wallet.R
 import io.usoamic.wallet.custom.adapter.BaseRecyclerAdapter

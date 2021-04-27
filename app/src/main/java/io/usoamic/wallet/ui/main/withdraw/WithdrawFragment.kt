@@ -11,7 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.zxing.integration.android.IntentIntegrator
-import io.usoamic.commons.crossplatform.models.withdraw.WithdrawCoin
+import io.usoamic.commons.crossplatform.models.usecases.withdraw.WithdrawCoinTicker
 import io.usoamic.usoamickt.enumcls.TxSpeed
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
@@ -83,11 +83,11 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
     override fun initListeners() = with(binding) {
         super.initListeners()
         btnWithdrawEth.setOnClickListener {
-            withdraw(WithdrawCoin.ETH)
+            withdraw(WithdrawCoinTicker.ETH)
         }
 
         btnWithdrawUso.setOnClickListener {
-            withdraw(WithdrawCoin.USO)
+            withdraw(WithdrawCoinTicker.USO)
         }
     }
 
@@ -165,7 +165,7 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
     }
 
     private fun withdraw(
-        coin: WithdrawCoin
+        coin: WithdrawCoinTicker
     ) = with(binding) {
         viewModel.withdraw(
             coin = coin,

@@ -6,8 +6,8 @@ import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import io.usoamic.commons.crossplatform.models.base.ErrorArguments
-import io.usoamic.commons.crossplatform.models.base.ScreenTag
+import io.usoamic.commons.crossplatform.models.common.base.ErrorArguments
+import io.usoamic.commons.crossplatform.models.common.base.ScreenTag
 import io.usoamic.wallet.usecases.AppUseCases
 
 open class BaseViewModel(

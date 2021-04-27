@@ -1,7 +1,7 @@
 package io.usoamic.wallet.ui.auth.unlock
 
 import com.hadilq.liveevent.LiveEvent
-import io.usoamic.commons.crossplatform.models.base.ScreenTag
+import io.usoamic.commons.crossplatform.models.common.base.ScreenTag
 import io.usoamic.commons.crossplatform.usecases.UnlockUseCases
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.extensions.emit
