@@ -42,7 +42,7 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(binding.toolbar, false)
         setHasOptionsMenu(true)
         initTxSpeed()
     }
