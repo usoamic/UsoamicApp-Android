@@ -13,6 +13,7 @@ import io.usoamic.wallet.di.subcomponents.create.CreateSubcomponent
 import io.usoamic.wallet.di.subcomponents.dashboard.DashboardSubcomponent
 import io.usoamic.wallet.di.subcomponents.deposit.DepositSubcomponent
 import io.usoamic.wallet.di.subcomponents.history.HistorySubcomponent
+import io.usoamic.wallet.di.subcomponents.notes.NotesSubcomponent
 import io.usoamic.wallet.di.subcomponents.withdraw.WithdrawSubcomponent
 import io.usoamic.wallet.ui.start.StartFragment
 import javax.inject.Singleton
@@ -30,6 +31,7 @@ interface AppComponent {
     val depositSubcomponent: DepositSubcomponent.Factory
     val withdrawSubcomponent: WithdrawSubcomponent.Factory
     val historySubcomponent: HistorySubcomponent.Factory
+    val notesSubcomponent: NotesSubcomponent.Factory
 
     fun inject(activity: SingleActivity)
     fun inject(activity: StartFragment)
