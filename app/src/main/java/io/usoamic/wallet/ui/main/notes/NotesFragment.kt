@@ -3,6 +3,7 @@ package io.usoamic.wallet.ui.main.notes
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -52,8 +53,16 @@ class NotesFragment : BaseSrViewModelFragment(R.layout.fragment_notes) {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflateLogout(menu)
+        inflater.inflate(R.menu.notes_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.addNote -> Unit
+            R.id.findNote -> Unit
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setData(list: List<NoteItem>) = with(binding) {
