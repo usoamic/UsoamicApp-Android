@@ -11,6 +11,7 @@ import io.usoamic.wallet.databinding.FragmentAddBinding
 import io.usoamic.wallet.databinding.FragmentStartBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
 import io.usoamic.wallet.extensions.observe
+import io.usoamic.wallet.extensions.setVersion
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
 import io.usoamic.wallet.utils.BuildConfigHelper
 import javax.inject.Inject
@@ -36,10 +37,6 @@ class StartFragment : BaseViewModelFragment(R.layout.fragment_start) {
     override fun initObservers() {
         super.initObservers()
         observe(viewModel.ldHasAccount, ::goToNextFragment)
-    }
-
-    private fun setVersion() {
-        binding.tvVersion.text = BuildConfigHelper.FULL_VERSION
     }
 
     private fun goToNextFragment(hasAccount: Boolean) {

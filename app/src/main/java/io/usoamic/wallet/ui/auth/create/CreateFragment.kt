@@ -15,7 +15,9 @@ import io.usoamic.wallet.databinding.FragmentCreateBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
 import io.usoamic.wallet.extensions.copyToClipboard
 import io.usoamic.wallet.extensions.observe
+import io.usoamic.wallet.extensions.setVersion
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
+import io.usoamic.wallet.utils.BuildConfigHelper
 import javax.inject.Inject
 
 class CreateFragment : BaseViewModelFragment(R.layout.fragment_create) {
@@ -34,6 +36,7 @@ class CreateFragment : BaseViewModelFragment(R.layout.fragment_create) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar()
+        setVersion()
     }
 
     override fun showProgress(isProgress: Boolean) = with(binding) {

@@ -11,6 +11,7 @@ import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentUnlockBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
 import io.usoamic.wallet.extensions.observe
+import io.usoamic.wallet.extensions.setVersion
 import io.usoamic.wallet.extensions.value
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
 import io.usoamic.wallet.utils.BuildConfigHelper
@@ -56,10 +57,6 @@ class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
         btnLogout.setOnClickListener {
             showLogoutDialog()
         }
-    }
-
-    private fun setVersion() {
-        binding.tvVersion.text = BuildConfigHelper.FULL_VERSION
     }
 
     private fun goToWallet() {

@@ -11,8 +11,10 @@ import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentAddBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
 import io.usoamic.wallet.extensions.observe
+import io.usoamic.wallet.extensions.setVersion
 import io.usoamic.wallet.extensions.value
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
+import io.usoamic.wallet.utils.BuildConfigHelper
 import javax.inject.Inject
 
 class AddFragment : BaseViewModelFragment(R.layout.fragment_add) {
@@ -31,6 +33,7 @@ class AddFragment : BaseViewModelFragment(R.layout.fragment_add) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar()
+        setVersion()
     }
 
     override fun initObservers() {

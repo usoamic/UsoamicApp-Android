@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -21,6 +22,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import io.usoamic.wallet.R
 import io.usoamic.wallet.custom.adapter.BaseViewHolder
+import io.usoamic.wallet.utils.BuildConfigHelper
 
 fun Fragment.showMessage(message: String) {
     Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
@@ -115,4 +117,11 @@ fun <T> BaseViewHolder<T>.getDrawable(@DrawableRes drawableRes: Int): Drawable? 
 
 fun MenuInflater.inflateLogout(menu: Menu) {
     inflate(R.menu.logout_menu, menu)
+}
+
+fun Fragment.setVersion() {
+    view?.findViewById<TextView>(R.id.tvVersion)?.apply {
+        text = BuildConfigHelper.FULL_VERSION
+        isVisible = true
+    }
 }

@@ -7,6 +7,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentAuthBinding
+import io.usoamic.wallet.extensions.setVersion
 import io.usoamic.wallet.ui.base.BaseFragment
 import io.usoamic.wallet.utils.BuildConfigHelper
 
@@ -32,9 +33,5 @@ class AuthFragment : BaseFragment(R.layout.fragment_auth) {
         createBtn.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.createFragment)
         )
-    }
-
-    private fun setVersion() {
-        binding.tvVersion.text = BuildConfigHelper.FULL_VERSION
     }
 }
