@@ -16,7 +16,7 @@ android {
         applicationId "io.usoamic.wallet"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
-        versionCode 3
+        versionCode 4
         versionName "1.2.0"
 
         buildConfigField "String", "TICKER", '"USO"'
