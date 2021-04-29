@@ -13,9 +13,7 @@ import io.usoamic.wallet.custom.adapter.BaseRecyclerAdapter
 import io.usoamic.wallet.custom.adapter.BaseViewHolder
 import io.usoamic.wallet.databinding.ItemHistoryBinding
 import io.usoamic.wallet.extensions.getDrawable
-import org.threeten.bp.Instant
-import org.threeten.bp.LocalDateTime
-import org.threeten.bp.ZoneId
+import io.usoamic.wallet.extensions.toLocalDateTime
 import org.threeten.bp.format.DateTimeFormatter
 
 class HistoryAdapter : BaseRecyclerAdapter<TransactionItem, HistoryAdapter.ViewHolder>() {
@@ -23,40 +21,36 @@ class HistoryAdapter : BaseRecyclerAdapter<TransactionItem, HistoryAdapter.ViewH
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_history, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.item_history, parent, false)
         )
     }
 
     inner class ViewHolder(override val view: View) : BaseViewHolder<TransactionItem>(view) {
-        override fun bind(item: TransactionItem) {
-            ItemHistoryBinding.bind(view).apply {
-                val date = LocalDateTime.ofInstant(
-                    Instant.ofEpochMilli(item.timestamp * 1000L),
-                    ZoneId.systemDefault()
-                )
+        override fun bind(item: TransactionItem) = with(ItemHistoryBinding.bind(view)) {
+            val date = item.timestamp.toLocalDateTime()
 
-                val drawableRes: Int
-                val address: String
+            val drawableRes: Int
+            val address: String
 
-                when (item.type) {
-                    TransactionType.DEPOSIT -> {
-                        drawableRes = R.drawable.ic_deposit
-                        address = item.from
-                    }
-                    TransactionType.WITHDRAW -> {
-                        drawableRes = R.drawable.ic_withdraw
-                        address = item.to
-                    }
+            when (item.type) {
+                TransactionType.DEPOSIT -> {
+                    drawableRes = R.drawable.ic_deposit
+                    address = item.from
                 }
-
-
-                ivIcon.setImageDrawable(getDrawable(drawableRes))
-                tvAddress.text = address
-                tvAmount.text = item.value.toBeautyString(BuildConfig.TICKER)
-
-                tvDate.text = dateFormatter.format(date)
-                bottom.isVisible = (adapterPosition == lastItem)
+                TransactionType.WITHDRAW -> {
+                    drawableRes = R.drawable.ic_withdraw
+                    address = item.to
+                }
             }
+
+
+            ivIcon.setImageDrawable(getDrawable(drawableRes))
+            tvAddress.text = address
+            tvAmount.text = item.value.toBeautyString(BuildConfig.TICKER)
+
+            tvDate.text = dateFormatter.format(date)
+            bottom.isVisible = (adapterPosition == lastItem)
         }
     }
+
 }
