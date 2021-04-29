@@ -29,6 +29,7 @@
 
     <!-- Messages -->
     <string name="logout_message">Are you sure you want to DELETE wallet?</string>
+    <string name="logout_progress_message">Logout…</string>
     <string name="empty_address">Address Required</string>
     <string name="empty_app_id">AppId Required</string>
     <string name="empty_comment">Comment Required</string>

@@ -10,41 +10,21 @@ import io.usoamic.wallet.usecases.AppUseCases
 import javax.inject.Inject
 
 class UnlockViewModel @Inject constructor(
-    private val mModel: UnlockUseCases,
+    private val mUseCases: UnlockUseCases,
     mAppUseCases: AppUseCases
 ) : BaseViewModel(mAppUseCases, ScreenTag.AUTH) {
     val leNext = LiveEvent<Unit>()
-    val leLogout = LiveEvent<Boolean>()
 
     fun onNextClick(password: String) {
-        mModel.getAddress(password)
+        mUseCases.getAddress(password)
             .addSchedulers()
             .addProgress()
             .subscribe(::setData, ::throwError)
             .addToDisposable()
     }
 
-    fun onLogoutClick() {
-        mModel.clearDb()
-            .onErrorComplete()
-            .andThen(mModel.removeAccount())
-            .addSchedulers()
-            .addProgress()
-            .subscribe({
-                onRemoveResult(true)
-            }, {
-                onRemoveResult(false)
-            })
-            .addToDisposable()
-    }
-
-    private fun onRemoveResult(isRemoved: Boolean) {
-        mModel.removePreferences()
-        leLogout.emit(isRemoved)
-    }
-
     private fun setData(address: String) {
-        mModel.saveData(address)
+        mUseCases.saveData(address)
         leNext.emit()
     }
 }
