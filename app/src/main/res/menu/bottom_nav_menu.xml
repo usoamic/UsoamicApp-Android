@@ -16,6 +16,11 @@
         android:title="@string/title_withdraw_fragment" />
 
     <item
+        android:id="@+id/notesFragment"
+        android:icon="@drawable/ic_bottom_notes"
+        android:title="@string/title_notes_fragment" />
+
+    <item
         android:id="@+id/historyFragment"
         android:icon="@drawable/ic_bottom_history"
         android:title="@string/title_history_fragment" />

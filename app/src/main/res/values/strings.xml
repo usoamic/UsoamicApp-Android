@@ -7,7 +7,7 @@
     <string name="title_password_fragment">Unlock wallet</string>
     <string name="title_create_fragment">Create</string>
     <string name="title_dashboard_fragment">Dashboard</string>
-    <string name="title_notes_fragment">History</string>
+    <string name="title_notes_fragment">Notes</string>
     <string name="title_deposit_fragment">Deposit</string>
     <string name="title_withdraw_fragment">Withdraw</string>
     <string name="title_history_fragment">History</string>
