@@ -1,6 +1,8 @@
 package io.usoamic.wallet.ui.main.notes
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -13,6 +15,7 @@ import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentHistoryBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
+import io.usoamic.wallet.extensions.inflateLogout
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.ui.base.BaseSrViewModelFragment
 import io.usoamic.wallet.ui.main.notes.adapter.NotesAdapter
@@ -33,6 +36,9 @@ class NotesFragment : BaseSrViewModelFragment(R.layout.fragment_notes) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setSupportActionBar(binding.toolbar, false)
+        setHasOptionsMenu(true)
+
         initRecyclerView()
     }
 
@@ -43,6 +49,11 @@ class NotesFragment : BaseSrViewModelFragment(R.layout.fragment_notes) {
     override fun initObservers() {
         super.initObservers()
         observe(viewModel.ldData, ::setData)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflateLogout(menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     private fun setData(list: List<NoteItem>) = with(binding) {

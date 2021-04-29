@@ -73,7 +73,7 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
         when (item.itemId) {
             R.id.scanQrCode -> scanQrCode()
         }
-        return false
+        return super.onOptionsItemSelected(item)
     }
 
     private fun scanQrCode() {

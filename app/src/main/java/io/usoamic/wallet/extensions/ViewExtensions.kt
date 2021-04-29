@@ -6,11 +6,14 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.DialogInterface
 import android.graphics.drawable.Drawable
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -108,4 +111,8 @@ fun Fragment.showDialogWithMessage(
 
 fun <T> BaseViewHolder<T>.getString(@StringRes stringRes: Int): String = context.getString(stringRes)
 
-fun <T> BaseViewHolder<T>.getDrawable(@DrawableRes stringRes: Int): Drawable? = context.getDrawable(stringRes)
+fun <T> BaseViewHolder<T>.getDrawable(@DrawableRes drawableRes: Int): Drawable? = ContextCompat.getDrawable(context, drawableRes)
+
+fun MenuInflater.inflateLogout(menu: Menu) {
+    inflate(R.menu.logout_menu, menu)
+}
