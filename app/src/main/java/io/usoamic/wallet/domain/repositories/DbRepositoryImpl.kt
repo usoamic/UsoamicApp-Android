@@ -55,7 +55,7 @@ class DbRepositoryImpl @Inject constructor() : DbRepository {
     override fun addNote(data: NoteEntity) {
         realm.executeTransaction {
             val note =
-                it.where(NoteItemRealm::class.java).equalTo("txId", data.noteId.toLong()).findFirst()
+                it.where(NoteItemRealm::class.java).equalTo("id", data.noteId.toLong()).findFirst()
             if (note == null) {
                 it.copyToRealm(data.toRealm())
             }

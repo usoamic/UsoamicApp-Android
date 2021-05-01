@@ -20,7 +20,7 @@ class NotesAdapter : BaseRecyclerAdapter<NoteItem, NotesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_history, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_own_note, parent, false)
         )
     }
 
