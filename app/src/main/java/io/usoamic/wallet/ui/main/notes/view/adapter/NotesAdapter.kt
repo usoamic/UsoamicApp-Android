@@ -3,12 +3,15 @@ package io.usoamic.wallet.ui.main.notes.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import io.usoamic.commons.crossplatform.models.usecases.notes.NoteItem
+import io.usoamic.usoamickt.enumcls.NoteType
 import io.usoamic.wallet.BuildConfig
 import io.usoamic.wallet.R
 import io.usoamic.wallet.custom.adapter.BaseRecyclerAdapter
 import io.usoamic.wallet.custom.adapter.BaseViewHolder
 import io.usoamic.wallet.databinding.ItemOwnNoteBinding
+import io.usoamic.wallet.extensions.getDrawable
 import io.usoamic.wallet.extensions.toLocalDateTime
 import org.threeten.bp.format.DateTimeFormatter
 
@@ -27,9 +30,9 @@ class NotesAdapter : BaseRecyclerAdapter<NoteItem, NotesAdapter.ViewHolder>() {
 
             ivIcon.setImageDrawable(
                 getDrawable(
-                    when (item.visibility) {
-                        NoteVisibility.PUBLIC -> R.drawable.ic_public_note
-                        NoteVisibility.UNLISTED -> R.drawable.ic_unlisted_note
+                    when (item.type) {
+                        NoteType.PUBLIC -> R.drawable.ic_public_note
+                        NoteType.UNLISTED -> R.drawable.ic_unlisted_note
                     }
                 )
             )
