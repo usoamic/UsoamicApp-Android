@@ -2,8 +2,7 @@ package io.usoamic.wallet.di.subcomponents.notes
 
 import dagger.Subcomponent
 import io.usoamic.commons.crossplatform.scopes.AccountScope
-import io.usoamic.wallet.ui.main.history.HistoryFragment
-import io.usoamic.wallet.ui.main.notes.NotesFragment
+import io.usoamic.wallet.ui.main.notes.view.NotesFragment
 
 @AccountScope
 @Subcomponent

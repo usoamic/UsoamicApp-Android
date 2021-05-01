@@ -1,4 +1,4 @@
-package io.usoamic.wallet.ui.main.notes
+package io.usoamic.wallet.ui.main.notes.view
 
 import android.os.Bundle
 import android.view.Menu
@@ -16,10 +16,9 @@ import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentHistoryBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
-import io.usoamic.wallet.extensions.inflateLogout
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.ui.base.BaseSrViewModelFragment
-import io.usoamic.wallet.ui.main.notes.adapter.NotesAdapter
+import io.usoamic.wallet.ui.main.notes.view.adapter.NotesAdapter
 import javax.inject.Inject
 
 class NotesFragment : BaseSrViewModelFragment(R.layout.fragment_notes) {

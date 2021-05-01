@@ -1,17 +1,14 @@
-package io.usoamic.wallet.ui.main.notes.adapter
+package io.usoamic.wallet.ui.main.notes.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import io.usoamic.commons.crossplatform.models.usecases.notes.NoteItem
-import io.usoamic.usoamickt.enumcls.NoteVisibility
 import io.usoamic.wallet.BuildConfig
 import io.usoamic.wallet.R
 import io.usoamic.wallet.custom.adapter.BaseRecyclerAdapter
 import io.usoamic.wallet.custom.adapter.BaseViewHolder
 import io.usoamic.wallet.databinding.ItemOwnNoteBinding
-import io.usoamic.wallet.extensions.getDrawable
 import io.usoamic.wallet.extensions.toLocalDateTime
 import org.threeten.bp.format.DateTimeFormatter
 
