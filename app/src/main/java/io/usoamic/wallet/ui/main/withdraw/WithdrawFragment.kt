@@ -1,18 +1,18 @@
 package io.usoamic.wallet.ui.main.withdraw
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.text.InputType
-import android.view.*
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.zxing.integration.android.IntentIntegrator
 import io.usoamic.commons.crossplatform.models.usecases.withdraw.WithdrawCoinTicker
-import io.usoamic.usoamickt.enumcls.TxSpeed
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentWithdrawBinding
@@ -30,7 +30,7 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
     lateinit var viewModelFactory: ViewModelFactory<WithdrawViewModel>
     override val viewModel: WithdrawViewModel by viewModels { viewModelFactory }
 
-    private lateinit var txSpeedDialog: AlertDialog
+
 
     override val binding: FragmentWithdrawBinding by viewBinding {
         FragmentWithdrawBinding.bind(it.requireView())
@@ -44,7 +44,6 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
         super.onViewCreated(view, savedInstanceState)
         setSupportActionBar(binding.toolbar, false)
         setHasOptionsMenu(true)
-        initTxSpeed()
     }
 
     override fun initObservers() {
@@ -100,70 +99,6 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
         }
     }
 
-    private fun initTxSpeed() = with(binding.etTxSpeed) {
-        setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                showSelectGasPriceDialog()
-            }
-        }
-        setOnClickListener {
-            showSelectGasPriceDialog()
-        }
-        inputType = InputType.TYPE_NULL
-        setTextIsSelectable(false)
-        setOnKeyListener { _: View, _: Int, _: KeyEvent ->
-            true
-        }
-    }
-
-    private fun showSelectGasPriceDialog() {
-        // Based on https://stackoverflow.com/questions/15762905/how-can-i-display-a-list-view-in-an-android-alert-dialog
-        // setup the alert builder
-        val builder = AlertDialog.Builder(context)
-
-        // add a list
-        val gasPrices = arrayOf(
-            getString(R.string.gp_auto),
-            getString(R.string.gp_20),
-            getString(R.string.gp_40),
-            getString(R.string.gp_60),
-            getString(R.string.gp_80),
-            getString(R.string.gp_100),
-            getString(R.string.gp_120)
-        )
-
-        builder.setItems(gasPrices) { _, which ->
-            val txSpeed = when (which) {
-                1 -> TxSpeed.GP20
-                2 -> TxSpeed.GP40
-                3 -> TxSpeed.GP60
-                4 -> TxSpeed.GP80
-                5 -> TxSpeed.GP100
-                6 -> TxSpeed.GP120
-                else -> TxSpeed.Auto
-            }
-            setGasPrice(txSpeed)
-        }
-
-        // create and show the alert dialog
-        txSpeedDialog = builder.create()
-        txSpeedDialog.show()
-    }
-
-    private fun setGasPrice(txSpeed: TxSpeed) {
-        val gasPriceResId = when (txSpeed) {
-            TxSpeed.Auto -> R.string.gp_auto
-            TxSpeed.GP20 -> R.string.gp_20
-            TxSpeed.GP40 -> R.string.gp_40
-            TxSpeed.GP60 -> R.string.gp_60
-            TxSpeed.GP80 -> R.string.gp_80
-            TxSpeed.GP100 -> R.string.gp_100
-            TxSpeed.GP120 -> R.string.gp_120
-        }
-
-        binding.etTxSpeed.setText(getString(gasPriceResId))
-    }
-
     private fun withdraw(
         coin: WithdrawCoinTicker
     ) = with(binding) {
@@ -174,12 +109,5 @@ class WithdrawFragment : BaseViewModelFragment(R.layout.fragment_withdraw) {
             value = etValue.value,
             gasPrice = etTxSpeed.value
         )
-    }
-
-    override fun onDestroyView() {
-        if (::txSpeedDialog.isInitialized) {
-            txSpeedDialog.dismiss()
-        }
-        super.onDestroyView()
     }
 }

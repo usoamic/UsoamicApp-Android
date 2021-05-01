@@ -125,3 +125,7 @@ fun Fragment.setVersion() {
         isVisible = true
     }
 }
+
+fun View.getString(@StringRes stringRes: Int): String {
+    return context.getString(stringRes)
+}
