@@ -106,8 +106,17 @@ class DbRepositoryImpl @Inject constructor() : DbRepository {
 
     private fun addNote(data: NoteEntity, isAuthor: Boolean) {
         realm.executeTransaction {
+            val (idKey, id) = if (isAuthor) {
+                "id" to data.noteId
+            } else {
+                "refId" to data.noteId
+            }
+
             val note =
-                it.where(NoteItemRealm::class.java).equalTo("id", data.noteId.toLong()).findFirst()
+                it.where(NoteItemRealm::class.java)
+                    .equalTo(idKey, id.toLong())
+                    .equalTo("isAuthor", isAuthor)
+                    .findFirst()
             if (note == null) {
                 it.copyToRealm(
                     NoteEntityMapper(isAuthor).apply(data)
