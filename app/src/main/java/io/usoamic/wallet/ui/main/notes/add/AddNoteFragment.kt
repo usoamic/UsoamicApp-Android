@@ -6,12 +6,16 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
+import io.usoamic.usoamickt.enumcls.NoteType
 import io.usoamic.wallet.R
 import io.usoamic.wallet.UsoamicWallet
-import io.usoamic.wallet.databinding.FragmentAddBinding
+import io.usoamic.wallet.custom.edit.SelectEditText
 import io.usoamic.wallet.databinding.FragmentAddNoteBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
-import io.usoamic.wallet.extensions.*
+import io.usoamic.wallet.extensions.clear
+import io.usoamic.wallet.extensions.observe
+import io.usoamic.wallet.extensions.showMessage
+import io.usoamic.wallet.extensions.value
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
 import javax.inject.Inject
 
@@ -31,6 +35,20 @@ class AddNoteFragment : BaseViewModelFragment(R.layout.fragment_add_note) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar()
+        initNoteTypeEditText()
+    }
+
+    private fun initNoteTypeEditText() = with(binding) {
+        etType.items = listOf(
+            SelectEditText.CellData(
+                name = getString(R.string.note_type_public),
+                value = NoteType.PUBLIC
+            ),
+            SelectEditText.CellData(
+                name = getString(R.string.note_type_unlisted),
+                value = NoteType.UNLISTED
+            )
+        )
     }
 
     override fun initObservers() {
@@ -43,7 +61,7 @@ class AddNoteFragment : BaseViewModelFragment(R.layout.fragment_add_note) {
             viewModel.onAddClick(
                 password = etPassword.value,
                 content = etContent.value,
-                noteType = "PUBLIC",
+                noteType = etType.value,
                 txSpeed = etTxSpeed.value
             )
         }

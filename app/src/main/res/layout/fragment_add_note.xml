@@ -31,13 +31,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
+            <io.usoamic.wallet.custom.edit.SelectEditText
+                android:id="@+id/etType"
+                style="@style/App.EditText"
+                android:hint="@string/note_type"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
             <EditText
                 android:id="@+id/etContent"
                 style="@style/App.EditText"
                 android:hint="@string/note_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/etType" />
 
             <io.usoamic.wallet.custom.edit.EditGasPrice
                 android:id="@+id/etTxSpeed"
