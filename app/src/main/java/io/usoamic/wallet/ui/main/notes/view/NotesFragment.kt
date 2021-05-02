@@ -58,7 +58,9 @@ class NotesFragment : BaseSrViewModelFragment(R.layout.fragment_notes) {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.addNote -> Unit
+            R.id.addNote -> {
+                navigator.navigate(R.id.addNoteFragment)
+            }
             R.id.findNote -> Unit
         }
         return super.onOptionsItemSelected(item)

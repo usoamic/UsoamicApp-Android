@@ -26,6 +26,7 @@
     <string name="remove_wallet_error">Failed to remove account</string>
     <string name="withdraw_uso">Withdraw USO</string>
     <string name="withdraw_eth">Withdraw ETH</string>
+    <string name="scan_qr_code">Scan QR</string>
 
     <!-- Messages -->
     <string name="logout_message">Are you sure you want to DELETE wallet?</string>
@@ -72,5 +73,6 @@
     <string name="copied_to_clipboard">Copied To Clipboard</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
-    <string name="scan_qr_code">Scan QR</string>
+    <string name="note_content">Content</string>
+    <string name="gas_price">Gas Price</string>
 </resources>

@@ -1,4 +1,4 @@
-package io.usoamic.wallet.di.subcomponents.notes
+package io.usoamic.wallet.di.subcomponents.notes.view
 
 import dagger.Subcomponent
 import io.usoamic.commons.crossplatform.scopes.AccountScope
