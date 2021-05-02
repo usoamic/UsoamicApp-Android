@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         style="@style/App.Toolbar"
-        app:title="@string/title_add_fragment" />
+        app:title="@string/title_add_not_fragment" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"

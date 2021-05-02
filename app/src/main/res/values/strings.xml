@@ -13,6 +13,7 @@
     <string name="title_note_fragment_with_id">Note #%d</string>
     <string name="title_withdraw_fragment">Withdraw</string>
     <string name="title_history_fragment">History</string>
+    <string name="title_add_not_fragment">Add Note</string>
     <string name="title">Usoamic Wallet</string>
 
     <!-- Dashboard -->
