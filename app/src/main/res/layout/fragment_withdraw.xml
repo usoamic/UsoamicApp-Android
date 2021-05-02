@@ -49,7 +49,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etAddress" />
 
-            <io.usoamic.wallet.custom.other.EditGasPrice
+            <io.usoamic.wallet.custom.edit.EditGasPrice
                 android:id="@+id/etTxSpeed"
                 style="@style/App.EditText"
                 app:layout_constraintEnd_toEndOf="parent"
