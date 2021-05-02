@@ -9,6 +9,8 @@
     <string name="title_dashboard_fragment">Dashboard</string>
     <string name="title_notes_fragment">Notes</string>
     <string name="title_deposit_fragment">Deposit</string>
+    <string name="title_note_fragment">Note</string>
+    <string name="title_note_fragment_with_id">Note #%d</string>
     <string name="title_withdraw_fragment">Withdraw</string>
     <string name="title_history_fragment">History</string>
     <string name="title">Usoamic Wallet</string>
@@ -75,4 +77,7 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="note_content">Content</string>
     <string name="gas_price">Gas Price</string>
+    <string name="note_type_public">Public</string>
+    <string name="note_type_unlisted">Unlisted</string>
+    <string name="note_author_is_you">You note</string>
 </resources>

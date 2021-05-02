@@ -27,5 +27,6 @@ open class NoteItemRealm(
     var noteType: String? = null,
     var content: String? = null,
     var author: String? = null,
-    var timestamp: Long? = null
+    var timestamp: Long? = null,
+    var isOwnNote: Boolean? = null
 ) : RealmObject()

@@ -61,6 +61,11 @@
         tools:layout="@layout/fragment_add_note" />
 
     <fragment
+        android:id="@+id/noteFragment"
+        android:name="io.usoamic.wallet.ui.main.notes.viewnote.NoteFragment"
+        tools:layout="@layout/fragment_note" />
+
+    <fragment
         android:id="@+id/unlockFragment"
         android:name="io.usoamic.wallet.ui.auth.unlock.UnlockFragment"
         android:label="fragment_unlock_wallet"

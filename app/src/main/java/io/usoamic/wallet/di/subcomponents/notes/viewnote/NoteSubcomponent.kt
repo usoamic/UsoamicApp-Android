@@ -1,7 +1,9 @@
 package io.usoamic.wallet.di.subcomponents.notes.viewnote
 
+import dagger.BindsInstance
 import dagger.Subcomponent
 import io.usoamic.commons.crossplatform.scopes.AccountScope
+import io.usoamic.wallet.domain.models.AppArguments
 import io.usoamic.wallet.ui.main.notes.viewnote.NoteFragment
 
 @AccountScope
@@ -11,6 +13,6 @@ interface NoteSubcomponent {
 
     @Subcomponent.Factory
     interface Factory {
-        fun create(): NoteSubcomponent
+        fun create(@BindsInstance args: AppArguments.Note): NoteSubcomponent
     }
 }
