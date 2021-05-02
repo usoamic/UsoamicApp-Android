@@ -14,7 +14,8 @@ import io.usoamic.wallet.di.subcomponents.dashboard.DashboardSubcomponent
 import io.usoamic.wallet.di.subcomponents.deposit.DepositSubcomponent
 import io.usoamic.wallet.di.subcomponents.history.HistorySubcomponent
 import io.usoamic.wallet.di.subcomponents.notes.add.AddNoteSubcomponent
-import io.usoamic.wallet.di.subcomponents.notes.view.NotesSubcomponent
+import io.usoamic.wallet.di.subcomponents.notes.viewnote.NoteSubcomponent
+import io.usoamic.wallet.di.subcomponents.notes.viewnotes.NotesSubcomponent
 import io.usoamic.wallet.di.subcomponents.withdraw.WithdrawSubcomponent
 import io.usoamic.wallet.ui.start.StartFragment
 import javax.inject.Singleton
@@ -32,6 +33,7 @@ interface AppComponent {
     val depositSubcomponent: DepositSubcomponent.Factory
     val withdrawSubcomponent: WithdrawSubcomponent.Factory
     val historySubcomponent: HistorySubcomponent.Factory
+    val noteSubcomponent: NoteSubcomponent.Factory
     val notesSubcomponent: NotesSubcomponent.Factory
     val addNoteSubcomponent: AddNoteSubcomponent.Factory
 
