@@ -58,19 +58,19 @@ class DbRepositoryImpl @Inject constructor() : DbRepository {
             .findFirst()?.toEntity()
     }
 
-    override fun addOwnNote(data: NoteEntity) = addNote(
+    override fun addNoteForAccount(data: NoteEntity) = addNote(
         data = data,
-        isOwnNote = true
+        isAuthor = true
     )
 
     override fun addNote(data: NoteEntity) = addNote(
         data = data,
-        isOwnNote = false
+        isAuthor = false
     )
 
     override fun getNotes(): List<NoteEntity> {
         return realm.where(NoteItemRealm::class.java)
-            .equalTo("isOwnNote", true)
+            .equalTo("isAuthor", true)
             .findAll()
             .map {
                 it.toEntity()
@@ -79,9 +79,11 @@ class DbRepositoryImpl @Inject constructor() : DbRepository {
     }
 
     override fun getNote(refId: Long): NoteEntity? {
-        return realm.where(NoteItemRealm::class.java)
-            .equalTo("isOwnNote", false)
-            .findFirst()?.toEntity()
+        return getNote(refId, false)
+    }
+
+    override fun getNoteForAccount(id: Long): NoteEntity? {
+        return getNote(id, true)
     }
 
 
@@ -91,13 +93,24 @@ class DbRepositoryImpl @Inject constructor() : DbRepository {
         }
     }
 
-    private fun addNote(data: NoteEntity, isOwnNote: Boolean) {
+    private fun getNote(id: Long, forAccount: Boolean): NoteEntity? {
+        val idKey = if (forAccount) {
+            "id"
+        } else {
+            "refId"
+        }
+        return realm.where(NoteItemRealm::class.java)
+            .equalTo(idKey, id)
+            .findFirst()?.toEntity()
+    }
+
+    private fun addNote(data: NoteEntity, isAuthor: Boolean) {
         realm.executeTransaction {
             val note =
                 it.where(NoteItemRealm::class.java).equalTo("id", data.noteId.toLong()).findFirst()
             if (note == null) {
                 it.copyToRealm(
-                    NoteEntityMapper(isOwnNote).apply(data)
+                    NoteEntityMapper(isAuthor).apply(data)
                 )
             }
         }

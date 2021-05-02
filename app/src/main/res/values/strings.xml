@@ -25,10 +25,11 @@
     <string name="next">Next</string>
     <string name="unlock">Unlock</string>
     <string name="logout">Logout</string>
-    <string name="remove_wallet_error">Failed to remove account</string>
+    <string name="remove_wallet_error">Failed To Remove Account</string>
     <string name="withdraw_uso">Withdraw USO</string>
     <string name="withdraw_eth">Withdraw ETH</string>
     <string name="scan_qr_code">Scan QR</string>
+    <string name="find_note">Find Note</string>
 
     <!-- Messages -->
     <string name="logout_message">Are you sure you want to DELETE wallet?</string>
@@ -79,5 +80,9 @@
     <string name="gas_price">Gas Price</string>
     <string name="note_type_public">Public</string>
     <string name="note_type_unlisted">Unlisted</string>
-    <string name="note_author_is_you">You note</string>
+    <string name="note_author">Author: %s</string>
+    <string name="note_author_is_you">Author: You (%s)</string>
+    <string name="find_dialog_note_ref_id">Note reference id</string>
+    <string name="note_type">NoteType</string>
+
 </resources>

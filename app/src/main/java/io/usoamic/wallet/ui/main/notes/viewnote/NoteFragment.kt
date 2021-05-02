@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import by.kirich1409.viewbindingdelegate.viewBinding
+import io.usoamic.commons.crossplatform.models.usecases.notes.NoteItem
 import io.usoamic.usoamickt.enumcls.NoteType
 import io.usoamic.wallet.BuildConfig
 import io.usoamic.wallet.R
@@ -17,7 +18,7 @@ import io.usoamic.wallet.domain.models.AppArguments
 import io.usoamic.wallet.extensions.ARGS
 import io.usoamic.wallet.extensions.observe
 import io.usoamic.wallet.extensions.requireParcelable
-import io.usoamic.wallet.models.NoteInfo
+import io.usoamic.wallet.extensions.toLocalDateTime
 import io.usoamic.wallet.ui.base.BaseSrViewModelFragment
 import org.threeten.bp.format.DateTimeFormatter
 import javax.inject.Inject
@@ -47,10 +48,10 @@ class NoteFragment : BaseSrViewModelFragment(R.layout.fragment_note) {
     }
 
     private fun setToolbar() = with(binding) {
-        setSupportActionBar(toolbar, false)
+        setSupportActionBar(toolbar, true)
         toolbar.title = getString(
             R.string.title_note_fragment_with_id,
-            args.refId
+            args.id
         )
     }
 
@@ -64,21 +65,27 @@ class NoteFragment : BaseSrViewModelFragment(R.layout.fragment_note) {
         cvContainer.isInvisible = isProgress
     }
 
-    private fun setData(item: NoteInfo) = with(binding) {
+    private fun setData(item: NoteItem) = with(binding) {
+        val author = item.author
+        val date = item.timestamp.toLocalDateTime()
+
         tvType.text = getString(
-            when (item.type) {
-                NoteType.PUBLIC -> R.string.note_type_public
-                NoteType.UNLISTED -> R.string.note_type_unlisted
+            when (item) {
+                is NoteItem.Public -> R.string.note_type_public
+                is NoteItem.Unlisted -> R.string.note_type_unlisted
             }
         )
 
-        tvDate.text = dateFormatter.format(item.date)
+        tvDate.text = dateFormatter.format(date)
 
-        tvAuthor.text = if (item.isOwn) {
-            getString(R.string.note_author_is_you)
-        } else {
-            item.author
-        }
+        tvAuthor.text = getString(
+            if (item.isAuthor) {
+                R.string.note_author_is_you
+            } else {
+                R.string.note_author
+            },
+            author
+        )
 
         tvContent.text = item.content
     }
