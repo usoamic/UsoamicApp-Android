@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/notesFragment"
-        android:name="io.usoamic.wallet.ui.main.notes.view.NotesFragment"
+        android:name="io.usoamic.wallet.ui.main.notes.viewnotes.NotesFragment"
         android:label="@string/title_notes_fragment"
         tools:layout="@layout/fragment_notes" />
 

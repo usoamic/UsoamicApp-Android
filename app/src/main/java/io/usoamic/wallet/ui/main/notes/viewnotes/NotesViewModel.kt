@@ -1,4 +1,4 @@
-package io.usoamic.wallet.ui.main.notes.view
+package io.usoamic.wallet.ui.main.notes.viewnotes
 
 import androidx.lifecycle.MutableLiveData
 import io.usoamic.commons.crossplatform.models.common.base.ScreenTag

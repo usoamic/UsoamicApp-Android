@@ -1,4 +1,4 @@
-package io.usoamic.wallet.ui.main.notes.view.adapter
+package io.usoamic.wallet.ui.main.notes.viewnotes.adapter
 
 import android.view.LayoutInflater
 import android.view.View
