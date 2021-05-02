@@ -62,10 +62,12 @@ class NoteFragment : BaseSrViewModelFragment(R.layout.fragment_note) {
 
     override fun showProgress(isProgress: Boolean) = with(binding) {
         pbContainer.progressBar.isVisible = isProgress
-        cvContainer.isInvisible = isProgress
+        srLayout.isInvisible = isProgress
     }
 
     private fun setData(item: NoteItem) = with(binding) {
+        cvContainer.isVisible = true
+
         val author = item.author
         val date = item.timestamp.toLocalDateTime()
 
