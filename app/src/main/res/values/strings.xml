@@ -69,6 +69,7 @@
     <string name="unknown_error">Unknown error</string>
     <string name="create_account">Create Account</string>
     <string name="add_account">Add Account</string>
+    <string name="add_note">Add Note</string>
     <string name="address">Address</string>
     <string name="auto">Auto</string>
     <string name="value">Value</string>
