@@ -18,7 +18,7 @@ open class SelectEditText @JvmOverloads constructor(
             }
         }
 
-    protected var items: List<CellData<*>> = listOf()
+    var items: List<CellData<*>> = listOf()
         set(value) {
             field = value
             initAlertDialog()
