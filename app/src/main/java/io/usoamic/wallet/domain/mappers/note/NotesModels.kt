@@ -1,4 +1,4 @@
-package io.usoamic.wallet.domain.models.history
+package io.usoamic.wallet.domain.mappers.note
 
 import io.usoamic.commons.crossplatform.models.repository.notes.NoteEntity
 import io.usoamic.usoamickt.enumcls.NoteType
@@ -11,13 +11,4 @@ fun NoteItemRealm.toEntity(): NoteEntity = NoteEntity(
     content = content!!,
     author = author!!,
     timestamp = timestamp!!.toBigInteger()
-)
-
-fun NoteEntity.toRealm(): NoteItemRealm = NoteItemRealm(
-    id = noteId.toLong(),
-    noteType = noteType.toString(),
-    refId = noteRefId.toLong(),
-    content = content,
-    author = author,
-    timestamp = timestamp.toLong()
 )

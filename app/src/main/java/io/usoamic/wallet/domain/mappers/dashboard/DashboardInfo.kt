@@ -1,4 +1,4 @@
-package io.usoamic.wallet.domain.models.dashboard
+package io.usoamic.wallet.domain.mappers.dashboard
 
 import io.usoamic.commons.crossplatform.models.repository.dashboard.DashboardEntity
 import io.usoamic.wallet.domain.models.realm.DashboardInfoRealm

@@ -1,4 +1,4 @@
-package io.usoamic.wallet.domain.models.history
+package io.usoamic.wallet.domain.mappers.history
 
 import io.usoamic.commons.crossplatform.models.repository.history.TransactionEntity
 import io.usoamic.commons.crossplatform.models.repository.history.TransactionTypeEntity
