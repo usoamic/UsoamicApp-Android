@@ -1,18 +1,18 @@
-package io.usoamic.wallet.domain.models.dashboard
+package io.usoamic.wallet.domain.mappers.dashboard
 
-import io.usoamic.commons.crossplatform.models.dashboard.DashboardInfo
+import io.usoamic.commons.crossplatform.models.repository.dashboard.DashboardEntity
 import io.usoamic.wallet.domain.models.realm.DashboardInfoRealm
 import java.math.BigDecimal
 import java.math.BigInteger
 
-fun DashboardInfoRealm.toDomain() = DashboardInfo(
+fun DashboardInfoRealm.toEntity() = DashboardEntity(
     ethBalance = BigDecimal(ethBalance!!),
     usoBalance = BigDecimal(usoBalance!!),
     height = BigInteger(height!!),
     supply = BigDecimal(supply!!)
 )
 
-fun DashboardInfo.toRealm() = DashboardInfoRealm(
+fun DashboardEntity.toRealm() = DashboardInfoRealm(
     ethBalance = ethBalance.toPlainString(),
     usoBalance = usoBalance.toPlainString(),
     height = height.toString(),

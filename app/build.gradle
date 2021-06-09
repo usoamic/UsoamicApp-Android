@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: "kotlin-kapt"
 apply plugin: 'realm-android'
-//apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-parcelize'
 
 android {
     compileSdkVersion build_versions.compile_sdk
@@ -16,8 +16,8 @@ android {
         applicationId "io.usoamic.wallet"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
-        versionCode 3
-        versionName "1.1.1"
+        versionCode 4
+        versionName "1.2.0"
 
         buildConfigField "String", "TICKER", '"USO"'
         buildConfigField "String", "ACCOUNT_FILENAME", '"account.json"'

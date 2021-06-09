@@ -24,6 +24,12 @@
         tools:layout="@layout/fragment_withdraw" />
 
     <fragment
+        android:id="@+id/notesFragment"
+        android:name="io.usoamic.wallet.ui.main.notes.viewnotes.NotesFragment"
+        android:label="@string/title_notes_fragment"
+        tools:layout="@layout/fragment_notes" />
+
+    <fragment
         android:id="@+id/historyFragment"
         android:name="io.usoamic.wallet.ui.main.history.HistoryFragment"
         android:label="@string/title_history_fragment"

@@ -2,7 +2,7 @@ package io.usoamic.wallet.ui.base
 
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.Single
-import io.usoamic.commons.crossplatform.models.base.ScreenTag
+import io.usoamic.commons.crossplatform.models.common.base.ScreenTag
 import io.usoamic.wallet.usecases.AppUseCases
 
 open class BaseSrViewModel(mAppUseCases: AppUseCases, tag: ScreenTag) : BaseViewModel(mAppUseCases, tag) {

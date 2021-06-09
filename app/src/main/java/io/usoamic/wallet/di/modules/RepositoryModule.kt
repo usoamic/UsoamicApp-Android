@@ -25,4 +25,7 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun bindPreferencesRepository(repository: PreferencesRepositoryImpl): PreferencesRepository
+
+    @Binds
+    abstract fun bindNotesRepository(repository: NotesRepositoryImpl): NotesRepository
 }

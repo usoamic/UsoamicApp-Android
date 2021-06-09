@@ -1,8 +1,8 @@
 package io.usoamic.wallet.ui.main.dashboard
 
 import androidx.lifecycle.MutableLiveData
-import io.usoamic.commons.crossplatform.models.base.ScreenTag
-import io.usoamic.commons.crossplatform.models.dashboard.DashboardInfo
+import io.usoamic.commons.crossplatform.models.common.base.ScreenTag
+import io.usoamic.commons.crossplatform.models.usecases.dashboard.DashboardModel
 import io.usoamic.wallet.usecases.AppUseCases
 import io.usoamic.commons.crossplatform.usecases.DashboardUseCases
 import io.usoamic.wallet.extensions.addSchedulers
@@ -28,7 +28,7 @@ class DashboardViewModel @Inject constructor(
             .addToDisposable()
     }
 
-    private fun onResult(data: DashboardInfo) {
+    private fun onResult(data: DashboardModel) {
         ldData.value = listOf(
             DashboardItem.UsoBalance(data.usoBalance),
             DashboardItem.EthBalance(data.ethBalance),

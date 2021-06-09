@@ -1,10 +1,11 @@
 package io.usoamic.wallet.usecases
 
-import io.reactivex.Single
 import io.usoamic.commons.crossplatform.api.DateCompat
 import io.usoamic.commons.crossplatform.api.PreferencesCompat
+import io.usoamic.commons.crossplatform.repositories.api.DbRepository
 import io.usoamic.commons.crossplatform.repositories.api.PreferencesRepository
 import io.usoamic.commons.crossplatform.repositories.api.UserRepository
+import io.usoamic.commons.crossplatform.usecases.UserUseCases
 import io.usoamic.wallet.BuildConfig
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.ZoneOffset
@@ -12,16 +13,17 @@ import org.threeten.bp.temporal.ChronoUnit
 import javax.inject.Inject
 
 class AppUseCases @Inject constructor(
-    private val mUserRepository: UserRepository,
-    private val mPreferencesRepository: PreferencesRepository,
-    private val mDateCompat: DateCompat
+    override val mUserRepository: UserRepository,
+    override val mDatabaseRepository: DbRepository,
+    override val mPreferencesRepository: PreferencesRepository,
+    private val mDateCompat: DateCompat,
+) : UserUseCases(
+    mUserRepository = mUserRepository,
+    mDatabaseRepository = mDatabaseRepository,
+    mPreferencesRepository = mPreferencesRepository
 ) {
-    fun hasAccount(): Single<Boolean> {
-        return mUserRepository.hasAccount()
-    }
-
     fun updateLastActionTime() {
-        if(!isNeedLocked()) {
+        if (!isNeedLocked()) {
             mPreferencesRepository.setLastActionTime(mDateCompat.currentTimestamp)
         }
     }
@@ -35,11 +37,9 @@ class AppUseCases @Inject constructor(
         return (between >= BuildConfig.LOCK_SECONDS)
     }
 
-    fun lockApp() {
-        with(mPreferencesRepository) {
-            remove(PreferencesCompat.Key.ADDRESS)
-            remove(PreferencesCompat.Key.LAST_ACTION_TIMESTAMP)
-        }
+    fun lockApp() = with(mPreferencesRepository) {
+        remove(PreferencesCompat.Key.ADDRESS)
+        remove(PreferencesCompat.Key.LAST_ACTION_TIMESTAMP)
     }
 
     fun getLastActionTime(): Long = mPreferencesRepository.getLastActionTime()

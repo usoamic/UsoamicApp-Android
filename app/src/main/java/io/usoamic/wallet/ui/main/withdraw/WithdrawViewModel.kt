@@ -1,8 +1,8 @@
 package io.usoamic.wallet.ui.main.withdraw
 
 import com.hadilq.liveevent.LiveEvent
-import io.usoamic.commons.crossplatform.models.base.ScreenTag
-import io.usoamic.commons.crossplatform.models.withdraw.WithdrawCoin
+import io.usoamic.commons.crossplatform.models.common.base.ScreenTag
+import io.usoamic.commons.crossplatform.models.usecases.withdraw.WithdrawCoinTicker
 import io.usoamic.wallet.usecases.AppUseCases
 import io.usoamic.commons.crossplatform.usecases.WithdrawUseCases
 import io.usoamic.wallet.extensions.addSchedulers
@@ -16,7 +16,7 @@ class WithdrawViewModel @Inject constructor(
     val leWithdraw = LiveEvent<String>()
 
     fun withdraw(
-        coin: WithdrawCoin,
+        coin: WithdrawCoinTicker,
         password: String,
         to: String,
         value: String,

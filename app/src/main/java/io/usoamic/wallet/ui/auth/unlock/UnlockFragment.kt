@@ -1,6 +1,5 @@
 package io.usoamic.wallet.ui.auth.unlock
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isInvisible
@@ -12,8 +11,7 @@ import io.usoamic.wallet.UsoamicWallet
 import io.usoamic.wallet.databinding.FragmentUnlockBinding
 import io.usoamic.wallet.di.other.ViewModelFactory
 import io.usoamic.wallet.extensions.observe
-import io.usoamic.wallet.extensions.showDialogWithMessage
-import io.usoamic.wallet.extensions.showToast
+import io.usoamic.wallet.extensions.setVersion
 import io.usoamic.wallet.extensions.value
 import io.usoamic.wallet.ui.base.BaseViewModelFragment
 import io.usoamic.wallet.utils.BuildConfigHelper
@@ -28,8 +26,6 @@ class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
         FragmentUnlockBinding.bind(it.requireView())
     }
 
-    private lateinit var logoutDialog: AlertDialog
-
     override fun inject() {
         UsoamicWallet.component.unlockSubcomponent.create().inject(this)
     }
@@ -39,19 +35,13 @@ class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
         observe(viewModel.leNext) {
             goToWallet()
         }
-        observe(viewModel.leLogout) { isRemoved ->
-            if (!isRemoved) {
-                showToast(R.string.remove_wallet_error)
-            }
-            goToAuth()
-        }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setVersion()
     }
-
 
     override fun showProgress(isProgress: Boolean) = with(binding) {
         pbContainer.progressBar.isVisible = isProgress
@@ -61,41 +51,15 @@ class UnlockFragment : BaseViewModelFragment(R.layout.fragment_unlock) {
     override fun initListeners() = with(binding) {
         super.initListeners()
         btnNext.setOnClickListener {
-            viewModel.onNextClick(binding.etPassword.value)
+            viewModel.onNextClick(etPassword.value)
         }
 
         btnLogout.setOnClickListener {
-            onLogoutClick()
+            showLogoutDialog()
         }
-    }
-
-    private fun setVersion() {
-        binding.tvVersion.text = BuildConfigHelper.FULL_VERSION
-    }
-
-    private fun onLogoutClick() {
-        logoutDialog = showDialogWithMessage(
-            title = R.string.app_name,
-            message = R.string.logout_message,
-            listener = { _, _ ->
-                viewModel.onLogoutClick()
-            },
-            withCancel = true
-        )
-    }
-
-    override fun onDestroy() {
-        if (::logoutDialog.isInitialized) {
-            logoutDialog.dismiss()
-        }
-        super.onDestroy()
     }
 
     private fun goToWallet() {
         navigator.navigate(R.id.walletFragment)
-    }
-
-    private fun goToAuth() {
-        navigator.navigate(R.id.authFragment)
     }
 }

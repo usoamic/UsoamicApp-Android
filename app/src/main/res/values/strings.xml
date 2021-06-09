@@ -7,9 +7,13 @@
     <string name="title_password_fragment">Unlock wallet</string>
     <string name="title_create_fragment">Create</string>
     <string name="title_dashboard_fragment">Dashboard</string>
+    <string name="title_notes_fragment">Notes</string>
     <string name="title_deposit_fragment">Deposit</string>
+    <string name="title_note_fragment">Note</string>
+    <string name="title_note_fragment_with_id">Note #%d</string>
     <string name="title_withdraw_fragment">Withdraw</string>
     <string name="title_history_fragment">History</string>
+    <string name="title_add_not_fragment">Add Note</string>
     <string name="title">Usoamic Wallet</string>
 
     <!-- Dashboard -->
@@ -22,12 +26,15 @@
     <string name="next">Next</string>
     <string name="unlock">Unlock</string>
     <string name="logout">Logout</string>
-    <string name="remove_wallet_error">Failed to remove account</string>
+    <string name="remove_wallet_error">Failed To Remove Account</string>
     <string name="withdraw_uso">Withdraw USO</string>
     <string name="withdraw_eth">Withdraw ETH</string>
+    <string name="scan_qr_code">Scan QR</string>
+    <string name="find_note">Find Note</string>
 
     <!-- Messages -->
     <string name="logout_message">Are you sure you want to DELETE wallet?</string>
+    <string name="logout_progress_message">Logout…</string>
     <string name="empty_address">Address Required</string>
     <string name="empty_app_id">AppId Required</string>
     <string name="empty_comment">Comment Required</string>
@@ -40,7 +47,9 @@
     <string name="empty_purchase_id">PurchaseId Required</string>
     <string name="empty_value">Value Required</string>
     <string name="invalid_address">Invalid Address</string>
-    <string name="invalid_id">Id must be greater than or equal to zero</string>
+    <string name="invalid_id">Invalid id</string>
+    <string name="invalid_id_by_min">Id must be greater than or equal to %d</string>
+    <string name="invalid_id_by_max">Id must be lower than or equal to %d</string>
     <string name="invalid_mnemonic_phrase">Invalid Mnemonic Phrase</string>
     <string name="invalid_private_key">Invalid Private Key</string>
     <string name="invalid_value">Invalid Value</string>
@@ -63,6 +72,7 @@
     <string name="unknown_error">Unknown error</string>
     <string name="create_account">Create Account</string>
     <string name="add_account">Add Account</string>
+    <string name="add_note">Add Note</string>
     <string name="address">Address</string>
     <string name="auto">Auto</string>
     <string name="value">Value</string>
@@ -70,5 +80,13 @@
     <string name="copied_to_clipboard">Copied To Clipboard</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
-    <string name="scan_qr_code">Scan QR</string>
+    <string name="note_content">Content</string>
+    <string name="gas_price">Gas Price</string>
+    <string name="note_type_public">Public</string>
+    <string name="note_type_unlisted">Unlisted</string>
+    <string name="note_author">Author: %s</string>
+    <string name="note_author_is_you">Author: You (%s)</string>
+    <string name="find_dialog_note_ref_id">Note reference id</string>
+    <string name="note_type">NoteType</string>
+
 </resources>

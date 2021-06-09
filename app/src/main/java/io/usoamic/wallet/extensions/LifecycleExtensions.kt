@@ -11,7 +11,7 @@ fun <T> Fragment.observe(ld: MutableLiveData<T>, callback: (T) -> Unit) {
 }
 
 fun <T> LifecycleOwner.observe(ld: MutableLiveData<T>, callback: (T) -> Unit) {
-    ld.observe(this, Observer<T> {
+    ld.observe(this, {
         callback.invoke(it)
     })
 }

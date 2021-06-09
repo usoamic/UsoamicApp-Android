@@ -5,5 +5,12 @@
         android:id="@+id/scanQrCode"
         android:icon="@drawable/ic_qr_code"
         android:title="@string/scan_qr_code"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
+
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/logout"
+        app:showAsAction="ifRoom"/>
 </menu>

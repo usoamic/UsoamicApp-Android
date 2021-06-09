@@ -6,11 +6,15 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.DialogInterface
 import android.graphics.drawable.Drawable
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -18,6 +22,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import io.usoamic.wallet.R
 import io.usoamic.wallet.custom.adapter.BaseViewHolder
+import io.usoamic.wallet.utils.BuildConfigHelper
 
 fun Fragment.showMessage(message: String) {
     Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
@@ -108,4 +113,19 @@ fun Fragment.showDialogWithMessage(
 
 fun <T> BaseViewHolder<T>.getString(@StringRes stringRes: Int): String = context.getString(stringRes)
 
-fun <T> BaseViewHolder<T>.getDrawable(@DrawableRes stringRes: Int): Drawable? = context.getDrawable(stringRes)
+fun <T> BaseViewHolder<T>.getDrawable(@DrawableRes drawableRes: Int): Drawable? = ContextCompat.getDrawable(context, drawableRes)
+
+fun MenuInflater.inflateLogout(menu: Menu) {
+    inflate(R.menu.logout_menu, menu)
+}
+
+fun Fragment.setVersion() {
+    view?.findViewById<TextView>(R.id.tvVersion)?.apply {
+        text = BuildConfigHelper.FULL_VERSION
+        isVisible = true
+    }
+}
+
+fun View.getString(@StringRes stringRes: Int): String {
+    return context.getString(stringRes)
+}

@@ -2,7 +2,7 @@ package io.usoamic.wallet.ui.single
 
 import com.hadilq.liveevent.LiveEvent
 import io.usoamic.commons.crossplatform.exceptions.PreferenceKeyNotFoundThrowable
-import io.usoamic.commons.crossplatform.models.base.ScreenTag
+import io.usoamic.commons.crossplatform.models.common.base.ScreenTag
 import io.usoamic.wallet.extensions.addSchedulers
 import io.usoamic.wallet.extensions.emit
 import io.usoamic.wallet.ui.base.BaseViewModel

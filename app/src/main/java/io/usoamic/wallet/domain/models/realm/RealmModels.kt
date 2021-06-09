@@ -19,3 +19,14 @@ open class TransactionItemRealm(
     var value: String? = null,
     var timestamp: Long? = null
 ) : RealmObject()
+
+open class NoteItemRealm(
+    @PrimaryKey var hash: String = "",
+    var id: Long? = null,
+    var refId: Long? = null,
+    var noteType: String? = null,
+    var content: String? = null,
+    var author: String? = null,
+    var timestamp: Long? = null,
+    var isAuthor: Boolean? = null
+) : RealmObject()

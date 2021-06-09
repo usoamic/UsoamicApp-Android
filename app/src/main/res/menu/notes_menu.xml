@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/addNote"
+        android:icon="@drawable/ic_add_note"
+        android:title="@string/scan_qr_code"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/findNote"
+        android:icon="@drawable/ic_find_note"
+        android:title="@string/scan_qr_code"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/logout"
+        app:showAsAction="ifRoom"/>
+</menu>
