@@ -22,7 +22,7 @@ open class BaseViewModel(
     val ldLogoutProgress = MutableLiveData<Boolean>()
     val ldProgress = MutableLiveData<Boolean>()
     val ldThrowable = MutableLiveData<ErrorArguments>()
-    val ldError = MutableLiveData<String>()
+    val ldError = LiveEvent<String>()
     val leLogout = LiveEvent<Boolean>()
 
     protected open fun throwError(throwable: Throwable) {
