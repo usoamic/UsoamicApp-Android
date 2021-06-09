@@ -27,7 +27,7 @@ class NotesViewModel @Inject constructor(
 
     fun onFindNoteClick(refId: String) {
         Single.fromCallable {
-            ValidateUtil.validateId(refId)
+            ValidateUtil.validateNoteRefId(refId)
             refId.toLong()
         }
             .map(::mapToShowNoteInfo)

@@ -4,7 +4,7 @@
 
 ext.deps = [:]
 def versions = [:]
-versions.kotlin = '1.4.32'
+versions.kotlin = '1.5.10'
 versions.android_plugin_version = '2.3.3'
 versions.android_gradle_plugin = '4.1.3'
 versions.appcompat = '1.2.0'
@@ -19,7 +19,7 @@ versions.rxkotlin2 = '2.4.0'
 
 versions.usoamickt = '1.2.2-android'
 versions.commonskt_crossplatform = '1.2.0-android'
-versions.validateutilkt = '1.0.0'
+versions.validateutilkt = '1.0.1-1'
 versions.threetenabp = '1.3.0'
 versions.dagger = '2.27'
 versions.gson = "2.8.6"
