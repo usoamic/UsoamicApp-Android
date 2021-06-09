@@ -31,31 +31,47 @@ abstract class BaseViewModelFragment(
     }
 
     protected open fun showError(error: ErrorArguments) {
-        val stringId = when (error.throwable) {
-            is EmptyAddressError -> R.string.empty_address
-            is EmptyAppIdError -> R.string.empty_app_id
-            is EmptyCommentError -> R.string.empty_comment
-            is EmptyConfirmPasswordError -> R.string.empty_confirm_password
-            is EmptyDescriptionError -> R.string.empty_description
-            is EmptyMnemonicPhraseError -> R.string.empty_mnemonic_phrase
-            is EmptyNoteContentError -> R.string.empty_note_content
-            is EmptyPasswordError -> R.string.empty_password
-            is EmptyPrivateKeyError -> R.string.empty_private_key
-            is EmptyPurchaseIdError -> R.string.empty_purchase_id
-            is EmptyValueError -> R.string.empty_value
-            is InvalidAddressError -> R.string.invalid_address
-            is InvalidIdError -> R.string.invalid_id
-            is InvalidMnemonicPhraseError -> R.string.invalid_mnemonic_phrase
-            is InvalidPrivateKeyError -> R.string.invalid_private_key
-            is InvalidValueError -> R.string.invalid_value
-            is PasswordsDoNotMatchError -> R.string.passwords_do_not_match
-            is PrivateKeyRequiredError -> R.string.private_key_required
+        val message: String? = when (val t = error.throwable) {
+            is EmptyAddressError -> getString(R.string.empty_address)
+            is EmptyAppIdError -> getString(R.string.empty_app_id)
+            is EmptyCommentError -> getString(R.string.empty_comment)
+            is EmptyConfirmPasswordError -> getString(R.string.empty_confirm_password)
+            is EmptyDescriptionError -> getString(R.string.empty_description)
+            is EmptyMnemonicPhraseError -> getString(R.string.empty_mnemonic_phrase)
+            is EmptyNoteContentError -> getString(R.string.empty_note_content)
+            is EmptyPasswordError -> getString(R.string.empty_password)
+            is EmptyPrivateKeyError -> getString(R.string.empty_private_key)
+            is EmptyPurchaseIdError -> getString(R.string.empty_purchase_id)
+            is EmptyValueError -> getString(R.string.empty_value)
+            is InvalidAddressError -> getString(R.string.invalid_address)
+            is InvalidIdError -> {
+                val minId = t.minId
+                val maxId = t.maxId
+
+                when {
+                    minId != null -> {
+                        getString(R.string.invalid_id_by_min, minId)
+                    }
+                    maxId != null -> {
+                        getString(R.string.invalid_id_by_max, maxId)
+                    }
+                    else -> {
+                        getString(R.string.invalid_id)
+                    }
+                }
+            }
+            is InvalidMnemonicPhraseError -> getString(R.string.invalid_mnemonic_phrase)
+            is InvalidPrivateKeyError -> getString(R.string.invalid_private_key)
+            is InvalidValueError -> getString(R.string.invalid_value)
+            is PasswordsDoNotMatchError -> getString(R.string.passwords_do_not_match)
+            is PrivateKeyRequiredError -> getString(R.string.private_key_required)
             else -> null
         }
-        val message = stringId?.let { getString(stringId) } ?: error.message
-        ?: getString(R.string.unknown_error)
-        val isFinish = (error is ErrorArguments.Fatal)
-        showErrorDialog(message, isFinish)
+
+        showErrorDialog(
+            error = message ?: error.message ?: getString(R.string.unknown_error),
+            isFinish = (error is ErrorArguments.Fatal)
+        )
     }
 
     protected open fun initObservers() {

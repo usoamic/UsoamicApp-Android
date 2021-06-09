@@ -47,7 +47,9 @@
     <string name="empty_purchase_id">PurchaseId Required</string>
     <string name="empty_value">Value Required</string>
     <string name="invalid_address">Invalid Address</string>
-    <string name="invalid_id">Id must be greater than or equal to zero</string>
+    <string name="invalid_id">Invalid id</string>
+    <string name="invalid_id_by_min">Id must be greater than or equal to %d</string>
+    <string name="invalid_id_by_max">Id must be lower than or equal to %d</string>
     <string name="invalid_mnemonic_phrase">Invalid Mnemonic Phrase</string>
     <string name="invalid_private_key">Invalid Private Key</string>
     <string name="invalid_value">Invalid Value</string>
