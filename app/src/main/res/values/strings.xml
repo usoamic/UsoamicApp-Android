@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Usoamic Wallet</string>
+    <string name="app_name">Usoamic App</string>
 
     <!-- Titles -->
     <string name="title_auth_fragment">Authorization</string>
@@ -14,7 +14,7 @@
     <string name="title_withdraw_fragment">Withdraw</string>
     <string name="title_history_fragment">History</string>
     <string name="title_add_not_fragment">Add Note</string>
-    <string name="title">Usoamic Wallet</string>
+    <string name="title">Usoamic App</string>
 
     <!-- Dashboard -->
     <string name="title_dashboard_eth_balance">ETH Balance</string>

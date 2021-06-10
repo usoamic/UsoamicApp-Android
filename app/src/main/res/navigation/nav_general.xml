@@ -8,13 +8,13 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="io.usoamic.wallet.ui.start.StartFragment"
+        android:name="io.usoamic.app.ui.start.StartFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_start" />
 
     <fragment
         android:id="@+id/authFragment"
-        android:name="io.usoamic.wallet.ui.auth.auth.AuthFragment"
+        android:name="io.usoamic.app.ui.auth.auth.AuthFragment"
         android:label="@string/title_auth_fragment"
         tools:layout="@layout/fragment_auth">
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/addFragment"
-        android:name="io.usoamic.wallet.ui.auth.add.AddFragment"
+        android:name="io.usoamic.app.ui.auth.add.AddFragment"
         android:label="@string/title_add_fragment"
         tools:layout="@layout/fragment_add">
 
@@ -40,7 +40,7 @@
 
     <fragment
         android:id="@+id/createFragment"
-        android:name="io.usoamic.wallet.ui.auth.create.CreateFragment"
+        android:name="io.usoamic.app.ui.auth.create.CreateFragment"
         android:label="@string/title_add_fragment"
         tools:layout="@layout/fragment_create">
         <action
@@ -52,22 +52,22 @@
 
     <fragment
         android:id="@+id/walletFragment"
-        android:name="io.usoamic.wallet.ui.main.wallet.WalletFragment"
+        android:name="io.usoamic.app.ui.main.wallet.WalletFragment"
         tools:layout="@layout/fragment_wallet" />
 
     <fragment
         android:id="@+id/addNoteFragment"
-        android:name="io.usoamic.wallet.ui.main.notes.add.AddNoteFragment"
+        android:name="io.usoamic.app.ui.main.notes.add.AddNoteFragment"
         tools:layout="@layout/fragment_add_note" />
 
     <fragment
         android:id="@+id/noteFragment"
-        android:name="io.usoamic.wallet.ui.main.notes.viewnote.NoteFragment"
+        android:name="io.usoamic.app.ui.main.notes.viewnote.NoteFragment"
         tools:layout="@layout/fragment_note" />
 
     <fragment
         android:id="@+id/unlockFragment"
-        android:name="io.usoamic.wallet.ui.auth.unlock.UnlockFragment"
+        android:name="io.usoamic.app.ui.auth.unlock.UnlockFragment"
         android:label="fragment_unlock_wallet"
         tools:layout="@layout/fragment_unlock">
 

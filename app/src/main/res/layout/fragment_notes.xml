@@ -30,7 +30,7 @@
                 tools:listitem="@layout/item_own_note" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <io.usoamic.wallet.custom.other.NoDataView
+        <io.usoamic.app.custom.other.NoDataView
             android:id="@+id/viewNoData"
             android:visibility="gone"
             android:layout_width="match_parent"
