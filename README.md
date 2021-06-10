@@ -1,7 +1,7 @@
-[![Google Play](https://img.shields.io/badge/Google%20Play-v1.2.0-blue)](https://play.google.com/store/apps/details?id=io.usoamic.wallet) [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://github.com/usoamic/UsoamicWallet-Android/blob/master/LICENSE)
-# Usoamic Wallet for Android
+[![Google Play](https://img.shields.io/badge/Google%20Play-v1.2.0-blue)](https://play.google.com/store/apps/details?id=io.usoamic.app) [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://github.com/usoamic/UsoamicApp-Android/blob/master/LICENSE)
+# Usoamic App for Android
 
-Android Wallet for Usoamic Token.
+Android App for Usoamic Token.
 
 ## Some Dependencies:
  - Database: https://github.com/realm

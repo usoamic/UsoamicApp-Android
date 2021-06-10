@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="io.usoamic.wallet.ui.main.dashboard.DashboardFragment"
+        android:name="io.usoamic.app.ui.main.dashboard.DashboardFragment"
         android:label="@string/title_dashboard_fragment"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/depositFragment"
-        android:name="io.usoamic.wallet.ui.main.deposit.DepositFragment"
+        android:name="io.usoamic.app.ui.main.deposit.DepositFragment"
         android:label="@string/title_deposit_fragment"
         tools:layout="@layout/fragment_deposit" />
 
     <fragment
         android:id="@+id/withdrawFragment"
-        android:name="io.usoamic.wallet.ui.main.withdraw.WithdrawFragment"
+        android:name="io.usoamic.app.ui.main.withdraw.WithdrawFragment"
         android:label="@string/title_withdraw_fragment"
         tools:layout="@layout/fragment_withdraw" />
 
     <fragment
         android:id="@+id/notesFragment"
-        android:name="io.usoamic.wallet.ui.main.notes.viewnotes.NotesFragment"
+        android:name="io.usoamic.app.ui.main.notes.viewnotes.NotesFragment"
         android:label="@string/title_notes_fragment"
         tools:layout="@layout/fragment_notes" />
 
     <fragment
         android:id="@+id/historyFragment"
-        android:name="io.usoamic.wallet.ui.main.history.HistoryFragment"
+        android:name="io.usoamic.app.ui.main.history.HistoryFragment"
         android:label="@string/title_history_fragment"
         tools:layout="@layout/fragment_history" />
 </navigation>

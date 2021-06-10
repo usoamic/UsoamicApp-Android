@@ -24,7 +24,7 @@
             android:visibility="gone"
             tools:visibility="visible">
 
-            <io.usoamic.wallet.custom.informationview.InformationView
+            <io.usoamic.app.custom.informationview.InformationView
                 android:id="@+id/vInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <io.usoamic.wallet.custom.listview.ListView
+            <io.usoamic.app.custom.listview.ListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

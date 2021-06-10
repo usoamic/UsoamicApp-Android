@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="io.usoamic.wallet">
+    package="io.usoamic.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -9,14 +9,14 @@
 
     <application
         android:allowBackup="true"
-        android:name=".UsoamicWallet"
+        android:name="io.usoamic.app.UsoamicApp"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.single.SingleActivity"
+        <activity android:name="io.usoamic.app.ui.single.SingleActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
